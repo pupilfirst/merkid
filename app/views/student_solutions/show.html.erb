@@ -1,0 +1,13 @@
+<h2>Upload your solution here</h2>
+
+<%= form_tag({:action => :submit}, :multipart => true) do %>
+  <div>
+    <p>Pick the solution zip file from your computer:</p>
+    <%= file_field_tag 'solution_zip_file' %>
+  </div>
+  <p>
+    <%= submit_tag "Submit tag" %>
+  </p>
+<% end %>
+
+
