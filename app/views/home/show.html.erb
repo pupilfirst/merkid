@@ -1,0 +1,15 @@
+<h1>Welcome to the Application Portal for CoronaSafe Engineering Fellowship!</h1>
+
+<%= form_tag(first_step_path, :multipart => true) do %>
+  <div>
+    <p>What is your email address?
+      <%= email_field_tag 'email', nil, placeholder: "abc@xyz.com", class: 'email_input' %>
+    </p>
+    <p>
+      <%= submit_tag "Continue" %>
+    </p>
+  </div>
+<% end %>
+
+
+

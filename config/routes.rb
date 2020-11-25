@@ -4,10 +4,19 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
-  get 'student', to: "students#show"
-  get 'student/start_application', to: "students#start_application"
-  get 'student/reveal_task', to: "students#reveal_task", as: :student_reveal_task
+  root to: 'home#show'
 
+  post 'first_step', to: "users#first_step"
+
+  # FIXME: this should be a POST otherwise F5 refresh will keep sending emails
+  #  get 'student/send_login_email', to: "students#send_login_email"
+  # get 'student/application_form', to: "students#application_form", as: :student_application_form
+
+  resources :students, only: [:new, :show, :create]
+
+=begin
+  get 'student/reveal_task', to: "students#reveal_task", as: :student_reveal_task
   get 'student/solution', to: "student_solutions#show", as: :student_solution
   post 'student/solution', to: "student_solutions#submit"
+=end
 end

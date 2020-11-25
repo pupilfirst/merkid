@@ -1,13 +1,15 @@
 class StudentsController < ApplicationController
+  def new
+    @email = params[:email]
+  end
+
+  def create
+    p = params[:student]
+    student = User.create!(email: p[:email], first_name: p[:first_name])
+    redirect_to student_path(id: student.id)
+  end
+
   def show
-    redirect_to student_start_application_path
-  end
-
-  def reveal_task
-
-  end
-
-  def submit_solution
-
+    render plain: User.find(params[:id])
   end
 end
