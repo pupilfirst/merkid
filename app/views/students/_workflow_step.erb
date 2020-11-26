@@ -1,0 +1,15 @@
+<%
+  status = data[:status]
+  url = data[:url]
+  css_class = "block workflow workflow-#{status}"
+%>
+
+<% if status == "active" %>
+  <a href="<%= url %>" class="<%= css_class %>">
+    <%= render partial: "workflow_step_contents", locals: data %>
+  </a>
+<% else %>
+  <div class="<%= css_class %>">
+    <%= render partial: "workflow_step_contents", locals: data %>
+  </div>
+<% end %>

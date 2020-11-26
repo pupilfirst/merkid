@@ -57,3 +57,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # APPLICATION SPECIFIC SETUP
 gem "letter_opener", :group => :development
 gem "sidekiq"
+gem 'font-awesome-sass'

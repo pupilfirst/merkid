@@ -1,0 +1,18 @@
+<div class="flex">
+  <p class="w-24 mr-8">
+    <% if status == "complete" %>
+      <i class="text-right bg-green fa fa-check-circle" aria-hidden="true"></i>
+    <% else %>
+      <i class="text-right fa fa-circle" aria-hidden="true" style="visibility: hidden"></i>
+    <% end %>
+  </p>
+
+  <div class="emphasis mb-4">
+    <p>
+      <span class="inline-block"><%= number %>.</span>&nbsp;<span class="inline-block"><%= title %></span>
+    </p>
+    <p class="subdued mt-0">
+      <%= text %>
+    </p>
+  </div>
+</div>

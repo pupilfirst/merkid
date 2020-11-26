@@ -1,40 +1,41 @@
 <p>What are all the steps?</p>
+
 <div>
-  <div class="workflow workflow-complete">
-    <p class="emphasis mb-4">
-      <span class="w-16 inline-block">1.</span>&nbsp;<span class="">Fill in application form</span>
-    </p>
-    <p class="subdued mt-0 ml-16">
-      Fill in details like your name, date of birth, and so on. Should take 5 to 10
-      minutes
-    </p>
-  </div>
+  <%= render partial: "workflow_step", locals: {
+      data: {
+          url: new_students_student_application_form_path,
+          number: 1,
+          title: "Fill in application form",
+          text: "Fill in details like your name, date of birth, and so on. Should take 5 to 10
+    minutes",
+          status: "complete"
+      }} %>
 
-  <div class="workflow workflow-active">
-    <p class="emphasis mb-4">
-      <span class="w-16 inline-block">2.</span>&nbsp;<span class="">Reveal programming task</span>
-    </p>
-    <p class="subdued mt-0 ml-16">
-      There is a small programming problem you have to work on. You can take anywhere from 5 hours
-      to 2 days to do it.
-    </p>
-  </div>
+  <%= render partial: "workflow_step", locals: {
+      data: {
+          url: new_students_task_path,
+          number: 2,
+          title: "Reveal programming task",
+          text: "There is a small programming problem you have to work on. You can take anywhere from 5 hours
+      to 2 days to do it.",
+          status: "active"
+      }} %>
 
-  <div class="workflow workflow-locked">
-    <p class="emphasis mb-4">
-      <span class="w-16 inline-block">3.</span>&nbsp;<span class="">Submit code for programming task</span>
-    </p>
-    <p class="subdued mt-0 ml-16">
-      Once you've completed the task, upload the code here.
-    </p>
-  </div>
+  <%= render partial: "workflow_step", locals: {
+      data: {
+          url: new_students_task_path,
+          number: 3,
+          title: "Submit code for programming task",
+          text: "Once you've completed the task, upload the code here.",
+          status: "locked"
+      }} %>
 
-  <div class="workflow workflow-locked">
-    <p class="emphasis mb-4">
-      <span class="w-16 inline-block">4.</span>&nbsp;<span class="">Wait for results!</span>
-    </p>
-    <p class="subdued mt-0 ml-16">
-      We will read through your code, run it, review it, and let you know!
-    </p>
-  </div>
+  <%= render partial: "workflow_step", locals: {
+      data: {
+          url: new_students_task_path,
+          number: 4,
+          title: "Check your results!",
+          text: "We will read through your code, run it, and review it. See how you did here.",
+          status: "locked"
+      }} %>
 </div>
