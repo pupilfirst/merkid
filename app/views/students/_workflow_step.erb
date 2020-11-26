@@ -1,6 +1,15 @@
 <%
-  status = data[:status]
   url = data[:url]
+  current_step = data[:current_step]
+  step = data[:step]
+  if step < current_step
+    status = "complete"
+  elsif step == current_step
+    status = "active"
+  elsif step > current_step
+    status = "locked"
+  end
+  data = data.merge(status: status)
   css_class = "block workflow workflow-#{status}"
 %>
 

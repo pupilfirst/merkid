@@ -1,39 +1,45 @@
 <div>
+  <%
+    current_step = 0
+    current_step = 1 if @student.status_email_verified?
+    current_step = 2 if @student.status_application_form_submitted?
+  %>
+
   <%= render partial: "workflow_step", locals: {
       data: {
           url: new_students_student_application_form_path,
-          number: 1,
           title: "Fill in application form",
           text: "Fill in details like your name, date of birth, and so on. Should take 5 to 10
     minutes",
-          status: "active"
+          step: 1,
+          current_step: current_step
       }} %>
 
   <%= render partial: "workflow_step", locals: {
       data: {
           url: new_students_task_path,
-          number: 2,
           title: "Reveal programming task",
           text: "There is a small programming problem you have to work on. You can take anywhere from 5 hours
       to 2 days to do it.",
-          status: "locked"
+          step: 2,
+          current_step: current_step
       }} %>
 
   <%= render partial: "workflow_step", locals: {
       data: {
           url: new_students_task_path,
-          number: 3,
           title: "Submit code for programming task",
           text: "Once you've completed the task, upload the code here.",
-          status: "locked"
+          step: 3,
+          current_step: current_step
       }} %>
 
   <%= render partial: "workflow_step", locals: {
       data: {
           url: new_students_task_path,
-          number: 4,
           title: "Check your results!",
           text: "We will read through your code, run it, and review it. See how you did here.",
-          status: "locked"
+          step: 4,
+          current_step: current_step
       }} %>
 </div>
