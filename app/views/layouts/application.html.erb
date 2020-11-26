@@ -11,6 +11,20 @@
 
 <body class="container">
 <h1>Apply to CoronaSafe Engineering Fellowship</h1>
+
+<% if @student %>
+  <div class="flex justify-between">
+    <p class="subdued"> <%= @student.more_context_name %> </p>
+    <p class="subdued"> <%= link_to "Logout", logout_url, class: "subdued" %></p>
+  </div>
+<% end %>
+
+<% if flash[:info] %>
+  <p class="flash">
+    <%= flash[:info] %>
+  </p>
+<% end %>
+
 <%= yield %>
 <h4>For any questions, email us at <a href="mailto:fullstack@pupilfirst.org">fullstack@pupilfirst.org</a></h4>
 

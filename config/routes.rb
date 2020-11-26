@@ -6,14 +6,15 @@ Rails.application.routes.draw do
 
   root to: 'home#show'
 
+  get :logout, to: "users#logout"
   post 'first_step', to: "users#first_step"
+  get 'first_step', to: redirect("/")
 
   # FIXME: this should be a POST otherwise F5 refresh will keep sending emails
-  #  get 'student/send_login_email', to: "students#send_login_email"
   # get 'student/application_form', to: "students#application_form", as: :student_application_form
 
   resource :students, only: [:new, :show, :create] do
-    get :login_email_sent
+    get :login_with_token
   end
 
 =begin

@@ -17,7 +17,15 @@ class StudentsController < ApplicationController
     redirect_to root_path unless @student
   end
 
-  def login_email_sent
-
+  def login_with_token
+    p = params[:token]
+    student = User.find_by(id: p)
+    if student
+      session[:active_student_id] = student.id
+      student.mark_verified!
+      redirect_to root_path
+    else
+      render plain: "Invalid login"
+    end
   end
 end

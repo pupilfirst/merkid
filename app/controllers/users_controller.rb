@@ -3,12 +3,20 @@ class UsersController < ApplicationController
     email = params[:email]
     student = User.find_by(email: email)
     if student
-      # If already db, redirect to send_login (tell that hey check email. send email in background)
-      UserMailer.with(student: student).login_email.deliver_later
-      redirect_to login_email_sent_students_path
+      # Already in the system, send a login link
+      StudentMailer.with(student: student).login_link.deliver_later
+      render "students/login_email_sent"
     else
-      # If not, redirect_to place where they see the damn form and can submit and can get added to system
-      redirect_to new_student_path(email: email)
+      # First time applicant! Make an entry, and send a email verify mail
+      student = User.create_student!(email)
+      StudentMailer.with(student: student).begin_application.deliver_later
+      render "students/email_verify_and_start_application"
     end
+  end
+
+  def logout
+    session[:active_student_id] = nil
+    flash[:info] = "You have been logged out successfully."
+    redirect_to "/"
   end
 end

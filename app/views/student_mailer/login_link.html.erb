@@ -4,12 +4,12 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
 </head>
 <body>
-<h1>Login to CoronaSafe Engineering Fellowship Application</h1>
+<h4>CoronaSafe Engineering Fellowship Application</h4>
 <p>
-  Hello <%= @user.first_name %>,
+  Hello <%= @student.display_name %>,
 </p>
 <p>
-  To login to the site, just follow this link: <%= @url %>.
+  To login and work on your application, just follow this link: <a href=<%= @url %>>fellowship application login</a>.
 </p>
 <p>
   For any questions, please email us at <a href="mailto:fullstack@pupilfirst.org">fullstack@pupilfirst.org</a>

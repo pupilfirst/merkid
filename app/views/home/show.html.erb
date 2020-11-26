@@ -1,6 +1,6 @@
-<main class="text-center">
+<main class="">
   <%= form_tag(first_step_path, :multipart => true) do %>
-    <div class="input mx-auto w-form-box">
+    <div class="input">
       <label for="email">
         <p>Before we begin, please tell us your email address!</p>
         <%= email_field_tag 'email', nil, placeholder: "abc@xyz.com", class: 'email_input' %>

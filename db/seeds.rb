@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(
-  first_name: "Elodin",
-  full_name: "Elodin O'Hara",
+  first_name: "Jasim",
+  full_name: "Jasim A Basheer",
   email: "jasim.ab@gmail.com",
   dob: DateTime.parse("1950-01-28"),
   tf_token: "uniq-typform",
   tf_data: {q1: "answer1"},
-  status: "unverified"
+  status: "application_form_submitted"
 )
