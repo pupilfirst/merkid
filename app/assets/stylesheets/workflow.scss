@@ -29,6 +29,7 @@ $active-bg-color-dark: #050318;
 .workflow-active:hover {
   background-color: white;
   box-shadow: 8px 8px black, -8px -8px black;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .workflow-active:hover p {
@@ -46,7 +47,7 @@ $active-bg-color-dark: #050318;
 
   50% {
     background-color: white;
-    box-shadow: 8px 8px black, -8px -8px black;
+    box-shadow: 4px 4px gray, -4px -4px gray;
   }
 
   to {
