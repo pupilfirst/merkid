@@ -2,6 +2,8 @@ class User < ApplicationRecord
   EMAIL_UNVERIFIED = "email_unverified"
   EMAIL_VERIFIED = "email_verified"
   APPLICATION_FORM_SUBMITTED = "application_form_submitted"
+  TASK_REVEALED = "task_revealed"
+  TASK_SUBMITTED = "task_submitted"
 
   def self.create_student!(email)
     create!(email: email.downcase, status: EMAIL_UNVERIFIED)
@@ -19,14 +21,28 @@ class User < ApplicationRecord
     status == APPLICATION_FORM_SUBMITTED
   end
 
+  def status_task_revealed?
+    status == TASK_REVEALED
+  end
+
+  def status_task_submitted?
+    status == TASK_SUBMITTED
+  end
+
   # workflow operations
   def mark_verified!
     update_attributes!(status: EMAIL_VERIFIED) if status_email_unverified?
   end
 
   def submit_application_form!(h)
-    update_attributes!(status: APPLICATION_FORM_SUBMITTED, first_name: h[:first_name])
+    update_attributes!(status: APPLICATION_FORM_SUBMITTED, first_name: h[:first_name]) if status_email_verified?
   end
+
+  def reveal_task!
+    update_attributes!(status: TASK_REVEALED, task_revealed_at: DateTime.now) if status_application_form_submitted?
+  end
+
+  # --
 
   def display_name
     if status_application_form_submitted?

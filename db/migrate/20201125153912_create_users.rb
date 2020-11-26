@@ -5,9 +5,9 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :full_name
       t.string :email
       t.date :dob
-      t.string :tf_token
-      t.jsonb :tf_data
+      t.jsonb :application_form
       t.string :status
+      t.datetime :task_revealed_at
 
       t.timestamps
     end

@@ -3,7 +3,7 @@
 email_unverified
 email_verified
 application_form_submitted
-task_begun
+task_revealed
 task_submitted
 task_rejected/task_accepted
 interview_rejected/interview_accepted
