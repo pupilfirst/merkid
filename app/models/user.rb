@@ -7,6 +7,10 @@ class User < ApplicationRecord
     status == "email_unverified"
   end
 
+  def status_email_verified?
+    status == "email_verified"
+  end
+
   def status_application_form_submitted?
     status == "application_form_submitted"
   end

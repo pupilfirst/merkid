@@ -26,7 +26,16 @@
 <% end %>
 
 <%= yield %>
+
 <h4>For any questions, email us at <a href="mailto:fullstack@pupilfirst.org">fullstack@pupilfirst.org</a></h4>
+
+<% if Rails.env.development? %>
+  <% if @student %>
+  <pre style="margin-top: 100px; font-size: 14px; color: #41474e; font-family: monospace">
+  <%== JSON.pretty_generate(@student.as_json) %>
+</pre>
+  <% end %>
+<% end %>
 
 </body>
 </html>

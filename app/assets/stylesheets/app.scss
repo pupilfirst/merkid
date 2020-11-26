@@ -34,11 +34,16 @@ p, li {
   line-height: 1.4;
 }
 
+ol > li {
+  margin-bottom: 16px;
+}
+
 .flash {
   background-color: #fad721;
   color: black;
   padding: 4px;
 }
+
 p.highlight {
   font-size: 28px;
   color: #04044c;
@@ -47,6 +52,10 @@ p.highlight {
 .subdued {
   font-size: 14px;
   color: $light-text-color;
+}
+
+.emphasis {
+  color: black;
 }
 
 fieldset {
@@ -90,4 +99,12 @@ input[type=submit] {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mt-0 {
+  margin-top: 0;
 }
