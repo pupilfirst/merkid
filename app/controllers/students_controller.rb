@@ -16,4 +16,8 @@ class StudentsController < ApplicationController
   def show
     redirect_to root_path unless @student
   end
+
+  def login_email_sent
+
+  end
 end

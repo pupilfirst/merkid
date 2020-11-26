@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   #  get 'student/send_login_email', to: "students#send_login_email"
   # get 'student/application_form', to: "students#application_form", as: :student_application_form
 
-  resource :students, only: [:new, :show, :create]
+  resource :students, only: [:new, :show, :create] do
+    get :login_email_sent
+  end
 
 =begin
   get 'student/reveal_task', to: "students#reveal_task", as: :student_reveal_task
