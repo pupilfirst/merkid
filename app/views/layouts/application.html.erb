@@ -10,14 +10,14 @@
 </head>
 
 <body class="container">
-<h1>Apply to CoronaSafe Engineering Fellowship</h1>
-
 <% if @student %>
   <div class="flex justify-between">
-    <p class="subdued"> <%= @student.more_context_name %> </p>
-    <p class="subdued"> <%= link_to "Logout", logout_url, class: "subdued" %></p>
+    <p class="mb-0 subdued"> <%= @student.more_context_name %> </p>
+    <p class="mb-0 subdued"> <%= link_to "Logout", logout_url, class: "subdued" %></p>
   </div>
 <% end %>
+
+<h1>Apply to CoronaSafe Engineering Fellowship</h1>
 
 <% if flash[:info] %>
   <p class="flash">

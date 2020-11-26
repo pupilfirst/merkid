@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     get :login_with_token
   end
 
+  resource :student_application_forms, only: [:new, :show, :create] do
+  end
+
 =begin
   get 'student/reveal_task', to: "students#reveal_task", as: :student_reveal_task
   get 'student/solution', to: "student_solutions#show", as: :student_solution
