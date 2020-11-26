@@ -1,5 +1,3 @@
-<p>What are all the steps?</p>
-
 <div>
   <%= render partial: "workflow_step", locals: {
       data: {
@@ -8,7 +6,7 @@
           title: "Fill in application form",
           text: "Fill in details like your name, date of birth, and so on. Should take 5 to 10
     minutes",
-          status: "complete"
+          status: "active"
       }} %>
 
   <%= render partial: "workflow_step", locals: {
@@ -18,7 +16,7 @@
           title: "Reveal programming task",
           text: "There is a small programming problem you have to work on. You can take anywhere from 5 hours
       to 2 days to do it.",
-          status: "active"
+          status: "locked"
       }} %>
 
   <%= render partial: "workflow_step", locals: {

@@ -8,7 +8,9 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_active_student
-    flash[:info] = "Please login to visit that page"
-    redirect_to root_path unless @student
+    unless @student
+      flash[:info] = "Please login to visit that page"
+      redirect_to root_path
+    end
   end
 end

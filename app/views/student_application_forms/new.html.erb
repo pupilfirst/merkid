@@ -1,0 +1,26 @@
+<h2>1. Fill in application form</h2>
+
+<%= form_tag(students_student_application_form_path) do %>
+  <div class="input">
+    <%= label "student", "email" do %>
+      <p>email:</p>
+      <%= email_field "student", "email", readonly: true, value: @email %>
+    <% end %>
+  </div>
+
+  <div class="input">
+    <%= label "student", "first_name" do %>
+      <p>First Name:</p>
+      <%= text_field "student", "first_name" %>
+    <% end %>
+  </div>
+
+  <p>
+    Do read the form once more and make sure everything is correct. Submit when you're ready.
+  </p>
+  <p>
+    <%= submit_tag "Submit & Continue" %>
+  </p>
+<% end %>
+
+
