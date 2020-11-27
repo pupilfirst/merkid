@@ -28,7 +28,6 @@ h2 {
 }
 
 h3 {
-  margin-top: 0;
   font-weight: normal;
   font-size: 20px;
   text-decoration: underline;
@@ -201,6 +200,10 @@ input.locked-input {
 
 .w-16 {
   width: 16px;
+}
+
+.p-8 {
+  padding: 8px;
 }
 
 .inline-block {

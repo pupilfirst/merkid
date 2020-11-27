@@ -1,15 +1,102 @@
-<p>Here's your task!</p>
+<h2 class="">3. Submit code for programming task</h2>
 
-<p>Build a todo application</p>
-
-<%= form_tag(students_task_path, :multipart => true, method: :put) do %>
-  <div class="mb-8">
-    <p>Pick the solution zip file from your computer:</p>
-    <%= file_field_tag 'solution_zip_file' %>
-  </div>
-  <p>
-    <%= submit_tag "Upload the zip file" %>
+<main>
+  <p class="mb-32">
+    To qualify for the fellowship, you have to build a command-line program to manage todos. Once you get all the
+    tests to pass, you should then submit the code for review.
   </p>
-<% end %>
 
+  <div class="p-8" style="background: rgba(222,227,234,0.91)">
+    <ol>
+      <li>
+        <a href="#1-introduction">Read the introduction</a>
+      </li>
+      <li>
+        <a href="#2-download-starter">Download a starter zip for your language</a>
+      </li>
+      <li>
+        <a href="#3-upload-code">Upload your code</a>
+      </li>
+    </ol>
+  </div>
 
+  <a name="1-introduction" class="block"></a>
+  <div>
+    <h3 class="mt-32">1. Introduction</h3>
+    <p>
+      Here's a short video of how the program should work:
+    </p>
+
+    <p class="mb-32">
+      <a href="https://asciinema.org/a/4uiyEA4DHBy1YQcJj4ctY2HWM">
+        <img style="max-width: 100%"
+             src="https://asciinema.org/a/4uiyEA4DHBy1YQcJj4ctY2HWM.svg" alt="Todo CLI app reference video"/>
+      </a>
+    </p>
+
+    <p>
+      You can spend anywhere from 5 hours to 2 days to build this.
+    </p>
+    <p>
+      To make it easy, you'll be provided clear specifications and automated tests.
+    </p>
+    <p>Note that this is <em>not</em> an algorithms challenge &mdash; think of it as just a fun problem to work
+      on.
+    </p>
+    <p>
+      We will grade you on whether your code passes all the tests, and on the clarity of the code you write.
+    </p>
+
+    <p>
+      We will give you kind, helpful feedback on how you can further improve your code, irrespective of whether you are
+      shortlisted for the fellowship or not. But this is limited to just the first 30 students to submit a well-written,
+      working application, so hurry!
+    </p>
+  </div>
+
+  <a name="2-download-starter" class="block"></a>
+  <div>
+    <h3 class="mt-32">2. Download a starter zip for your language</h3>
+    <p style="color: black">
+      <span style="background: gold">You must use one of the following starter zips to build the application.</span>
+    </p>
+    <p>
+      This is because they have a detailed
+      README describing the problem, and we have also included automated tests that you can run frequently to see
+      whether you're building it right.
+    </p>
+
+    <p>
+      <a href="/starter/fellowship-js.zip">JavaScript starter repo</a>
+    </p>
+    <p>
+      <a href="/starter/fellowship-ruby.zip">Ruby starter repo</a>
+    </p>
+    <p>
+      <a href="/starter/fellowship-python.zip">Python starter repo</a>
+    </p>
+    <p>
+      <a href="/starter/fellowship-java.zip">Java starter repo</a>
+    </p>
+    <p>
+      <a href="/starter/fellowship-cpp.zip">C++ starter repo</a>
+    </p>
+
+    <p>You should use the programming language which you are most comfortable with. If your favourite language is not
+      listed here, please email us right away. We'll try to set it up as soon as we can!</p>
+
+    <p>If are ready, download one of the above zip files and get going! Don't forget to read the README file
+      thoroughly before you start work.</p>
+
+    <a name="3-upload-code" class="block"></a>
+    <%= form_tag(students_task_path, :multipart => true, method: :put) do %>
+      <h3 class="mt-32">3. Upload your code</h3>
+      <div class="mb-8">
+        <p>Pick the solution zip file from your computer:</p>
+        <%= file_field_tag 'solution_zip_file' %>
+      </div>
+      <p>
+        <%= submit_tag "Upload the zip file" %>
+      </p>
+    <% end %>
+</main>

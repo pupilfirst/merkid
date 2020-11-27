@@ -63,10 +63,10 @@ STUDENT MAKE OK
 * Deploy live
 * Integrate production emailing and test email with SendInBlue
 * Add all the TypeForm fields to Fill-in-app including terms and everything
-    * Logic: Date-of-birth invalid don't allow
     * Terms must be accepted
-    * empty/required validation for fields
-* When "Reveal Prog Problem" redirect to -> Here's your task
+    x Logic: Date-of-birth invalid don't allow
+    x empty/required validation for fields
+x When "Reveal Prog Problem" redirect to -> Here's your task
 * In Here's your task
     * Show the Zip file URLs for each language (Upload it somewhere, put the URL here, make it easy to re-upload with a script or something - with versions)
     * Validate file upload whether it is zip file
