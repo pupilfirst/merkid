@@ -13,7 +13,7 @@ class TasksController < ApplicationController
   # reveal the task
   def create
     @student.reveal_task!
-    redirect_to students_path
+    redirect_to edit_students_task_path
   end
 
   # task zip file upload form
