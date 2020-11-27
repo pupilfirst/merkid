@@ -5,6 +5,8 @@ class User < ApplicationRecord
   TASK_REVEALED = "task_revealed"
   TASK_SUBMITTED = "task_submitted"
 
+  has_many :task_submissions
+
   def self.create_student!(email)
     create!(email: email.downcase, status: EMAIL_UNVERIFIED)
   end
@@ -40,6 +42,14 @@ class User < ApplicationRecord
 
   def reveal_task!
     update_attributes!(status: TASK_REVEALED, task_revealed_at: DateTime.now) if status_application_form_submitted?
+  end
+
+  def submit_task_file!(file)
+    return unless status_task_revealed?
+    task_submission = task_submissions.create!
+    task_submission.uploaded_file.attach(file)
+    update_attributes(status: TASK_SUBMITTED)
+    task_submission
   end
 
   # --

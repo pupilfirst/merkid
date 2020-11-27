@@ -1,3 +1,15 @@
 <p>Here's your task!</p>
 
-<%= link_to "Submit solution", student_solution_url %>
+<p>Build a todo application</p>
+
+<%= form_tag(students_task_path, :multipart => true, method: :put) do %>
+  <div class="mb-8">
+    <p>Pick the solution zip file from your computer:</p>
+    <%= file_field_tag 'solution_zip_file' %>
+  </div>
+  <p>
+    <%= submit_tag "Upload the zip file" %>
+  </p>
+<% end %>
+
+

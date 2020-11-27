@@ -11,7 +11,6 @@ User.create!(
   full_name: "Jasim A Basheer",
   email: "jasim.ab@gmail.com",
   dob: DateTime.parse("1950-01-28"),
-  tf_token: "uniq-typform",
-  tf_data: {q1: "answer1"},
+  application_form: {q1: "answer1"},
   status: "application_form_submitted"
 )
