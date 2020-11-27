@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   resource :students, only: [:new, :show, :create] do
     get :login_with_token
-    resource :student_application_form, only: [:new, :show, :create]
+    resource :student_application_form, only: [:new, :show, :create] do
+    end
     resource :task, only: [:new, :create, :edit, :update]
     resource :student_evaluation, only: [:show]
   end

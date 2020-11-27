@@ -1,26 +1,93 @@
-<h2>1. Fill in application form</h2>
+<h2 class="">1. Fill in application form</h2>
+<main>
+  <%= form_tag(students_student_application_form_path) do %>
+    <div class="input mb-48">
+      <%= label "form", "email" do %>
+        <p>
+          Your email address:
+        </p>
+        <%= email_field "form", "email", readonly: true, class: "locked-input" %>
+      <% end %>
+    </div>
 
-<%= form_tag(students_student_application_form_path) do %>
-  <div class="input">
-    <%= label "student", "email" do %>
-      <p>email:</p>
-      <%= email_field "student", "email", readonly: true, value: @email %>
-    <% end %>
-  </div>
+    <div class="input mb-48">
+      <%= label "form", "first_name" do %>
+        <p>
+          What is your first name?
+          <small class="text-rights subdued block">
+            we will use this name to address you.
+          </small>
+        </p>
+        <%= text_field "form", "first_name", autofocus: true %>
+      <% end %>
+    </div>
 
-  <div class="input">
-    <%= label "student", "first_name" do %>
-      <p>First Name:</p>
-      <%= text_field "student", "first_name" %>
-    <% end %>
-  </div>
+    <div class="input mb-48">
+      <%= label "form", "full_name" do %>
+        <p>
+          What is your full name?
+          <small class="text-rights subdued block">
+            as it appears in your official records.
+          </small>
+        </p>
+        <%= text_field "form", "full_name" %>
+      <% end %>
+    </div>
 
-  <p>
-    Do read the form once more and make sure everything is correct. Submit when you're ready.
-  </p>
-  <p>
-    <%= submit_tag "Submit & Continue" %>
-  </p>
-<% end %>
+    <div class="input mb-48">
+      <%= label "form", "dob" do %>
+        <p>
+          What is your date of birth?
+          <small class="text-rights subdued block">
+            you have to be between 18 and 25 years to participate in this program.
+          </small>
+        </p>
+        <%= date_field "form", "dob" %>
+      <% end %>
+    </div>
+
+    <div class="input mb-48">
+      <%= label "form", "college" do %>
+        <p>
+          Your college and university name, and its location?
+          <small class="text-rights subdued block">
+            for eg: IIIT, Hyderabad
+          </small>
+        </p>
+        <%= text_field "form", "college" %>
+      <% end %>
+    </div>
+
+    <div class="input mb-48">
+      <%= label "form", "portfolio" do %>
+        <p>
+          Have you created anything digital? Can you share their links and details?
+          <small class="text-rights subdued block">
+            any software you've made, websites, webapps, or just links to code you've written.
+          </small>
+        </p>
+        <%= text_area "form", "portfolio" %>
+      <% end %>
+    </div>
+
+    <div class="input mb-48">
+      <%= label "form", "anything_else" do %>
+        <p>
+          Anything else you might want to add?
+          <small class="text-rights subdued block">
+            we are keen to know about any programming that you've enjoyed, and what makes it fun for you!
+          </small>
+        </p>
+        <%= text_area "form", "anything_else" %>
+      <% end %>
+    </div>
 
 
+    <p>
+      Do read the form once more and make sure everything is correct. Submit when you're ready.
+    </p>
+    <p>
+      <%= submit_tag "Submit & Continue" %>
+    </p>
+  <% end %>
+</main>

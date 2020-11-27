@@ -6,6 +6,8 @@ class User < ApplicationRecord
   TASK_SUBMITTED = "task_submitted"
   TASK_REVIEWED = "task_reviewed"
 
+  validates_format_of :email, with: /\A([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})\z/i
+
   has_many :task_submissions
 
   def self.create_student!(email)
@@ -35,13 +37,16 @@ class User < ApplicationRecord
   def status_task_reviewed?
     status == TASK_REVIEWED
   end
+
   # workflow operations
   def mark_verified!
     update_attributes!(status: EMAIL_VERIFIED) if status_email_unverified?
   end
 
   def submit_application_form!(h)
-    update_attributes!(status: APPLICATION_FORM_SUBMITTED, first_name: h[:first_name]) if status_email_verified?
+    return unless status_email_verified?
+    update_attributes!(h)
+    update_attributes!(status: APPLICATION_FORM_SUBMITTED)
   end
 
   def reveal_task!
@@ -50,6 +55,7 @@ class User < ApplicationRecord
 
   def submit_task_file!(file)
     return unless status_task_revealed?
+
     task_submission = task_submissions.create!
     task_submission.uploaded_file.attach(file)
     update_attributes(status: TASK_SUBMITTED)

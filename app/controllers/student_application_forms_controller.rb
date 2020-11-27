@@ -4,13 +4,41 @@ class StudentApplicationFormsController < ApplicationController
   before_action :allow_only_email_verified_students
 
   def new
-    @email = @student.email
+    @form = StudentApplicationForm.new(
+      {
+        email: @student.email,
+        first_name: @student.first_name,
+        full_name: @student.full_name,
+        dob: @student.dob,
+        college: @student.college,
+        portfolio: @student.portfolio,
+        anything_else: @student.anything_else
+      })
   end
 
   def create
-    p = params[:student]
-    @student.submit_application_form!(first_name: p[:first_name])
-    redirect_to students_path
+    p = params[:form]
+    attrs = {
+      email: @student.email,
+      first_name: p[:first_name],
+      full_name: p[:full_name],
+      dob: p[:dob],
+      college: p[:college],
+      portfolio: p[:portfolio],
+      anything_else: p[:anything_else]
+    }
+
+    @form = StudentApplicationForm.new(attrs)
+    @form.validate
+
+    if @form.valid?
+      @student.submit_application_form!(attrs)
+      flash[:info] = "Thanks, your application form is now saved. Please continue to the next step."
+      redirect_to students_path
+    else
+      flash[:info] = @form.errors.map { |attr, msg| msg }
+      render :new
+    end
   end
 
   private

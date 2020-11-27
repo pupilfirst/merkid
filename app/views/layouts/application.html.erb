@@ -21,7 +21,11 @@
 
 <% if flash[:info] %>
   <p class="flash">
-    <%= flash[:info] %>
+    <% if flash[:info].is_a? String %>
+      <%= flash[:info] %>
+    <% else %>
+      <%== flash[:info].join("<br/>") %>
+    <% end %>
   </p>
 <% end %>
 
@@ -32,7 +36,7 @@
 <% end %>
 
 <div class="mt-32">
-<h4>For any questions, email us at <a href="mailto:fullstack@pupilfirst.org">fullstack@pupilfirst.org</a></h4>
+  <h4>For any questions, email us at <a href="mailto:fullstack@pupilfirst.org">fullstack@pupilfirst.org</a></h4>
 </div>
 
 <% if Rails.env.development? %>

@@ -56,8 +56,9 @@ ol > li {
 .flash {
   background-color: #fad721;
   color: black;
-  padding: 4px 16px;
+  padding: 8px 16px;
   margin-bottom: 32px;
+  border-radius: 2px;
 }
 
 p.highlight {
@@ -85,10 +86,15 @@ fieldset {
   margin-bottom: 32px;
 }
 
-input[type=text], input[type=email] {
+textarea, input[type=text], input[type=email], input[type=date] {
   width: 400px;
   font-size: 20px;
   padding: 10px;
+}
+
+textarea {
+  height: 150px;
+  font-size: 16px;
 }
 
 input[type=submit] {
@@ -96,6 +102,13 @@ input[type=submit] {
   box-shadow: 1px 1px rgba(136, 136, 136, 0.6);
 }
 
+input.locked-input {
+  opacity: 0.5;
+}
+
+.field_with_errors input, .field_with_errors textarea {
+  box-shadow: 3px 3px red;
+}
 
 .bg-green {
   color: rgba(54,148,76,0.91);
@@ -148,6 +161,10 @@ input[type=submit] {
 
 .mb-32 {
   margin-bottom: 32px;
+}
+
+.mb-48 {
+  margin-bottom: 48px;
 }
 
 .mt-0 {
