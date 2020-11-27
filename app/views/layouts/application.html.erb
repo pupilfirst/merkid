@@ -27,7 +27,13 @@
 
 <%= yield %>
 
+<% unless (current_page?(root_path) || current_page?(students_path)) %>
+  <%= link_to "Home", root_path %>
+<% end %>
+
+<div class="mt-32">
 <h4>For any questions, email us at <a href="mailto:fullstack@pupilfirst.org">fullstack@pupilfirst.org</a></h4>
+</div>
 
 <% if Rails.env.development? %>
   <% if @student %>

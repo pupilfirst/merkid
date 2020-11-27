@@ -4,6 +4,7 @@ class User < ApplicationRecord
   APPLICATION_FORM_SUBMITTED = "application_form_submitted"
   TASK_REVEALED = "task_revealed"
   TASK_SUBMITTED = "task_submitted"
+  TASK_REVIEWED = "task_reviewed"
 
   has_many :task_submissions
 
@@ -31,6 +32,9 @@ class User < ApplicationRecord
     status == TASK_SUBMITTED
   end
 
+  def status_task_reviewed?
+    status == TASK_REVIEWED
+  end
   # workflow operations
   def mark_verified!
     update_attributes!(status: EMAIL_VERIFIED) if status_email_unverified?

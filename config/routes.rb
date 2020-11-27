@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  # FIXME: restrict to admin only
   # https://github.com/mperham/sidekiq/wiki/Monitoring
-  # TODO: allow only for admins
   require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
+  mount Sidekiq::Web => '/admin/sidekiq'
 
   root to: 'home#show'
 
@@ -14,5 +14,6 @@ Rails.application.routes.draw do
     get :login_with_token
     resource :student_application_form, only: [:new, :show, :create]
     resource :task, only: [:new, :create, :edit, :update]
+    resource :student_evaluation, only: [:show]
   end
 end

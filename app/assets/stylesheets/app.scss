@@ -24,11 +24,14 @@ h1 {
 }
 
 h2 {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 h3 {
   margin-top: 0;
+  font-weight: normal;
+  font-size: 20px;
+  text-decoration: underline;
 }
 
 h4 {
@@ -149,6 +152,10 @@ input[type=submit] {
 
 .mt-0 {
   margin-top: 0;
+}
+
+.mt-32 {
+  margin-top: 32px;
 }
 
 .ml-8 {

@@ -5,8 +5,9 @@ email_verified
 application_form_submitted
 task_revealed
 task_submitted
-task_rejected/task_accepted
-interview_rejected/interview_accepted
+task_reviewed:
+    task_rejected/task_accepted
+    interview_rejected/interview_accepted
 
 # Student Flow
 
