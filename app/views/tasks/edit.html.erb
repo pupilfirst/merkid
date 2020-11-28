@@ -112,7 +112,7 @@
 
         <div class="mb-32" style="padding: 24px; background-color: rgba(237,237,248,0.91); border-radius: 4px;">
           <p>Select the .zip file from your computer:</p>
-          <%= file_field_tag 'solution_zip_file' %>
+          <%= file_field_tag 'solution_zip_file', accept: "zip,application/zip,application/x-zip,application/x-zip-compressed" %>
         </div>
         <p class="mb-32 p-8">
           <%= submit_tag "Upload the .zip file" %>

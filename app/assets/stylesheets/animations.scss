@@ -1,0 +1,51 @@
+.blink-background {
+  animation-timing-function: steps(1, end);
+  animation-duration: 0.1s;
+  animation-name: blink_background;
+  animation-iteration-count: 4;
+}
+
+@keyframes blink-background {
+  from {
+    background-color: $active-bg-color;
+    box-shadow: none;
+  }
+
+  50% {
+    background-color: white;
+    box-shadow: 4px 4px gray, -4px -4px gray;
+  }
+
+  to {
+    background-color: $active-bg-color;
+    box-shadow: none;
+  }
+}
+
+
+// Generated from http://animista.net
+.animation-vibrate {
+  animation: vibrate-1 0.3s linear 1 both;
+}
+
+@keyframes vibrate-1 {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+

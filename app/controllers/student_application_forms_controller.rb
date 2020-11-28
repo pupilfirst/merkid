@@ -33,10 +33,10 @@ class StudentApplicationFormsController < ApplicationController
 
     if @form.valid?
       @student.submit_application_form!(attrs)
-      flash[:info] = "Thanks, your application form is now saved. Please continue to the next step."
+      flash[:success] = "Thanks, your application form is now saved. Please continue to the next step."
       redirect_to students_path
     else
-      flash[:info] = @form.errors.map { |attr, msg| msg }
+      flash[:error] = @form.errors.map { |attr, msg| msg }
       render :new
     end
   end

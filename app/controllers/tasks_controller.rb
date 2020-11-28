@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   # ask whether to reveal the task
   def new
     unless @student.status_application_form_submitted?
-      flash[:info] = "Invalid step"
+      flash[:error] = "Invalid step"
       redirect_to root_path
     end
   end
@@ -19,7 +19,7 @@ class TasksController < ApplicationController
   # task zip file upload form
   def edit
     unless @student.status_task_revealed?
-      flash[:info] = "Invalid step"
+      flash[:error] = "Invalid step"
       redirect_to root_path
     end
   end
@@ -27,14 +27,25 @@ class TasksController < ApplicationController
   # upload the zip file and move to next step
   def update
     unless @student.status_task_revealed?
-      flash[:info] = "Invalid step"
+      flash[:error] = "Invalid step"
       redirect_to root_path
     end
 
-    @student.submit_task_file!(params[:solution_zip_file])
+    file = params[:solution_zip_file]
 
+    unless file
+      flash[:error] = ["You must upload a ZIP file to submit"]
+      redirect_to edit_students_task_path
+      return
+    end
+
+    unless file.content_type.in?(%w(zip application/zip application/x-zip application/x-zip-compressed))
+      flash[:error] = ["You must upload a ZIP file to submit"]
+      redirect_to edit_students_task_path
+      return
+    end
+
+    @student.submit_task_file!(params[:solution_zip_file])
     redirect_to root_path
   end
-
-  private
 end

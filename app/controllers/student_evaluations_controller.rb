@@ -12,7 +12,7 @@ class StudentEvaluationsController < ApplicationController
     # the subsequent steps
     ok = @student.status_task_submitted? || @student.status_task_reviewed?
     unless ok
-      flash[:info] = "Please submit the task before checking results"
+      flash[:error] = "Please submit the task before checking results"
       redirect_to root_path
     end
   end

@@ -1,0 +1,9 @@
+<% if msg %>
+  <p class="flash <%= css %>">
+    <% if msg.is_a? String %>
+      <%= msg %>
+    <% else %>
+      <%== msg.join("<br/>") %>
+    <% end %>
+  </p>
+<% end %>

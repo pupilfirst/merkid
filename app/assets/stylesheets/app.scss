@@ -1,4 +1,4 @@
-$light-text-color: rgba(46, 47, 48, 0.8);
+@import "colors", "animations";
 
 body {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -42,6 +42,7 @@ p {
   margin-top: 0;
   margin-bottom: 16px;
 }
+
 p, li {
   font-size: 20px;
   color: $light-text-color;
@@ -53,11 +54,24 @@ ol > li {
 }
 
 .flash {
-  background-color: #fad721;
-  color: black;
   padding: 8px 16px;
   margin-bottom: 32px;
   border-radius: 2px;
+}
+
+.flash-info {
+  background-color: #fad721;
+  color: black;
+}
+
+.flash-success {
+  background-color: #19b619;
+  color: white;
+}
+
+.flash-error {
+  background-color: #ce0e0e;
+  color: white;
 }
 
 p.highlight {
@@ -110,7 +124,7 @@ input.locked-input {
 }
 
 .bg-green {
-  color: rgba(54,148,76,0.91);
+  color: rgba(54, 148, 76, 0.91);
 }
 
 .mx-auto {
@@ -213,3 +227,5 @@ input.locked-input {
 .block {
   display: block;
 }
+
+@import "workflow";

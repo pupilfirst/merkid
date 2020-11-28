@@ -19,15 +19,9 @@
 
 <h1>Apply to CoronaSafe Engineering Fellowship</h1>
 
-<% if flash[:info] %>
-  <p class="flash">
-    <% if flash[:info].is_a? String %>
-      <%= flash[:info] %>
-    <% else %>
-      <%== flash[:info].join("<br/>") %>
-    <% end %>
-  </p>
-<% end %>
+<%= render partial: "layouts/flash", locals: {msg: flash[:info], css: "flash-info animation-vibrate"} %>
+<%= render partial: "layouts/flash", locals: {msg: flash[:success], css: "flash-success animation-vibrate"} %>
+<%= render partial: "layouts/flash", locals: {msg: flash[:error], css: "flash-error animation-vibrate"} %>
 
 <%= yield %>
 
