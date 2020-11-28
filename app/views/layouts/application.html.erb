@@ -12,8 +12,17 @@
 <body class="container">
 <% if @student %>
   <div class="flex justify-between">
-    <p class="mb-0 subdued"> <%= @student.more_context_name %> </p>
-    <p class="mb-0 subdued"> <%= link_to "Logout", logout_url, class: "subdued" %></p>
+    <% if (current_page?(root_path) || current_page?(students_path)) %>
+      <div></div>
+    <% else %>
+      <p class="mb-0 subdued">
+        <%= link_to "Home", root_path, class: "subdued" %>
+      </p>
+    <% end %>
+    <div class="flex">
+      <p class="mb-0 mr-32 subdued"> <%= @student.more_context_name %> </p>
+      <p class="mb-0 subdued"> <%= link_to "Logout", logout_url, class: "subdued" %></p>
+    </div>
   </div>
 <% end %>
 
@@ -25,20 +34,17 @@
 
 <%= yield %>
 
-<% unless (current_page?(root_path) || current_page?(students_path)) %>
-  <%= link_to "Home", root_path %>
-<% end %>
-
 <div class="mt-32">
   <h4>For any questions, email us at <a href="mailto:fullstack@pupilfirst.org">fullstack@pupilfirst.org</a></h4>
 </div>
 
-<% if Rails.env.development? %>
-  <% if @student %>
-  <pre style="margin-top: 100px; font-size: 14px; color: #41474e; font-family: monospace">
-  <%== JSON.pretty_generate(@student.as_json) %>
+<% if @student %>
+  <div class="exposed-ceiling">
+<pre class="">
+<%== JSON.pretty_generate(@student.as_json) %>
 </pre>
-  <% end %>
+    For your reference.
+  </div>
 <% end %>
 
 </body>

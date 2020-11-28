@@ -53,6 +53,15 @@ ol > li {
   margin-bottom: 16px;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: black;
+  color: white;
+}
+
 .flash {
   padding: 8px 16px;
   margin-bottom: 32px;
@@ -88,11 +97,24 @@ p.highlight {
   color: black;
 }
 
-fieldset {
-  border: 1px solid rgba(120, 120, 120, 0.4);
-  border-radius: 4px;
-  padding: 24px;
-  box-shadow: 1px 1px rgba(136, 136, 136, 0.6);
+.exposed-ceiling {
+  max-width: 400px;
+  overflow: hidden;
+  font-size: 10px;
+  color: #41474e;
+  font-family: monospace;
+  opacity: 0.6;
+  margin-top: 128px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .exposed-ceiling {
+    position: absolute;
+    bottom: -512px;
+    right: 48px;
+    margin: 0;
+    padding-bottom: 128px;
+  }
 }
 
 .input {
@@ -201,6 +223,10 @@ input.locked-input {
 }
 
 .mr-16 {
+  margin-right: 16px;
+}
+
+.mr-32 {
   margin-right: 16px;
 }
 
