@@ -40,7 +40,7 @@
     <p>
       To make it easy, you'll be provided clear specifications and automated tests.
     </p>
-    <p>Note that this is <em>not</em> an algorithms challenge &mdash; think of it as just a fun problem to work
+    <p>Remember, this is <em>not</em> an algorithms challenge &mdash; think of it as just a fun problem to work
       on.
     </p>
     <p>
@@ -48,9 +48,12 @@
     </p>
 
     <p>
-      We will give you kind, helpful feedback on how you can further improve your code, irrespective of whether you are
-      shortlisted for the fellowship or not. But this is limited to just the first 30 students to submit a well-written,
-      working application, so hurry!
+      Once you submit, we will give you kind, helpful feedback on how you can further improve your code.
+      This is irrespective of whether you are shortlisted for the fellowship or not!
+    </p>
+    <p>
+      However, it is limited to just the first 30 students to submit a well-written,
+      working application. So if you want to get some free, expert advice on programming, hurry and submit!
     </p>
   </div>
 
@@ -61,10 +64,12 @@
       <span style="background: yellow">You must use one of the following starter zips to build the application.</span>
     </p>
     <p>
-      These repos come with compilation scripts, detailed READMEs, and automated tests. You should run the automated
-      tests as you're building each feature to test whether they work well.
+      There is a README file in all the repos below. They contain detailed instructions on what you should build.
     </p>
-
+    <p>
+      The repos also come with automated tests. You should run those tests as you're building each feature to
+      verify whether they work well.
+    </p>
     <p>
       <a href="/starter/fellowship-js.zip">JavaScript starter repo</a>
     </p>
@@ -82,7 +87,7 @@
     </p>
 
     <p>You should use the programming language which you are most comfortable with. If your favourite language is not
-      listed here, please email us right away. We'll try to set it up as soon as we can!</p>
+      listed here, please email us right away. We'll try to set it up as soon as we can.</p>
 
     <p>If you are ready, download one of the above zip files and get going! Don't forget to read the README file
       thoroughly before you start work.</p>
@@ -93,8 +98,8 @@
       <div class="mb-8">
         <p>Great! Have you completed the program? Now it is time to submit your code. But before that:</p>
         <ul>
-          <li>Ensure that all the tests pass</li>
-          <li>Just to be safe, backup the directory to a different folder in your computer.</li>
+          <li>Ensure that all the tests pass.</li>
+          <li>Just to be safe, backup your project directory to a different folder in your computer.</li>
         </ul>
 
         <p>Now let's prepare for upload:</p>
@@ -115,7 +120,7 @@
           <%= file_field_tag 'solution_zip_file', accept: "zip,application/zip,application/x-zip,application/x-zip-compressed" %>
         </div>
         <p class="mb-32 p-8">
-          <%= submit_tag "Upload the .zip file" %>
+          <%= submit_tag "Upload the .zip file", data: {confirm: "You can only submit once (you'll have to email us otherwise). So make sure everything is in order. Go ahead with the upload?"} %>
         </p>
 
       </div>

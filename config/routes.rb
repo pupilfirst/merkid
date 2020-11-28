@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post 'first_step', to: "users#first_step"
   get 'first_step', to: redirect("/")
 
-  resource :students, only: [:new, :show, :create] do
+  resource :students, only: [:new, :show] do
     get :login_with_token
     resource :student_application_form, only: [:new, :show, :create] do
     end

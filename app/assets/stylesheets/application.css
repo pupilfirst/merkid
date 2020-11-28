@@ -10,7 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- * removing `require_tree .` because we'll use SASS @import instead, so we get all variables, extends etc.
+ * removing the require-tree . - we'll use SASS @import instead to get all variables, extends etc.
  *
  *= require "normalize"
  *= require "fontawesome"

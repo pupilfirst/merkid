@@ -13,6 +13,7 @@ class TasksController < ApplicationController
   # reveal the task
   def create
     @student.reveal_task!
+    flash[:info] = "Congratulations, you have revealed the programming task. Read on!"
     redirect_to edit_students_task_path
   end
 
@@ -45,6 +46,7 @@ class TasksController < ApplicationController
       return
     end
 
+    flash[:success] = ["You have successfully uploaded your code submission."]
     @student.submit_task_file!(params[:solution_zip_file])
     redirect_to root_path
   end

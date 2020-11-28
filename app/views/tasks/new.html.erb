@@ -2,12 +2,25 @@
 
 <main class="">
   <%= form_tag(students_task_path) do %>
-    <p>When you are ready to get started, click on Reveal</p>
-    <p>Once you start, you should submit the completed code in 2 days</p>
-    <p>So only click Begin when you have 2 days to work on this</p>
+    <p>
+      To qualify for the fellowship, you have to write a command-line program and submit its code for review.
+    </p>
+
+    <p>It is not an algorithmic challenge, and does not have any hidden complexity. Think of it as just an enjoyable
+      programming session.</p>
 
     <p>
-      <%= submit_tag "Reveal programming problem" %>
+      You can spend anywhere from 5 hours to 2 days to write and submit this program.
+    </p>
+
+    <p>
+      <strong>Once you reveal the problem description, you should finish and submit the code within 2 days.</strong>
+    </p>
+
+    <p>Click the button when you're ready!</p>
+
+    <p>
+      <%= submit_tag "Reveal programming problem", data: {confirm: "We're excited to see what you make! But make sure you have at least a day to spend on this problem. So, are we ready?"} %>
     </p>
   <% end %>
 </main>

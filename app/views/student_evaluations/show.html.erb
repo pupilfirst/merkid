@@ -5,14 +5,14 @@
 
     <h3 class="mt-0">Your submission is currently queued for review</h3>
     <p>
-      We have received your task submission.
+      We received your task submission on: <br>
+      <em><%= @student.task_submissions.last.created_at.to_s(:short_with_dayname) %></em>
     </p>
     <p>
-      We review all submissions within 3 days of receiving it.
-      We will email you with your results once we read your code.
+      We review all submissions within 3 working days. We will email you after the review.
     </p>
 
-    <p>Thanks for taking the time to work through the problem. We hope you enjoyed it. </p>
+    <p>And thanks for taking the time to work through the problem. We hope you enjoyed it.</p>
 
   <% end %>
 </main>

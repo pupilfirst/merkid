@@ -1,3 +1,5 @@
+@import "colors";
+
 .blink-background {
   animation-timing-function: steps(1, end);
   animation-duration: 0.1s;
