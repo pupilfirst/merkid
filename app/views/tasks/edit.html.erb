@@ -1,6 +1,6 @@
 <h2 class="">3. Submit code for programming task</h2>
 
-<main>
+<div>
   <p class="mb-32">
     To qualify for the fellowship, you have to build a command-line program to manage todos. Once you get all the
     tests to pass, you should then submit the code for review.
@@ -58,12 +58,11 @@
   <div>
     <h3 class="mt-32">2. Download a starter zip for your language</h3>
     <p style="color: black">
-      <span style="background: gold">You must use one of the following starter zips to build the application.</span>
+      <span style="background: yellow">You must use one of the following starter zips to build the application.</span>
     </p>
     <p>
-      This is because they have a detailed
-      README describing the problem, and we have also included automated tests that you can run frequently to see
-      whether you're building it right.
+      These repos come with compilation scripts, detailed READMEs, and automated tests. You should run the automated
+      tests as you're building each feature to test whether they work well.
     </p>
 
     <p>
@@ -85,18 +84,41 @@
     <p>You should use the programming language which you are most comfortable with. If your favourite language is not
       listed here, please email us right away. We'll try to set it up as soon as we can!</p>
 
-    <p>If are ready, download one of the above zip files and get going! Don't forget to read the README file
+    <p>If you are ready, download one of the above zip files and get going! Don't forget to read the README file
       thoroughly before you start work.</p>
 
     <a name="3-upload-code" class="block"></a>
     <%= form_tag(students_task_path, :multipart => true, method: :put) do %>
       <h3 class="mt-32">3. Upload your code</h3>
       <div class="mb-8">
-        <p>Pick the solution zip file from your computer:</p>
-        <%= file_field_tag 'solution_zip_file' %>
+        <p>Great! Have you completed the program? Now it is time to submit your code. But before that:</p>
+        <ul>
+          <li>Ensure that all the tests pass</li>
+          <li>Just to be safe, backup the directory to a different folder in your computer.</li>
+        </ul>
+
+        <p>Now let's prepare for upload:</p>
+        <ol>
+          <li>Remove any binary files, or dependencies like node_modules from your directory. The directory should
+            contain only text files like the source, README etc.
+          </li>
+          <li>If we need to do anything extra to make the program work on our computers, add those instructions to the
+            README.
+          </li>
+          <li>Compress the directory into a .zip file</li>
+        </ol>
+
+        <p><strong>The .zip file must be less than 3mb in size.</strong></p>
+
+        <div class="mb-32" style="padding: 24px; background-color: rgba(237,237,248,0.91); border-radius: 4px;">
+          <p>Select the .zip file from your computer:</p>
+          <%= file_field_tag 'solution_zip_file' %>
+        </div>
+        <p class="mb-32 p-8">
+          <%= submit_tag "Upload the .zip file" %>
+        </p>
+
       </div>
-      <p>
-        <%= submit_tag "Upload the zip file" %>
-      </p>
     <% end %>
-</main>
+  </div>
+</div>

@@ -61,9 +61,9 @@
     <div class="input mb-48">
       <%= label "form", "portfolio" do %>
         <p>
-          Have you created anything digital? Can you share their links and details?
+          Links to anything digital you have created (optional)
           <small class="text-rights subdued block">
-            any software you've made, websites, webapps, or just links to code you've written.
+            websites, webapps, simple programs, or just code you wrote
           </small>
         </p>
         <%= text_area "form", "portfolio" %>
@@ -75,7 +75,7 @@
         <p>
           Anything else you might want to add?
           <small class="text-rights subdued block">
-            we are keen to know about any programming that you've enjoyed, and what makes it fun for you!
+            and do tell us about what you enjoy about programming!
           </small>
         </p>
         <%= text_area "form", "anything_else" %>
@@ -84,7 +84,11 @@
 
 
     <p>
-      Do read the form once more and make sure everything is correct. Submit when you're ready.
+      Do read the form once more and make sure everything is written as well as you can. Submit only when you're
+      ready.
+      <strong>
+        You can't change the form details after submitting.
+      </strong>
     </p>
     <p>
       <%= submit_tag "Submit & Continue" %>
