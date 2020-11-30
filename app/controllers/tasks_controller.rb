@@ -19,7 +19,14 @@ class TasksController < ApplicationController
 
   # task zip file upload form
   def edit
-    @root_website_hostname = request.domain.sub("fullstack.", "")
+    # this is if we're hosting the course in a different domain altogether..
+    # like "irvrnt.com" being the static site and fullstack.irvrnt.com being the rails web app.
+    # and the zip is stored in the static site.
+    @root_website_hostname = request.protocol + request.domain.sub("fullstack.", "")
+    # for dev environment
+    if request.port
+      @root_website_hostname = @root_website_hostname + ":#{request.port}"
+    end
     unless @student.status_task_revealed?
       flash[:error] = "Invalid step"
       redirect_to root_path
