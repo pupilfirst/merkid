@@ -14,6 +14,8 @@ class StudentsController < ApplicationController
       if student.status_email_unverified?
         flash[:success] = "Welcome to the fellowship application. Let's get started!"
         student.mark_verified!
+      else
+        flash[:success] = "Welcome back!"
       end
       redirect_to root_path
     else

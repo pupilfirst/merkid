@@ -19,6 +19,7 @@ class TasksController < ApplicationController
 
   # task zip file upload form
   def edit
+    @root_website_hostname = request.domain.sub("fullstack.", "")
     unless @student.status_task_revealed?
       flash[:error] = "Invalid step"
       redirect_to root_path

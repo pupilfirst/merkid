@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def first_step
     email = params[:email]
     student = User.find_by(email: email)
+    flash[:info] = "Check your email for the login link!"
     if student
       # Already in the system, send a login link
       StudentMailer.with(student: student).login_link.deliver_later

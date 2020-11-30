@@ -68,7 +68,7 @@ class User < ApplicationRecord
     if status_application_form_submitted?
       first_name.capitalize
     else
-      email
+      email.split("@").first
     end
   end
 

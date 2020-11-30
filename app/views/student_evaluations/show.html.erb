@@ -6,7 +6,7 @@
     <h3 class="mt-0">Your submission is currently queued for review</h3>
     <p>
       We received your task submission on: <br>
-      <em><%= @student.task_submissions.last.created_at.to_s(:short_with_dayname) %></em>
+      <span style="background-color: #dfe1ec"><%= @student.task_submissions.last.created_at.in_time_zone('Asia/Kolkata').to_s(:short_with_dayname) %></span>
     </p>
     <p>
       We review all submissions within 3 working days. We will email you after the review.
