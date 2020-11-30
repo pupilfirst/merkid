@@ -13,7 +13,7 @@ set :repo_url, "git@github.com:jasim/merkid.git"
 set :deploy_to, "/home/deploy/#{deploy_app_name}"
 
 append :linked_files, "config/database.yml", "config/credentials/production.key", "config/credentials/production.yml.enc"
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs,  "storage", "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 
 set :keep_releases, 5
 
