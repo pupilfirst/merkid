@@ -66,3 +66,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "letter_opener", :group => :development
 gem "sidekiq"
 gem 'font-awesome-sass'
+gem 'postmark-rails'
