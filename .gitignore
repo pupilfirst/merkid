@@ -37,3 +37,6 @@ yarn-debug.log*
 
 config/master.key
 config/credentials.yml.enc
+config/credentials/production.key
+config/credentials/production.yml.enc
+/config/credentials/production.key
