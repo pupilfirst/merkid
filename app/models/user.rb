@@ -58,6 +58,9 @@ class User < ApplicationRecord
 
     task_submission = task_submissions.create!
     task_submission.uploaded_file.attach(file)
+    # make filenames uniform, tag with first name so it is easy to correlate and update the correct
+    # student's scores during grading
+    task_submission.uploaded_file.blob.update!(filename: first_name.titleize.gsub(/\W/, '') + "-" + id[0..3] + ".zip")
     update_attributes(status: TASK_SUBMITTED)
     task_submission
   end
@@ -74,5 +77,14 @@ class User < ApplicationRecord
 
   def more_context_name
     [first_name, email].compact.join(", ")
+  end
+
+  def is_admin?
+    ["jacob@protoship.io", "jasim@protoship.io", "bodhish@pupilfirst.org", "hari@pupilfirst.org", "reena@pupilfirst.org",
+     "suma@pupilfirst.org"].include?(email)
+  end
+
+  def is_coach?
+    ["jacob@protoship.io", "jasim@protoship.io", "bodhish@pupilfirst.org", "hari@pupilfirst.org"].include?(email)
   end
 end

@@ -17,4 +17,9 @@ Rails.application.routes.draw do
     resource :task, only: [:new, :create, :edit, :update]
     resource :student_evaluation, only: [:show]
   end
+
+  namespace :admin do
+    get '/', to: "dashboard#index"
+    get :student, to: "dashboard#student"
+  end
 end

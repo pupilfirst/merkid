@@ -12,7 +12,7 @@
 </head>
 
 <body class="">
-<div class="root">
+<div class='<%= @is_admin_page ? "admin-root" : "root" %>'>
   <% if @student %>
     <div class="flex justify-between">
       <% if (current_page?(root_path) || current_page?(students_path)) %>
@@ -29,7 +29,11 @@
     </div>
   <% end %>
 
-  <h1>Apply to CoronaSafe Engineering Fellowship</h1>
+  <% if @is_admin_page %>
+    <h1>Admin</h1>
+  <% else %>
+    <h1>Apply to CoronaSafe Engineering Fellowship</h1>
+  <% end %>
 
   <%= render partial: "layouts/flash", locals: {msg: flash[:info], css: "flash-info animation-vibrate"} %>
   <%= render partial: "layouts/flash", locals: {msg: flash[:success], css: "flash-success animation-vibrate"} %>

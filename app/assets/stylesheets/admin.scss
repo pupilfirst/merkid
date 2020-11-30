@@ -1,0 +1,18 @@
+@use "sass:color";
+
+body > .admin-root {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 64px 32px;
+}
+
+.admin-table {
+  padding: 8px;
+
+  td {
+    padding: 8px;
+  }
+  tr:hover {
+    background-color: rgb(239, 236, 66);
+  }
+}
