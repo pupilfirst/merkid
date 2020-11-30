@@ -47,7 +47,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.3'
   gem 'capistrano-rbenv'
   gem 'capistrano3-puma'
-  gem 'capistrano-sidekiq'
+  gem 'capistrano-sidekiq', '~> 2.0.0.beta5'
 end
 
 group :test do

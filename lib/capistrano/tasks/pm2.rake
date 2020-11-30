@@ -7,7 +7,7 @@ namespace :pm2 do
 
   def app_status
     within current_path do
-      ps = JSON.parse(capture :pm2, :jlist, PM2_ECOSYSTEM_JSON_FILENAME)
+      ps = JSON.parse(capture :pm2, :"--silent", :jlist, PM2_ECOSYSTEM_JSON_FILENAME)
       if ps.empty?
         return nil
       else
