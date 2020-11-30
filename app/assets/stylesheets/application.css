@@ -12,8 +12,9 @@
  *
  * removing the require-tree . - we'll use SASS @import instead to get all variables, extends etc.
  *
- *= require "normalize"
- *= require "fontawesome"
- *= require "app"
+ *= require "app/normalize"
+ *= require "app/fontawesome"
+ *= require "app/index"
+ *= require_tree .
  *= require_self
  */
