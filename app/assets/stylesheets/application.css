@@ -15,6 +15,5 @@
  *= require "normalize"
  *= require "fontawesome"
  *= require "app"
- *= require "admin"
  *= require_self
  */
