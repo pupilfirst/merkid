@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :set_raven_context
 
   def fetch_active_student
-    @student ||= user.find_by(id: session[:active_student_id])
+    @student ||= User.find_by(id: session[:active_student_id])
   end
 
   def show_if_active_student
