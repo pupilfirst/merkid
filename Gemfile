@@ -67,6 +67,7 @@ gem "letter_opener", :group => :development
 gem "sidekiq"
 gem 'font-awesome-sass'
 gem 'postmark-rails'
+gem "sentry-raven", '~>3.1.1'
 
 group :production do
   gem 'aws-sdk-s3', '~> 1.35 ', require: false
