@@ -58,4 +58,30 @@ class TasksController < ApplicationController
     @student.submit_task_file!(params[:solution_zip_file])
     redirect_to root_path
   end
+
+  def javascript
+    resolve_task_url("javascript")
+  end
+
+  def java
+    resolve_task_url("java")
+  end
+
+  def python
+    resolve_task_url("python")
+  end
+
+  def ruby
+    resolve_task_url("ruby")
+  end
+
+  def cpp
+    resolve_task_url("cpp")
+  end
+
+  private
+
+  def resolve_task_url(language)
+    redirect_to "https://github.com/jcsherin/package-todo-cli-task/blob/master/_build/fellowship-#{language}.zip?raw=true"
+  end
 end

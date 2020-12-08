@@ -14,7 +14,13 @@ Rails.application.routes.draw do
     get :login_with_token
     resource :student_application_form, only: [:new, :show, :create] do
     end
-    resource :task, only: [:new, :create, :edit, :update]
+    resource :task, only: [:new, :create, :edit, :update] do
+      get 'javascript'
+      get 'java'
+      get 'ruby'
+      get 'cpp'
+      get 'python'
+    end
     resource :student_evaluation, only: [:show]
   end
 
