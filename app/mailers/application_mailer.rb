@@ -1,17 +1,13 @@
 class ApplicationMailer < ActionMailer::Base
   include Roadie::Rails::Mailer
 
-  # default from: 'fullstack@pupilfirst.org'
-  # Postmark::ApiInputError (The 'From' address you supplied (fullstack@pupilfirst.org)
-  # is not a Sender Signature on your account. Please add and confirm this address in order
-  # to be able to use it in the 'From' field of your messages.)
   default from: 'fullstack@pupilfirst.org'
   layout 'mailer'
 
   protected
 
   def default_url_options
-    { host: Rails.env.production? ? 'fullstack.pupilfirst.org' : 'localhost' }
+    { host: Rails.env.production? ? 'apply.pupilfirst.org' : 'localhost' }
   end
 
   def roadie_options
