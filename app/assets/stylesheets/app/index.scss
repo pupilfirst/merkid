@@ -132,7 +132,7 @@ p.highlight {
   margin-bottom: 32px;
 }
 
-textarea, input[type=text], input[type=email], input[type=date] {
+textarea, input[type=text], input[type=email], input[type=date], input[type=tel] {
   width: 400px;
   font-size: 20px;
   padding: 10px;
@@ -146,6 +146,12 @@ textarea {
 input[type=submit] {
   padding: 10px 20px;
   box-shadow: 1px 1px rgba(136, 136, 136, 0.6);
+}
+
+select {
+  width: 400px;
+  font-size: 20px;
+  padding: 10px;
 }
 
 input.locked-input {

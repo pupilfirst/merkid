@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_27_121757) do
+ActiveRecord::Schema.define(version: 2020_12_10_185346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -56,6 +56,11 @@ ActiveRecord::Schema.define(version: 2020_11_27_121757) do
     t.text "college"
     t.text "portfolio"
     t.text "anything_else"
+    t.text "source"
+    t.string "state"
+    t.string "phone_number"
+    t.string "semester"
+    t.string "course"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

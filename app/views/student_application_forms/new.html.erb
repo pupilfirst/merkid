@@ -35,6 +35,15 @@
     </div>
 
     <div class="input mb-48">
+      <%= label "form", "phone_number" do %>
+        <p>
+          What is your valid mobile number?
+        </p>
+        <%= phone_field "form", "phone_number" %>
+      <% end %>
+    </div>
+
+    <div class="input mb-48">
       <%= label "form", "dob" do %>
         <p>
           What is your date of birth?
@@ -42,7 +51,27 @@
             you have to be between 18 and 25 years to participate in this program.
           </small>
         </p>
-        <%= date_field "form", "dob", min: "1995-01-01", max: "2005-01-01" %>
+        <%= date_field "form", "dob", min: "1995-01-01", max: "2003-01-01" %>
+      <% end %>
+    </div>
+
+    <div class="input mb-48">
+      <%= label "form", "course" do %>
+        <p>
+          Course/Program that you are enrolled in?
+          <small class="text-rights subdued block">
+            for eg: Electronics and Communication Engineering
+          </small>
+        </p>
+        <%= text_field "form", "course" %>
+      <% end %>
+    </div>
+
+
+    <div class="input mb-48">
+      <%= label "form", "semester" do %>
+        <p>Which semester will you be in Jan-Apr 2021?</p>
+        <%= select("form", "semester", User::VALID_SEMESTERS, prompt: 'please select') %>
       <% end %>
     </div>
 
@@ -55,6 +84,13 @@
           </small>
         </p>
         <%= text_field "form", "college" %>
+      <% end %>
+    </div>
+
+    <div class="input mb-48">
+      <%= label "form", "state" do %>
+        <p>Which State your University/College belongs to?</p>
+        <%= select("form", "state", User::VALID_STATES, prompt: 'please select') %>
       <% end %>
     </div>
 
@@ -84,10 +120,8 @@
 
     <div class="input mb-48">
       <%= label "form", "source" do %>
-        <p>app/views/student_evaluations/show.html.erb
-          How did you get to know about the programme?
-        </p>
-        <%= select("form", "source", User::VALID_SOURCE) %>
+        <p>How did you get to know about the programme?</p>
+        <%= select("form", "source", User::VALID_SOURCE, prompt: 'please select') %>
       <% end %>
     </div>
 

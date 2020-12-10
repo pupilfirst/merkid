@@ -1,10 +1,10 @@
 class User < ApplicationRecord
-  EMAIL_UNVERIFIED = "email_unverified"
-  EMAIL_VERIFIED = "email_verified"
-  APPLICATION_FORM_SUBMITTED = "application_form_submitted"
-  TASK_REVEALED = "task_revealed"
-  TASK_SUBMITTED = "task_submitted"
-  TASK_REVIEWED = "task_reviewed"
+  EMAIL_UNVERIFIED = 'email_unverified'.freeze
+  EMAIL_VERIFIED = 'email_verified'.freeze
+  APPLICATION_FORM_SUBMITTED = 'application_form_submitted'.freeze
+  TASK_REVEALED = 'task_revealed'.freeze
+  TASK_SUBMITTED = 'task_submitted'.freeze
+  TASK_REVIEWED = 'task_reviewed'.freeze
 
   VALID_SOURCE = [
     'Email from College/University',
@@ -17,6 +17,46 @@ class User < ApplicationRecord
     'Microsoft Student Partner',
     'Other'
   ].freeze
+
+  VALID_STATES = [
+    'Andhra Pradesh',
+    'Arunachal Pradesh',
+    'Assam',
+    'Bihar',
+    'Chandigarh (UT)',
+    'Chhattisgarh',
+    'Dadra and Nagar Haveli (UT)',
+    'Daman and Diu (UT)',
+    'Delhi (NCT)',
+    'Goa',
+    'Gujarat',
+    'Haryana',
+    'Himachal Pradesh',
+    'Jammu & Kashmir (UT)',
+    'Jharkhand',
+    'Karnataka',
+    'Kerala',
+    'Lakshadweep (UT)',
+    'Madhya Pradesh',
+    'Maharashtra',
+    'Manipur',
+    'Meghalaya',
+    'Mizoram',
+    'Nagaland',
+    'Odisha',
+    'Puducherry (UT)',
+    'Punjab',
+    'Rajasthan',
+    'Sikkim',
+    'Tamil Nadu',
+    'Telangana',
+    'Tripura',
+    'Uttarakhand',
+    'Uttar Pradesh',
+    'West Bengal'
+  ].freeze
+
+  VALID_SEMESTERS = %w[1 2 3 4 5 6 7 8 9 10 Other].freeze
 
   validates_format_of :email, with: /\A([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})\z/i
 
@@ -72,7 +112,7 @@ class User < ApplicationRecord
     task_submission.uploaded_file.attach(file)
     # make filenames uniform, tag with first name so it is easy to correlate and update the correct
     # student's scores during grading
-    task_submission.uploaded_file.blob.update!(filename: first_name.titleize.gsub(/\W/, '') + "-" + id[0..3] + ".zip")
+    task_submission.uploaded_file.blob.update!(filename: first_name.titleize.gsub(/\W/, '') + '-' + id[0..3] + '.zip')
     update_attributes(status: TASK_SUBMITTED)
     task_submission
   end
@@ -83,20 +123,20 @@ class User < ApplicationRecord
     if status_application_form_submitted?
       first_name.capitalize
     else
-      email.split("@").first
+      email.split('@').first
     end
   end
 
   def more_context_name
-    [first_name, email].compact.join(", ")
+    [first_name, email].compact.join(', ')
   end
 
   def is_admin?
-    ["jacob@protoship.io", "jasim@protoship.io", "bodhish@pupilfirst.org", "hari@pupilfirst.org", "reena@pupilfirst.org",
-      "suma@pupilfirst.org"].include?(email)
+    ['jacob@protoship.io', 'jasim@protoship.io', 'bodhish@pupilfirst.org', 'hari@pupilfirst.org', 'reena@pupilfirst.org',
+      'suma@pupilfirst.org'].include?(email)
   end
 
   def is_coach?
-    ["jacob@protoship.io", "jasim@protoship.io", "bodhish@pupilfirst.org", "hari@pupilfirst.org"].include?(email)
+    ['jacob@protoship.io', 'jasim@protoship.io', 'bodhish@pupilfirst.org', 'hari@pupilfirst.org'].include?(email)
   end
 end

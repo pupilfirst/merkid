@@ -13,7 +13,11 @@ class StudentApplicationFormsController < ApplicationController
         college: @student.college,
         portfolio: @student.portfolio,
         anything_else: @student.anything_else,
-        source: @student.source
+        source: @student.source,
+        state: @student.state,
+        phone_number: @student.phone_number,
+        semester: @student.semester,
+        course: @student.course
       })
   end
 
@@ -27,7 +31,11 @@ class StudentApplicationFormsController < ApplicationController
       college: p[:college],
       portfolio: p[:portfolio],
       anything_else: p[:anything_else],
-      source: p[:source]
+      source: p[:source],
+      state: p[:state],
+      phone_number: p[:phone_number],
+      semester: p[:semester],
+      course: p[:course]
     }
 
     @form = StudentApplicationForm.new(attrs)
