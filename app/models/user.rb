@@ -6,6 +6,18 @@ class User < ApplicationRecord
   TASK_SUBMITTED = "task_submitted"
   TASK_REVIEWED = "task_reviewed"
 
+  VALID_SOURCE = [
+    'Email from College/University',
+    'Facebook',
+    'Friends',
+    'Twitter',
+    'Whatsapp',
+    'Facebook Developer Circle',
+    'Google Developer Group',
+    'Microsoft Student Partner',
+    'Other'
+  ].freeze
+
   validates_format_of :email, with: /\A([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})\z/i
 
   has_many :task_submissions
@@ -81,7 +93,7 @@ class User < ApplicationRecord
 
   def is_admin?
     ["jacob@protoship.io", "jasim@protoship.io", "bodhish@pupilfirst.org", "hari@pupilfirst.org", "reena@pupilfirst.org",
-     "suma@pupilfirst.org"].include?(email)
+      "suma@pupilfirst.org"].include?(email)
   end
 
   def is_coach?

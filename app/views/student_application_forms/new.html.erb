@@ -42,7 +42,7 @@
             you have to be between 18 and 25 years to participate in this program.
           </small>
         </p>
-        <%= date_field "form", "dob" %>
+        <%= date_field "form", "dob", min: "1995-01-01", max: "2005-01-01" %>
       <% end %>
     </div>
 
@@ -79,6 +79,15 @@
           </small>
         </p>
         <%= text_area "form", "anything_else" %>
+      <% end %>
+    </div>
+
+    <div class="input mb-48">
+      <%= label "form", "source" do %>
+        <p>
+          How did you get to know about the programme?
+        </p>
+        <%= select("form", "source", User::VALID_SOURCE) %>
       <% end %>
     </div>
 

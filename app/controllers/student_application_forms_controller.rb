@@ -12,7 +12,8 @@ class StudentApplicationFormsController < ApplicationController
         dob: @student.dob,
         college: @student.college,
         portfolio: @student.portfolio,
-        anything_else: @student.anything_else
+        anything_else: @student.anything_else,
+        source: @student.source
       })
   end
 
@@ -25,7 +26,8 @@ class StudentApplicationFormsController < ApplicationController
       dob: p[:dob],
       college: p[:college],
       portfolio: p[:portfolio],
-      anything_else: p[:anything_else]
+      anything_else: p[:anything_else],
+      source: p[:source]
     }
 
     @form = StudentApplicationForm.new(attrs)
