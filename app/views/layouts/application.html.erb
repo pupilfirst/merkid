@@ -32,12 +32,12 @@
   <% if @is_admin_page %>
     <h1>Admin</h1>
   <% else %>
-    <h1>Apply to CoronaSafe Engineering Fellowship</h1>
+    <h1>CoronaSafe Engineering Fellowship - Application steps </h1>
   <% end %>
 
-  <%= render partial: "layouts/flash", locals: {msg: flash[:info], css: "flash-info animation-vibrate"} %>
-  <%= render partial: "layouts/flash", locals: {msg: flash[:success], css: "flash-success animation-vibrate"} %>
-  <%= render partial: "layouts/flash", locals: {msg: flash[:error], css: "flash-error animation-vibrate"} %>
+  <%= render partial: "layouts/flash", locals: { msg: flash[:info], css: "flash-info animation-vibrate" } %>
+  <%= render partial: "layouts/flash", locals: { msg: flash[:success], css: "flash-success animation-vibrate" } %>
+  <%= render partial: "layouts/flash", locals: { msg: flash[:error], css: "flash-error animation-vibrate" } %>
 
   <%= yield %>
 
