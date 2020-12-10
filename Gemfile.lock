@@ -114,6 +114,8 @@ GEM
     concurrent-ruby (1.1.7)
     connection_pool (2.2.3)
     crass (1.0.6)
+    css_parser (1.7.1)
+      addressable
     erubi (1.10.0)
     faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
@@ -202,6 +204,12 @@ GEM
       ffi (~> 1.0)
     redis (4.2.5)
     regexp_parser (1.8.2)
+    roadie (4.0.0)
+      css_parser (~> 1.4)
+      nokogiri (~> 1.8)
+    roadie-rails (2.2.0)
+      railties (>= 5.1, < 6.2)
+      roadie (>= 3.1, < 5.0)
     ruby2_keywords (0.0.2)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
@@ -286,6 +294,7 @@ DEPENDENCIES
   postmark-rails
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
+  roadie-rails (~> 2.2)
   sass-rails (>= 6)
   selenium-webdriver
   sentry-raven (~> 3.1.1)

@@ -61,13 +61,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-
 # APPLICATION SPECIFIC SETUP
 gem "letter_opener", :group => :development
 gem "sidekiq"
 gem 'font-awesome-sass'
 gem 'postmark-rails'
 gem "sentry-raven", '~>3.1.1'
+# Manage email css
+gem 'roadie-rails', '~> 2.2'
 
 group :production do
   gem 'aws-sdk-s3', '~> 1.35 ', require: false
