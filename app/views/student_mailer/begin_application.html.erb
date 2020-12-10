@@ -1,26 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
-</head>
-<body style="font-size: 20px;">
-<h4>CoronaSafe Engineering Fellowship Application</h4>
-<p>
-  Hello <%= @student.display_name %>,
-</p>
+<% content_for :title do %>
+  CoronaSafe Engineering Fellowship
+<% end %>
+<% content_for :subtitle do %>
+  Begin your application now
+<% end %>
 
-<p>Thanks for applying!</p>
+<% content_for :title_button_text do %>
+  Login
+<% end %>
 
-<p>
-  <strong>
-    Click this link and begin your application now: <a href=<%= @url %>>fellowship application form</a>
-  </strong>
-</p>
+<% content_for(:title_button_link, @url) %>
 
-<p>
-  For any questions, please email us at <a href="mailto:fullstack@pupilfirst.org">fullstack@pupilfirst.org</a>
-</p>
+<% content_for :salutation do %>
+  <p>
+    Hello <%= @student.display_name %>,
+  </p>
+<% end %>
+<% content_for :body do %>
+  <p>
+    <strong>
+      Click this link and begin your application now: <a href=<%= @url %>>fellowship application form</a>
+    </strong>
+  </p>
+  <%= render 'mailers/link_fallback', url: @url %>
+  <p>
+    For any questions, please email us at <a href="mailto:fullstack@pupilfirst.org">fullstack@pupilfirst.org</a>
+  </p>
 
-<p>We look forward to your application. Have a great day!</p>
-</body>
-</html>
+  <p>We look forward to your application. Have a great day!</p>
+<% end %>
