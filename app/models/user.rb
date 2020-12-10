@@ -12,9 +12,14 @@ class User < ApplicationRecord
     'Friends',
     'Twitter',
     'Whatsapp',
+    'Instagram',
+    'Telegram',
+    'Slack',
+    'News Paper',
     'Facebook Developer Circle',
     'Google Developer Group',
     'Microsoft Student Partner',
+    'Pupilfirst Alumni',
     'Other'
   ].freeze
 
