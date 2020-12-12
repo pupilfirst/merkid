@@ -1,6 +1,6 @@
 class AddToGithubService
-  def initialize(file, student)
-    @file = file
+  def initialize(file_path, student)
+    @file_path = file_path
     @student = student
   end
 
@@ -12,7 +12,7 @@ class AddToGithubService
     # Add node workflow
     client.create_contents("nseadlc-2020/#{@student.id}", '.github/workflows/node.js.yml', 'skip ci', workflow_node)
     # Add submission
-    client.create_contents("nseadlc-2020/#{@student.id}", 'submission.zip', 'Adding student submission', file: @file.path)
+    client.create_contents("nseadlc-2020/#{@student.id}", 'submission.zip', 'Adding student submission', file: @file_path)
   end
 
   private

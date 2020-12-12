@@ -116,7 +116,7 @@ class User < ApplicationRecord
     task_submission = task_submissions.create!
     task_submission.uploaded_file.attach(file)
     # Experimental
-    AddToGithubJob.perform_later(file, self)
+    AddToGithubJob.perform_later(file.path, self)
     # make filenames uniform, tag with first name so it is easy to correlate and update the correct
     # student's scores during grading
     task_submission.uploaded_file.blob.update!(filename: first_name.titleize.gsub(/\W/, '') + '-' + id[0..3] + '.zip')

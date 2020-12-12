@@ -1,7 +1,7 @@
 class AddToGithubJob < ApplicationJob
   queue_as :default
 
-  def perform(file, student)
-    AddToGithubService.new(file, student).execute
+  def perform(file_path, student)
+    AddToGithubService.new(file_path, student).execute
   end
 end
