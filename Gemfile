@@ -69,6 +69,8 @@ gem 'postmark-rails'
 gem "sentry-raven", '~>3.1.1'
 # Manage email css
 gem 'roadie-rails', '~> 2.2'
+# github api
+gem "octokit", "~> 4.0"
 
 group :production do
   gem 'aws-sdk-s3', '~> 1.35 ', require: false
