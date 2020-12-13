@@ -3,6 +3,12 @@ class StudentApplicationFormsController < ApplicationController
   before_action :ensure_active_student
   before_action :allow_only_email_verified_students
 
+  def show
+    # GET /students/student_application_form
+    # Happens when page is refreshed after a failed submit (POST create)
+    redirect_to new_students_student_application_form_path
+  end
+
   def new
     @form = StudentApplicationForm.new(
       {
