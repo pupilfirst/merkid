@@ -17,7 +17,8 @@ class StudentApplicationFormsController < ApplicationController
         state: @student.state,
         phone_number: @student.phone_number,
         semester: @student.semester,
-        course: @student.course
+        course: @student.course,
+        terms_agreed: @student.terms_agreed_at.present?
       })
   end
 
@@ -35,13 +36,17 @@ class StudentApplicationFormsController < ApplicationController
       state: p[:state],
       phone_number: p[:phone_number],
       semester: p[:semester],
-      course: p[:course]
+      course: p[:course],
+      terms_agreed: p[:terms_agreed]
     }
 
     @form = StudentApplicationForm.new(attrs)
     @form.validate
 
     if @form.valid?
+      attrs.delete :terms_agreed
+      attrs[:terms_agreed_at] = DateTime.now
+
       @student.submit_application_form!(attrs)
       flash[:success] = "Thanks, your application form is now saved. Please continue to the next step."
       redirect_to students_path

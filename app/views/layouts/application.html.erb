@@ -32,7 +32,8 @@
   <% if @is_admin_page %>
     <h1>Admin</h1>
   <% else %>
-    <h1>CoronaSafe Engineering Fellowship - Application steps </h1>
+    <h1 style="margin-bottom: 8px; padding-bottom: 0">CoronaSafe Engineering Fellowship</h1>
+    <h2 class="subdued mb-48" style="margin-top: 0; font-size: 24px;">Application Steps</h2>
   <% end %>
 
   <%= render partial: "layouts/flash", locals: { msg: flash[:info], css: "flash-info animation-vibrate" } %>
@@ -42,7 +43,8 @@
   <%= yield %>
 
   <div class="mt-32">
-    <h4>For any questions, email us at <a href="mailto:fullstack@pupilfirst.org">fullstack@pupilfirst.org</a></h4>
+    <h4>You can review the terms for participation in the program <%= link_to "here", terms_path %>.</h4>
+    <h4>For any questions, email us at <a href="mailto:fullstack@pupilfirst.org">fullstack@pupilfirst.org</a>.</h4>
   </div>
 
   <% if @student %>
