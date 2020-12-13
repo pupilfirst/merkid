@@ -45,7 +45,7 @@ jobs:
     - run: unzip -j submission.zip
     - run: chmod +x todo.sh
     - run: npm i
-    - run: npm test
+    - run: make test
     DOC
   end
 end
