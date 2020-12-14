@@ -7,12 +7,18 @@ class AddToGithubService
   def execute
     client = Octokit::Client.new(:access_token => ENV['GITHUB_TOKEN'])
 
-    # create a private repo with student id
-    client.create_repository(@student.id, organization: 'nseadlc-2020', private: 'true')
-    # Add node workflow
-    client.create_contents("nseadlc-2020/#{@student.id}", '.github/workflows/node.js.yml', 'skip ci', workflow_node)
-    # Add submission
-    client.create_contents("nseadlc-2020/#{@student.id}", 'submission.zip', 'Adding student submission', file: @file_path)
+    return unless @file_path.present?
+
+    begin
+      # create a private repo with student id
+      client.create_repository(@student.id, organization: 'nseadlc-2020', private: 'true')
+      # Add node workflow
+      client.create_contents("nseadlc-2020/#{@student.id}", '.github/workflows/node.js.yml', 'skip ci', workflow_node)
+      # Add submission
+      client.create_contents("nseadlc-2020/#{@student.id}", 'submission.zip', 'Adding student submission', file: @file_path)
+    rescue
+      puts "Error"
+    end
   end
 
   private
