@@ -6,6 +6,6 @@ class HomeController < ApplicationController
   end
 
   def terms
-    redirect_to "https://drive.google.com/file/d/1BfEV_oJQ4V0SrPofy5_p7GSlr4KESEgJ/view"
+    redirect_to "https://drive.google.com/file/d/1qQ0VugHXozra2qc_95wXNLcFC4rmIJEp/view"
   end
 end
