@@ -82,6 +82,6 @@ class TasksController < ApplicationController
   private
 
   def resolve_task_url(language)
-    redirect_to "https://github.com/jcsherin/package-todo-cli-task/blob/release/_build/fellowship-#{language}.zip?raw=true"
+    redirect_to "https://github.com/nseadlc-2020/package-todo-cli-task/blob/release/_build/fellowship-#{language}.zip?raw=true"
   end
 end
