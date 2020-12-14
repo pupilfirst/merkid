@@ -43,6 +43,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: unzip -j submission.zip
+    - run: ln -s todo.sh todo
     - run: chmod +x todo.sh
     - run: npm i
     - run: make test
