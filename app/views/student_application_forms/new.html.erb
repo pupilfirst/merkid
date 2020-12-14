@@ -58,7 +58,7 @@
     <div class="input mb-48">
       <%= label "form", "course" do %>
         <p>
-          Course/Program that you are enrolled in?
+          Course/Program that you are currently enrolled in at your University/College?
           <small class="text-rights subdued block">
             for eg: Electronics and Communication Engineering
           </small>
@@ -120,7 +120,7 @@
 
     <div class="input mb-48">
       <%= label "form", "source" do %>
-        <p>How did you get to know about the programme?</p>
+        <p>How did you get to know about this programme?</p>
         <%= select("form", "source", User::VALID_SOURCE, prompt: 'please select') %>
       <% end %>
     </div>
@@ -133,7 +133,7 @@
         <div class="flex items-center">
           <%= check_box("form", "terms_agreed", class: "mr-16 block") %>
           <span class="block">
-            I have read and agree to the <%= link_to "Terms for Participation", terms_path %>
+            I have read and I agree to the <%= link_to "Terms for Participation", terms_path %>
           </span>
         </div>
       <% end %>
