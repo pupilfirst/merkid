@@ -15,5 +15,5 @@ class StudentApplicationForm
   validates :semester, presence: { message: 'Semester is required.' }
   validates :phone_number, presence: { message: 'Phone number is required.' }
   validates :course, presence: { message: 'Please enter your Course details.' }
-  validates :terms_agreed, presence: { message: 'You have to accept the terms to participate in the program.' }
+  validates :terms_agreed, acceptance: { message: 'You have to accept the terms to participate in the program.' }
 end
