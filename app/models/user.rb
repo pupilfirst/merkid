@@ -140,11 +140,11 @@ class User < ApplicationRecord
   end
 
   def is_admin?
-    ['jacob@protoship.io', 'jasim@protoship.io', 'bodhish@pupilfirst.org', 'hari@pupilfirst.org', 'reena@pupilfirst.org',
+    ['jacob@protoship.io', 'jasim@protoship.io', 'bodhish@pupilfirst.org', 'hari@pupilfirst.org', 'reena@pupilfirst.org', 'mahesh@pupilfirst.org',
       'suma@pupilfirst.org'].include?(email)
   end
 
   def is_coach?
-    ['jacob@protoship.io', 'jasim@protoship.io', 'bodhish@pupilfirst.org', 'hari@pupilfirst.org'].include?(email)
+    ['jacob@protoship.io', 'jasim@protoship.io', 'bodhish@pupilfirst.org', 'hari@pupilfirst.org', 'mahesh@pupilfirst.org'].include?(email)
   end
 end
