@@ -1,18 +1,18 @@
-<h2 class="">4. Check your programming task results</h2>
+<div class="text-white text-3xl">4. Check your programming task results</div>
 <main>
 
   <% if @student.status_task_submitted? %>
 
-    <h3 class="mt-0">Your submission is currently queued for review</h3>
-    <p>
+    <div class="mt-4 font-semibold text-xl text-primary-500">Your submission is currently queued for review</div>
+    <p class="mt-4">
       We received your task submission on: <br>
-      <span style="background-color: #dfe1ec"><%= @student.task_submissions.last.created_at.in_time_zone('Asia/Kolkata').to_s(:short_with_dayname) %></span>
+      <span class="bg-primary-700 p-px mt-4"><%= @student.task_submissions.last.created_at.in_time_zone('Asia/Kolkata').to_s(:short_with_dayname) %></span>
     </p>
-    <p>
+    <p class="mt-4">
       We review all submissions within 3 working days. We will email you after the review.
     </p>
 
-    <p>And thanks for taking the time to work through the problem. We hope you enjoyed it.</p>
+    <p class="mt-4">And thanks for taking the time to work through the problem. We hope you enjoyed it.</p>
 
   <% end %>
 </main>

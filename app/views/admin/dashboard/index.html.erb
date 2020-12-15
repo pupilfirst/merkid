@@ -17,11 +17,11 @@
 </div>
 
 <main>
-  <h2>
+  <h2 class="mt-2 text-white">
     <%= @filter.to_string %>
     &mdash; <%= @students.count %> students
   </h2>
-  <table class="admin-table">
+  <table class="admin-table bg-white">
     <thead>
     <tr>
       <th>email</th>
@@ -36,19 +36,19 @@
     <tbody>
     <% @students.each do |s| %>
       <tr>
-        <td style="padding: 0 16px;">
-          <p>
+        <td class="text-gray-800">
+          <p class="text-gray-800">
             <%= s.email %>
           </p>
         </td>
         <td>
-          <p>
+          <p class="text-gray-800">
             <%= s.full_name %>
           </p>
         </td>
         <% unless @filter.active? %>
           <td>
-            <p>
+            <p class="text-gray-800">
               <%= s.status %>
             </p>
           </td>

@@ -1,0 +1,87 @@
+<% students = User.kept %>
+<% @stats_page = true %>
+<%
+  def states
+    User.kept.group(:state).count.sort_by { |e| e[1] }.reverse
+  end
+
+  def sources
+    User.kept.group(:source).count.sort_by { |e| e[1] }.reverse
+  end
+%>
+<div>
+  <table class="table-auto mx-auto w-full text-primary-700">
+    <tbody>
+    <tr>
+      <td class="border px-4 py-2">Total Applications</td>
+      <td class="border px-4 py-2"><%= students.count %></td>
+    </tr>
+    <tr>
+      <td class="border px-4 py-2">Email UnVerified</td>
+      <td class="border px-4 py-2"><%= students.where(status: User::EMAIL_UNVERIFIED).count %></td>
+    </tr>
+    <tr>
+      <td class="border px-4 py-2">Email UnVerified</td>
+      <td class="border px-4 py-2"><%= students.where(status: User::EMAIL_VERIFIED).count %></td>
+    </tr>
+    <tr>
+      <td class="border px-4 py-2">Application form Submitted</td>
+      <td class="border px-4 py-2"><%= students.where(status: User::APPLICATION_FORM_SUBMITTED).count %></td>
+    </tr>
+    <tr>
+      <td class="border px-4 py-2">Task Revealed</td>
+      <td class="border px-4 py-2"><%= students.where(status: User::TASK_REVEALED).count %></td>
+    </tr>
+    <tr>
+      <td class="border px-4 py-2">Task Submitted</td>
+      <td class="border px-4 py-2"><%= students.where(status: User::TASK_SUBMITTED).count %></td>
+    </tr>
+    <tr>
+      <td class="border px-4 py-2">Task Reviewed</td>
+      <td class="border px-4 py-2"><%= students.where(status: User::TASK_REVIEWED).count %></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <div class="mt-10">
+    <div class="font-bold text-lg text-primary-800"> States -
+      <%= states.count %></div>
+    <table class="table-auto mx-auto w-full text-primary-700">
+      <thead class="border mt-2">
+      <tr>
+        <th class="px-4 py-2 border-r">State</th>
+        <th class="px-4 py-2">Students</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% states.each do |state| %>
+        <tr>
+          <td class="border px-4 py-2"><%= state[0] %></td>
+          <td class="border px-4 py-2"><%= state[1] %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="mt-10">
+    <div class="font-bold text-lg text-primary-800"> Source</div>
+    <table class="table-auto mx-auto w-full text-primary-700">
+      <thead class="border mt-2">
+      <tr>
+        <th class="px-4 py-2 border-r">Medium</th>
+        <th class="px-4 py-2">Students</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% sources.each do |source| %>
+        <tr>
+          <td class="border px-4 py-2"><%= source[0].blank? ? "Yet to update" : source[0] %></td>
+          <td class="border px-4 py-2"><%= source[1] %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

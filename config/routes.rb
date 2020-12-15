@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: 'home#show'
 
   get :terms, to: "home#terms"
+  get :stats, to: "home#stats"
 
   get :logout, to: "users#logout"
   post 'first_step', to: "users#first_step"

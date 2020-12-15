@@ -1,26 +1,27 @@
-<h2 class="">2. Reveal programming task</h2>
+<div class="text-white text-3xl">2. Reveal programming task</div>
 
-<main class="">
+<main class="text-white">
   <%= form_tag(students_task_path) do %>
-    <p>
+    <p class="text-white mt-6">
       To apply for the fellowship, you have to build a command-line program and submit its code for review.
     </p>
 
-    <p>It is not an algorithmic challenge, and does not have any hidden complexity. Think of it as just an enjoyable
+    <p class="text-white mt-6">
+      It is not an algorithmic challenge, and does not have any hidden complexity. Think of it as just an enjoyable
       programming session.</p>
 
-    <p>
+    <p class="text-white mt-6">
       You can spend anywhere from 5 hours to 2 days to write and submit this program.
     </p>
 
-    <p>
+    <p class="text-white mt-6">
       <strong>Once you reveal the problem description, you should finish and submit the code within 2 days.</strong>
     </p>
 
-    <p>Click the button when you're ready!</p>
+    <p class="text-white mt-6">Click the button when you're ready!</p>
 
     <p>
-      <%= submit_tag "Reveal programming problem", data: {confirm: "We're excited to see what you make! But make sure you have at least a day to spend on this problem. So, are we ready?"} %>
+      <%= submit_tag "Reveal programming problem", data: { confirm: "We're excited to see what you make! But make sure you have at least a day to spend on this problem. So, are we ready?" }, class: 'mt-6 block text-center px-10 py-4 bg-gray-900 text-primary-500 border border-primary-500 font-bold font-montserrat rounded shadow-lg hover:shadow-xl hover:bg-primary-900 hover:text-gray-900 transition duration-250 ease-in-out' %>
     </p>
   <% end %>
 </main>

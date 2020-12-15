@@ -2,13 +2,12 @@
   <%= form_tag(first_step_path, :multipart => true) do %>
     <div class="input">
       <label for="email">
-        <p>Before we begin, please tell us your email address!</p>
-        <%= email_field_tag 'email', nil, placeholder: "abc@xyz.com", class: 'email_input' %>
+        <p class="text-white">Before we begin, please tell us your email address!</p>
+        <%= email_field_tag 'email', nil, required: true, placeholder: "abc@xyz.com", class: 'mt-4 shadow-sm focus:ring-primary-500 focus:border-primary-500 block w-full sm:text-sm border-white rounded-md max-w-md' %>
       </label>
     </div>
-
     <p>
-      <%= submit_tag "Continue" %>
+      <%= submit_tag "Continue", class: 'block text-center px-10 py-4 bg-gray-900 text-primary-500 border border-primary-500 font-bold font-montserrat rounded shadow-lg hover:shadow-xl hover:bg-primary-900 hover:text-gray-900 transition duration-250 ease-in-out' %>
     </p>
   <% end %>
 </main>

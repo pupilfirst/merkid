@@ -1,59 +1,60 @@
-<h2 class="">3. Submit code for programming task</h2>
+<div class="text-white text-3xl">3. Submit code for programming task</div>
 
 <div>
-  <p class="mb-32">
+  <p class="mb-8 text-white mt-4">
     To apply for the fellowship, you have to build a command-line program to help you
     <strong>manage your todo list</strong>.
     You'll be given a set of automated tests that'll help you understand how it should work. Once you get all the tests
     to pass, you should then submit the code for review.
   </p>
 
-  <div class="p-8" style="background: rgba(222,227,234,0.91)">
+  <div class="p-8 bg-primary-200 rounded-lg shadow">
     <ol>
       <li>
-        <a href="#1-introduction">Read the introduction</a>
+        <a class="text-primary-900 font-bold" href="#1-introduction">Read the introduction</a>
       </li>
       <li>
-        <a href="#2-download-starter">Download a starter zip for your language</a>
+        <a class="text-primary-900 font-bold" href="#2-download-starter">Download a starter zip for your language</a>
       </li>
       <li>
-        <a href="#3-upload-code">Upload your code</a>
+        <a class="text-primary-900 font-bold" href="#3-upload-code">Upload your code</a>
       </li>
     </ol>
   </div>
 
   <a name="1-introduction" class="block"></a>
   <div>
-    <h3 class="mt-32">1. Introduction</h3>
-    <p>
+    <div class="text-white mt-16 text-3xl font-bold">1. Introduction</div>
+    <p class="text-white mt-4">
       Here's a short video of how the program should work:
     </p>
 
-    <p class="mb-32">
-      <a href="https://vimeo.com/490621534">
+    <p class="mb-8">
+      <a class="rounded overflow-hidden shadow" href="https://vimeo.com/490621534">
         <img style="max-width: 100%"
              src="https://res.cloudinary.com/sv-co/image/upload/v1607935139/fullstack-CEF/Todo-CLI/play-video-demo_fp50wp.png" alt="Todo CLI app reference video"/>
       </a>
     </p>
 
-    <p>
+    <p class="mt-4">
       You can spend anywhere from 5 hours to 2 days to build this.
     </p>
-    <p>
+    <p class="mt-4">
       To make it easy, you'll be provided clear specifications and automated tests.
     </p>
-    <p>Remember, this is <em>not</em> an algorithms challenge &mdash; think of it as just a fun problem to work
+    <p class="mt-4">Remember, this is <em>not</em> an algorithms challenge &mdash; think of it as just a fun problem to
+      work
       on.
     </p>
-    <p>
+    <p class="mt-4">
       We will grade you on whether your code passes all the tests, and on the clarity of the code you write.
     </p>
 
-    <p>
+    <p class="mt-4">
       Once you submit, we will give you kind, helpful feedback on how you can further improve your code.
       This is irrespective of whether you are shortlisted for the fellowship or not!
     </p>
-    <p>
+    <p class="mt-4">
       However, we'll be able to provide feedback to only the first 20 students to submit a working solution.
       So if you want to get some free, expert advice on programming, hurry and submit!
     </p>
@@ -61,68 +62,112 @@
 
   <a name="2-download-starter" class="block"></a>
   <div>
-    <h3 class="mt-32">2. Download a starter zip for your language</h3>
-    <p style="color: black">
-      <span style="background: yellow">You must use one of the following starter zips to build the application.</span>
-    </p>
-    <p>
+    <div class="text-white mt-16 text-3xl font-bold">2. Download a starter zip for your language</div>
+
+    <div class="p-4 bg-primary-500 text-black rounded mt-4">You must use one of the following starter zips to build the
+      application.
+    </div>
+
+    <p class="mt-4">
       There is a README file in all the repos below. It contains detailed instructions on what you should build.
     </p>
-    <p>
+    <p class="mt-4">
       The repos also come with automated tests. You should run those tests as you're building each feature to
       verify whether they work well.
     </p>
-    <p>
+    <p class="mt-4">
+      <i class="fab fa-fw fa-js text-primary-500"></i>
       <a href="./javascript">JavaScript starter repo</a>
     </p>
-    <p>
+    <p class="mt-4">
+      <i class="fas fa-fw fa-gem text-primary-500"></i>
       <a href="./ruby">Ruby starter repo</a>
     </p>
-    <p>
+    <p class="mt-4">
+      <i class="fab fa-fw fa-python text-primary-500"></i>
       <a href="./python">Python starter repo</a>
     </p>
-    <p>
+    <p class="mt-4">
+      <i class="fab fa-fw fa-java text-primary-500"></i>
       <a href="./java">Java starter repo</a>
     </p>
-    <p>
+    <p class="mt-4">
+      <i class="fab fa-fw fa-cuttlefish text-primary-500"></i>
       <a href="./cpp">C++ starter repo</a>
     </p>
 
-    <p>You should use the programming language which you are most comfortable with. If your favourite language is not
+    <p class="mt-4">You should use the programming language which you are most comfortable with. If your favourite
+      language is not
       listed here, please email us right away. We'll try to set it up as soon as we can.</p>
 
-    <p>If you are ready, download one of the above zip files and get going! Don't forget to read the README file
+    <p class="mt-4">If you are ready, download one of the above zip files and get going! Don't forget to read the README
+      file
       thoroughly before you start work.</p>
 
     <a name="3-upload-code" class="block"></a>
     <%= form_tag(students_task_path, :multipart => true, method: :put) do %>
-      <h3 class="mt-32">3. Upload your code</h3>
+      <div class="text-white mt-16 text-3xl font-bold">3. Upload your code</div>
       <div class="mb-8">
-        <p>Great! Have you completed the program? Now it is time to submit your code. But before that:</p>
-        <ul>
-          <li>Ensure that all the tests pass.</li>
-          <li>Just to be safe, backup your project directory to a different folder in your computer.</li>
+        <p class="mt-4">Great! Have you completed the program? Now it is time to submit your code. But before that:</p>
+        <ul class="ml-6 mt-4">
+
+          <li class="flex">
+            <span>
+              <i class="fa-fw fas fa-check text-primary-500 mr-2"></i>
+            </span>
+            <span>
+           Ensure that all the tests pass.
+            </span>
+          </li>
+          <li class="flex mt-4">
+            <span>
+              <i class="fa-fw fas fa-check text-primary-500 mr-2"></i>
+            </span>
+            <span>
+            Just to be safe, backup your project directory to a
+            different folder in your computer.
+            </span>
+          </li>
         </ul>
 
-        <p>Now let's prepare for upload:</p>
-        <ol>
-          <li>Remove any binary files, or dependencies like node_modules from your directory. The directory should
+        <p class="mt-6">Now let's prepare for upload:</p>
+        <ol class="ml-6 mt-4">
+          <li class="flex">
+            <span>
+              <i class="fa-fw fas fa-check text-primary-500 mr-2"></i>
+            </span>
+            <span>
+            Remove any binary files, or dependencies like node_modules from your directory. The directory should
             contain only text files like the source, README etc.
+            </span>
           </li>
-          <li>If we need to do anything extra to make the program work on our computers, add those instructions to the
+          <li class="flex">
+            <span>
+              <i class="fa-fw fas fa-check text-primary-500 mr-2"></i>
+            </span>
+            <span>
+            If we need to do anything extra to make the program work on our computers, add those instructions to the
             README.
+            </span>
           </li>
-          <li>Compress the directory into a .zip file</li>
+          <li class="flex">
+            <span>
+              <i class="fa-fw fas fa-check text-primary-500 mr-2"></i>
+            </span>
+            <span>
+            Compress the directory into a .zip file
+            </span>
+          </li>
         </ol>
 
-        <p><strong>The .zip file must be less than 3mb in size.</strong></p>
+        <p class="mt-6"><strong>The .zip file must be less than 3mb in size.</strong></p>
 
-        <div class="mb-32" style="padding: 24px; background-color: rgba(237,237,248,0.91); border-radius: 4px;">
-          <p>Select the .zip file from your computer:</p>
+        <div class="mb-8 mt-6 bg-primary-200 p-8 bg-primary-200 rounded-lg shadow">
+          <p class="text-primary-900 font-bold">Select the .zip file from your computer:</p>
           <%= file_field_tag 'solution_zip_file', accept: "zip,application/zip,application/x-zip,application/x-zip-compressed" %>
         </div>
-        <p class="mb-32 p-8">
-          <%= submit_tag "Upload the .zip file", data: { confirm: "You can only submit once (you'll have to email us otherwise). So make sure everything is in order. Go ahead with the upload?" } %>
+        <p class="my-8">
+          <%= submit_tag "Upload the .zip file", data: { confirm: "You can only submit once (you'll have to email us otherwise). So make sure everything is in order. Go ahead with the upload?" }, class: 'mt-6 block text-center px-10 py-4 bg-gray-900 text-primary-500 border border-primary-500 font-bold font-montserrat rounded shadow-lg hover:shadow-xl hover:bg-primary-900 hover:text-gray-900 transition duration-250 ease-in-out' %>
         </p>
 
       </div>

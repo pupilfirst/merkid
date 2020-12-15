@@ -1,34 +1,5 @@
 @import "colors";
 
-html {
-  box-sizing: border-box;
-}
-
-*, *::before, *::after {
-  box-sizing: inherit;
-}
-
-body {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  -moz-osx-font-smoothing: auto;
-  -webkit-font-smoothing: antialiased;
-  font-smooth: auto;
-}
-
-body {
-  line-height: 1.2;
-}
-
-body > .root {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 64px 32px;
-}
-
-main {
-  padding: 32px 0;
-}
-
 h1 {
   font-size: 24px;
 }
@@ -55,7 +26,7 @@ p {
 
 p, li {
   font-size: 20px;
-  color: $light-text-color;
+  color: white;
   line-height: 1.4;
 }
 
@@ -100,7 +71,7 @@ p.highlight {
 
 .subdued {
   font-size: 14px;
-  color: $light-text-color;
+  color: white;
 }
 
 .emphasis {
@@ -131,11 +102,11 @@ p.highlight {
   margin-bottom: 32px;
 }
 
-textarea, input[type=text], input[type=email], input[type=date], input[type=tel] {
-  width: 400px;
-  font-size: 20px;
-  padding: 10px;
-}
+//textarea, input[type=text], input[type=email], input[type=date], input[type=tel] {
+//  width: 400px;
+//  font-size: 20px;
+//  padding: 10px;
+//}
 
 input[type=checkbox] {
   height: 30px;
@@ -153,7 +124,6 @@ input[type=submit] {
 }
 
 select {
-  width: 400px;
   font-size: 20px;
   padding: 10px;
 }

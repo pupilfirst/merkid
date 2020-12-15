@@ -1,7 +1,7 @@
 @use "sass:color";
 
-$active-bg-color: rgba(255, 193, 0, 0.3);
+$active-bg-color: rgba(31, 192, 97, 0.5);
 $active-bg-color-light: lighten($active-bg-color, 60%);
-$active-bg-color-dark: #050318;
+$active-bg-color-dark: rgba(31, 192, 97, 1);
 
-$light-text-color: rgba(46, 47, 48, 0.8);
+$light-text-color: rgba(31, 192, 97, 1);

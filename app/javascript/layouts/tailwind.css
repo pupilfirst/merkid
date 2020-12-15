@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+    @apply font-spacemono;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+.ContentSection {
+    @apply max-w-screen-sm mx-auto;
+    @apply py-8;
+    @apply px-6;
+}
+
+@screen sm {
+    .ContentSection {
+        @apply max-w-screen-md;
+        @apply py-16;
+        @apply px-0;
+    }
+}
+
+@screen md {
+    .ContentSection {
+        @apply max-w-screen-lg mx-auto;
+        @apply py-32;
+        @apply w-2/3;
+    }
+}
+
+h1, h2, h3, h4 {
+    @apply font-bold;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}

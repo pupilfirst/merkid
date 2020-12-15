@@ -1,4 +1,4 @@
-<div class="flex">
+<div class="flex ">
   <p class="mr-16" style="font-size: 32px;">
     <% if status == "complete" %>
       <i class="text-right bg-green fa fa-check-circle align-top" aria-hidden="true"></i>
@@ -6,11 +6,12 @@
       <i class="text-right fa fa-circle align-top" aria-hidden="true" style="visibility: hidden"></i>
     <% end %>
   </p>
-  <div class="emphasis mb-4">
-    <p>
-      <span class="inline-block"><%= step %>.</span>&nbsp;<span class="inline-block"><%= title %></span>
+  <div class="emphasis mb-4 ">
+    <p class="font-bold">
+      <span class="inline-block text-white"><%= "#{step}." %>
+        </span>&nbsp;<span class="inline-block text-white"><%= title %></span>
     </p>
-    <p class="subdued mt-0">
+    <p class="text-white mt-0">
       <%= text %>
     </p>
   </div>
