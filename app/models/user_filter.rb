@@ -14,10 +14,11 @@ class UserFilter
   end
 
   def filtered
+    users = User.kept
     if active?
-      User.where(status: status)
+      users.where(status: status)
     else
-      User.all
+      users
     end
   end
 end

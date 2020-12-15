@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_13_154150) do
+ActiveRecord::Schema.define(version: 2020_12_15_023718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_12_13_154150) do
     t.string "semester"
     t.string "course"
     t.datetime "terms_agreed_at"
+    t.datetime "discarded_at"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

@@ -67,6 +67,13 @@ class User < ApplicationRecord
 
   has_many :task_submissions
 
+  # ALWAYS use this scope for all reporting & stats.
+  # Users are never discarded except for about 30 internal company
+  # test accounts that were created before the application went live.
+  # This scope is used to filter them out from all reports.
+  # (Naming convention from https://github.com/jhawthorn/discard)
+  scope :kept, -> { where(discarded_at: nil) }
+
   def self.create_student!(email)
     create!(email: email.downcase, status: EMAIL_UNVERIFIED)
   end
@@ -141,7 +148,7 @@ class User < ApplicationRecord
 
   def is_admin?
     ['jacob@protoship.io', 'jasim@protoship.io', 'bodhish@pupilfirst.org', 'hari@pupilfirst.org', 'reena@pupilfirst.org', 'mahesh@pupilfirst.org',
-      'suma@pupilfirst.org'].include?(email)
+     'suma@pupilfirst.org'].include?(email)
   end
 
   def is_coach?
