@@ -8,7 +8,7 @@
     to pass, you should then submit the code for review.
   </p>
 
-  <div class="space-y-6 lg:space-y-8 text-base lg:text-lg p-4 lg:p-6">
+  <div class="space-y-6 lg:space-y-8 text-base lg:text-lg p-4 lg:p-6 bg-black rounded-lg shadow">
     <div class="flex"><span class="text-primary-500 text-xl">➞</span>
       <p class="pl-3"><span class="text-primary-500">Read</span> the Instructions</p>
     </div>
@@ -161,9 +161,9 @@
 
         <p class="mt-6"><strong>The .zip file must be less than 3mb in size.</strong></p>
 
-        <div class="mb-8 mt-6 bg-primary-200 p-8 bg-primary-200 rounded-lg shadow">
+        <div class="mb-8 mt-6 p-8 bg-black rounded-lg shadow">
           <p class="text-primary-900 font-bold">Select the .zip file from your computer:</p>
-          <%= file_field_tag 'solution_zip_file', accept: "zip,application/zip,application/x-zip,application/x-zip-compressed" %>
+          <%= file_field_tag 'solution_zip_file', accept: "zip,application/zip,application/x-zip,application/x-zip-compressed", class: "text-white mt-2" %>
         </div>
         <p class="my-8">
           <%= submit_tag "Upload the .zip file", data: { confirm: "You can only submit once (you'll have to email us otherwise). So make sure everything is in order. Go ahead with the upload?" }, class: 'mt-6 block text-center px-10 py-4 bg-gray-900 text-primary-500 border border-primary-500 font-bold font-montserrat rounded shadow-lg hover:shadow-xl hover:bg-primary-900 hover:text-gray-900 transition duration-250 ease-in-out' %>
