@@ -4,7 +4,7 @@ module.exports = {
     // purgeLayersByDefault: true,
   },
   purge: {
-    content: ['./pages/**/*.js'],
+    content: ['./app/**/*.html.erb'],
     options: {
       whitelist: [],
     },
