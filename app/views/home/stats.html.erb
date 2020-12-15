@@ -58,7 +58,7 @@
       <tbody>
       <% states.each do |state| %>
         <tr>
-          <td class="border px-4 py-2"><%= source[0].blank? ? "Yet to update" : source[0] %></td>
+          <td class="border px-4 py-2"><%= state[0].blank? ? "Yet to update" : state[0] %></td>
           <td class="border px-4 py-2"><%= state[1] %></td>
         </tr>
       <% end %>
