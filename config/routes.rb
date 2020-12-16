@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get 'ruby'
       get 'cpp'
       get 'python'
+      get 'c'
     end
     resource :student_evaluation, only: [:show]
   end

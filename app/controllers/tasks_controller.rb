@@ -79,6 +79,10 @@ class TasksController < ApplicationController
     resolve_task_url("cpp")
   end
 
+  def c
+    resolve_task_url("c")
+  end
+
   private
 
   def resolve_task_url(language)
