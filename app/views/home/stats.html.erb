@@ -1,44 +1,46 @@
 <% students = User.kept %>
 <% @stats_page = true %>
 <%
-  def states
-    User.kept.group(:state).count.sort_by { |e| e[1] }.reverse
-  end
-
-  def sources
-    User.kept.group(:source).count.sort_by { |e| e[1] }.reverse
-  end
+  states = User.kept.group(:state).count.sort_by { |e| e[1] }.reverse
+  sources = User.kept.group(:source).count.sort_by { |e| e[1] }.reverse
+  email_unverified = students.where(status: User::EMAIL_UNVERIFIED).count
+  total_application = students.count
+  email_verified = students.where(status: User::EMAIL_VERIFIED).count
+  application_submitted = students.where(status: User::APPLICATION_FORM_SUBMITTED).count
+  task_revealed = students.where(status: User::TASK_REVEALED).count
+  task_submitted = students.where(status: User::TASK_SUBMITTED).count
+  task_reviewed = students.where(status: User::TASK_REVIEWED).count
 %>
 <div>
   <table class="table-auto mx-auto w-full text-primary-700">
     <tbody>
     <tr>
       <td class="border px-4 py-2">Total Applications</td>
-      <td class="border px-4 py-2"><%= students.count %></td>
+      <td class="border px-4 py-2"><%= total_application %></td>
     </tr>
     <tr>
       <td class="border px-4 py-2">Email UnVerified</td>
-      <td class="border px-4 py-2"><%= students.where(status: User::EMAIL_UNVERIFIED).count %></td>
+      <td class="border px-4 py-2"><%= email_unverified %></td>
     </tr>
     <tr>
       <td class="border px-4 py-2">Email Verified</td>
-      <td class="border px-4 py-2"><%= students.where(status: User::EMAIL_VERIFIED).count %></td>
+      <td class="border px-4 py-2"><%= total_application - email_unverified %></td>
     </tr>
     <tr>
       <td class="border px-4 py-2">Application form Submitted</td>
-      <td class="border px-4 py-2"><%= students.where(status: User::APPLICATION_FORM_SUBMITTED).count %></td>
+      <td class="border px-4 py-2"><%= application_submitted + task_revealed + task_submitted + task_reviewed %></td>
     </tr>
     <tr>
       <td class="border px-4 py-2">Task Revealed</td>
-      <td class="border px-4 py-2"><%= students.where(status: User::TASK_REVEALED).count %></td>
+      <td class="border px-4 py-2"><%= task_revealed + task_submitted + task_reviewed %></td>
     </tr>
     <tr>
       <td class="border px-4 py-2">Task Submitted</td>
-      <td class="border px-4 py-2"><%= students.where(status: User::TASK_SUBMITTED).count %></td>
+      <td class="border px-4 py-2"><%= task_submitted + task_reviewed %></td>
     </tr>
     <tr>
       <td class="border px-4 py-2">Task Reviewed</td>
-      <td class="border px-4 py-2"><%= students.where(status: User::TASK_REVIEWED).count %></td>
+      <td class="border px-4 py-2"><%= task_reviewed %></td>
     </tr>
     </tbody>
   </table>
@@ -57,10 +59,12 @@
       </thead>
       <tbody>
       <% states.each do |state| %>
-        <tr>
-          <td class="border px-4 py-2"><%= state[0].blank? ? "Yet to update" : state[0] %></td>
-          <td class="border px-4 py-2"><%= state[1] %></td>
-        </tr>
+        <% unless state[0].blank? %>
+          <tr>
+            <td class="border px-4 py-2"><%= state[0].blank? ? "Yet to update" : state[0] %></td>
+            <td class="border px-4 py-2"><%= state[1] %></td>
+          </tr>
+        <% end %>
       <% end %>
       </tbody>
     </table>
@@ -76,10 +80,12 @@
       </thead>
       <tbody>
       <% sources.each do |source| %>
-        <tr>
-          <td class="border px-4 py-2"><%= source[0].blank? ? "Yet to update" : source[0] %></td>
-          <td class="border px-4 py-2"><%= source[1] %></td>
-        </tr>
+        <% unless source[0].blank? %>
+          <tr>
+            <td class="border px-4 py-2"><%= source[0].blank? ? "Yet to update" : source[0] %></td>
+            <td class="border px-4 py-2"><%= source[1] %></td>
+          </tr>
+        <% end %>
       <% end %>
       </tbody>
     </table>
