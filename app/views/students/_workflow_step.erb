@@ -10,7 +10,7 @@
     status = "locked"
   end
   data = data.merge(status: status)
-  css_class = "block workflow workflow-#{status}"
+  css_class = "block workflow workflow-#{status} transition ease-in-out duration-200"
 %>
 
 <% if status == "active" %>
