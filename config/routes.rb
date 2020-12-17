@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :task_submissions
+
+    root to: 'users#index'
+  end
   # FIXME: restrict to admin only
   # https://github.com/mperham/sidekiq/wiki/Monitoring
   require 'sidekiq/web'
