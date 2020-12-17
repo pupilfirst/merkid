@@ -7,6 +7,7 @@ class TasksController < ApplicationController
     unless @student.status_application_form_submitted?
       flash[:error] = "Invalid step"
       redirect_to root_path
+      return
     end
   end
 
@@ -30,14 +31,16 @@ class TasksController < ApplicationController
     unless @student.status_task_revealed?
       flash[:error] = "Invalid step"
       redirect_to root_path
+      return
     end
   end
 
   # upload the zip file and move to next step
   def update
     unless @student.status_task_revealed?
-      flash[:error] = "Invalid step"
+      flash[:error] = "Invalid step - you have either already submitted your code, or you've not revealed the task yet."
       redirect_to root_path
+      return
     end
 
     file = params[:solution_zip_file]
