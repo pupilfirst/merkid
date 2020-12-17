@@ -74,9 +74,8 @@ class User < ApplicationRecord
   # (Naming convention from https://github.com/jhawthorn/discard)
   scope :kept, -> { where(discarded_at: nil) }
 
-  def self.create_student(email)
-    u = User.new(email: email.downcase, status: EMAIL_UNVERIFIED)
-    u.save
+  def self.create_student!(email)
+    create!(email: email.downcase, status: EMAIL_UNVERIFIED)
   end
 
   def status_email_unverified?
