@@ -77,3 +77,9 @@ gem "skylight", "~> 4.2.3"
 group :production do
   gem 'aws-sdk-s3', '~> 1.35 ', require: false
 end
+
+gem 'kaminari'
+
+group :development do
+  gem 'faker'
+end

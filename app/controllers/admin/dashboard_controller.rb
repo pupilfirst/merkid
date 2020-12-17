@@ -1,7 +1,9 @@
 class Admin::DashboardController < AdminController
   def index
     @filter = UserFilter.new(params[:status])
-    @students = @filter.filtered
+    students = @filter.filtered.order(:updated_at)
+    @filtered_count = students.count
+    @students = students.page(params[:page]).per(200)
   end
 
   def student

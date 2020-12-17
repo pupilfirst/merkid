@@ -21,11 +21,16 @@
     <%= @filter.to_string %>
     &mdash; <%= @students.count %> students
   </h2>
+  <p class="mb-16">
+    <%= paginate @students %>
+    <%= page_entries_info @students, entry_name: 'student' %>
+  </p>
   <table class="admin-table bg-white">
     <thead>
     <tr>
       <th>email</th>
       <th>Full Name</th>
+      <th>Last updated at</th>
       <% unless @filter.active? %>
         <th>Status</th>
       <% end %>
@@ -44,6 +49,11 @@
         <td>
           <p class="text-gray-800">
             <%= s.full_name %>
+          </p>
+        </td>
+        <td>
+          <p class="text-gray-800">
+            <%= time_ago_in_words(s.updated_at) %> ago
           </p>
         </td>
         <% unless @filter.active? %>
@@ -68,4 +78,7 @@
     <% end %>
     </tbody>
   </table>
+  <p>
+    <%= paginate @students %>
+  </p>
 </main>

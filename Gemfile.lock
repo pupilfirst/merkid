@@ -117,6 +117,8 @@ GEM
     css_parser (1.7.1)
       addressable
     erubi (1.10.0)
+    faker (2.15.1)
+      i18n (>= 1.6, < 2)
     faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
@@ -131,6 +133,18 @@ GEM
       activesupport (>= 5.0.0)
     jmespath (1.4.0)
     json (2.3.1)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
     launchy (2.5.0)
       addressable (~> 2.7)
     letter_opener (1.7.0)
@@ -296,8 +310,10 @@ DEPENDENCIES
   capistrano-sidekiq (~> 2.0.0.beta5)
   capistrano3-puma
   capybara (>= 2.15)
+  faker
   font-awesome-sass
   jbuilder (~> 2.7)
+  kaminari
   letter_opener
   listen (~> 3.2)
   octokit (~> 4.0)
