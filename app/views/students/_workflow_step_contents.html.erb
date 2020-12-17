@@ -1,18 +1,23 @@
 <div class="flex ">
-  <p class="mr-16" style="font-size: 32px;">
-    <% if status == "complete" %>
-      <i class="text-right bg-green fa fa-check-circle align-top" aria-hidden="true"></i>
-    <% else %>
-      <i class="text-right fa fa-circle align-top" aria-hidden="true" style="visibility: hidden"></i>
-    <% end %>
-  </p>
-  <div class="emphasis mb-4 ">
+  <div class="flex-1">
     <p class="font-bold">
-      <span class="inline-block text-white"><%= "#{step}." %>
-        </span>&nbsp;<span class="inline-block text-white"><%= title %></span>
+      <span class="inline-block text-white"><%= "#{step}." %></span><span class="inline-block text-white pl-1"><%= title %></span>
     </p>
-    <p class="text-white mt-0">
+    <p class="text-white text-base font-montserrat pt-2 pl-7">
       <%= text %>
     </p>
+  </div>
+  <div class="w-2/12 text-2xl leading-normal">
+    <div class="flex h-full justify-end items-center">
+      <% if status == "complete" %>
+        <i class="text-right text-gray-300 fa fa-check-circle" aria-hidden="true"></i>
+      <% elsif status == "active" %>
+          <span class="w-12">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><linearGradient id="A" x1="207.21" y1="100" x2="4.82" y2="100" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#68f5a2"/><stop offset="1" stop-color="#4fc67f"/></linearGradient></defs><path d="M198.53 103.25l-58.1 59a5 5 0 0 1-3.44 1.56h-1.87a5 5 0 0 1-2.81-4.37v-28.08h-73V101.7H89V72h43.32V40.78a4.68 4.68 0 0 1 8.12-3.12L198.53 97a3.79 3.79 0 0 1 .53.53 4.05 4.05 0 0 1-.53 5.72zM29.66 72v29.68h29.67V72zM0 101.7v29.68h29.67V101.7z" fill="url(#A)"/></svg>
+          </span>
+      <% else %>
+        <i class="text-right text-gray-500 far fa-circle" aria-hidden="true"></i>
+      <% end %>
+    </div>
   </div>
 </div>
