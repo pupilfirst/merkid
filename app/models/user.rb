@@ -128,7 +128,7 @@ class User < ApplicationRecord
     # make filenames uniform, tag with first name so it is easy to correlate and update the correct
     # student's scores during grading
     task_submission.uploaded_file.blob.update!(filename: first_name.titleize.gsub(/\W/, '') + '-' + id[0..3] + '.zip')
-    update_attributes(status: TASK_SUBMITTED)
+    update_attributes(status: TASK_SUBMITTED, task_submitted_at: DateTime.now)
     task_submission
   end
 
