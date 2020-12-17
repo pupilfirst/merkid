@@ -74,8 +74,9 @@ class User < ApplicationRecord
   # (Naming convention from https://github.com/jhawthorn/discard)
   scope :kept, -> { where(discarded_at: nil) }
 
-  def self.create_student!(email)
-    create!(email: email.downcase, status: EMAIL_UNVERIFIED)
+  def self.create_student(email)
+    u = User.new(email: email.downcase, status: EMAIL_UNVERIFIED)
+    u.save
   end
 
   def status_email_unverified?
@@ -148,7 +149,7 @@ class User < ApplicationRecord
 
   def is_admin?
     ['jacob@protoship.io', 'jasim@protoship.io', 'bodhish@pupilfirst.org', 'hari@pupilfirst.org', 'reena@pupilfirst.org', 'mahesh@pupilfirst.org',
-     'suma@pupilfirst.org'].include?(email)
+      'suma@pupilfirst.org'].include?(email)
   end
 
   def is_coach?
