@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     resource :student_evaluation, only: [:show]
   end
 
-  namespace :admin do
+  namespace :review do
     get '/', to: "dashboard#index"
     get :student, to: "dashboard#student"
   end

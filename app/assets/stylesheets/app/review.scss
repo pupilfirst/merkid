@@ -1,12 +1,12 @@
 @import "colors";
 
-body > .admin-root {
+body > .review-root {
   max-width: 1440px;
   margin: 0 auto;
   padding: 64px 32px;
 }
 
-table.admin-table {
+table.review-table {
   margin-top: 64px;
   padding: 8px;
   tr {
@@ -28,17 +28,17 @@ table.admin-table {
 }
 
 
-.AdminPage nav.pagination span.page a {
+.ReviewPage nav.pagination span.page a {
   text-color: blue;
   text-decoration: underline;
   padding: 0 8px;
 }
 
-.AdminPage nav.pagination span.page.current {
+.ReviewPage nav.pagination span.page.current {
   font-weight: bold;
   text-decoration: none;
 }
 
-.AdminPage-text p {
+.ReviewPage-text p {
   font-size: 14px;
 }

@@ -1,4 +1,4 @@
-class Admin::DashboardController < AdminController
+class Review::DashboardController < ReviewController
   def index
     @filter = UserFilter.new(params[:status])
     students = @filter.filtered.order("updated_at DESC")
