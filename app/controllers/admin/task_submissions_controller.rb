@@ -46,5 +46,13 @@ module Admin
     def valid_action?(name, resource = resource_class)
       %w[destroy].exclude?(name.to_s) && super
     end
+
+    def default_sorting_attribute
+      :created_at
+    end
+
+    def default_sorting_direction
+      :desc
+    end
   end
 end

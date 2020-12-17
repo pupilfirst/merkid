@@ -45,6 +45,7 @@ class UserDashboard < Administrate::BaseDashboard
   email
   status
   task_submissions
+  created_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
