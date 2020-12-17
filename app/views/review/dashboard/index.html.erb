@@ -1,22 +1,22 @@
 <div class="flex justify-between" style="background-color: #dbe1e8; padding: 8px;">
   <div>
-    <%= link_to admin_path(status: nil) do %>
+    <%= link_to review_path(status: nil) do %>
       Everyone (<%= User.kept.count %>)
     <% end %>
   </div>
   <div>
-    <%= link_to admin_path(status: User::TASK_SUBMITTED) do %>
+    <%= link_to review_path(status: User::TASK_SUBMITTED) do %>
       Pending Review (<%= User.kept.where(status: User::TASK_SUBMITTED).count %>)
     <% end %>
   </div>
   <div>
-    <%= link_to admin_path(status: User::APPLICATION_FORM_SUBMITTED) do %>
+    <%= link_to review_path(status: User::APPLICATION_FORM_SUBMITTED) do %>
       Form Submitted (<%= User.kept.where(status: User::APPLICATION_FORM_SUBMITTED).count %>)
     <% end %>
   </div>
 </div>
 
-<main class="AdminPage">
+<main class="ReviewPage">
   <h2 class="mt-8 text-white text-base">
     <p class="underline text-xl mb-4"><%= @filter.to_string %></p>
     <%= page_entries_info @students, entry_name: 'student' %>
@@ -26,7 +26,7 @@
       <%= paginate @students %>
     </div>
   </div>
-  <table class="admin-table bg-white">
+  <table class="review-table bg-white">
     <thead>
     <tr>
       <th></th>
@@ -51,7 +51,7 @@
           <% end %>
         </td>
         <td>
-          <%= link_to "Details", admin_student_path(id: s.id), class: "block text-sm", style: "padding: 8px;" %>
+          <%= link_to "Details", review_student_path(id: s.id), class: "block text-sm", style: "padding: 8px;" %>
         </td>
         <td>
           <p class="text-gray-800">

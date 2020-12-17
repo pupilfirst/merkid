@@ -1,0 +1,36 @@
+<main class="ReviewPage">
+  <div class="text-white mt-8 text-sm">
+    <div class="font-bold mb-8">
+      <p class="mb-2 text-2xl"><%= @student.full_name %></p>
+      <a href="mailto:<%= @student.email %>" class="block mb-4 underline"><%= @student.email %></a>
+    </div>
+
+    <p class="mb-8">
+      <%= @student.status.upcase %>
+    </p>
+
+    <div class="mb-8">
+      <p class="text-gray-200 text-sm">Phone</p>
+      <%= @student.phone_number %>
+    </div>
+
+    <div class="mb-8 ReviewPage-text">
+      <p class="text-gray-200 text-sm">Portfolio</p>
+      <%== simple_format(@student.portfolio).gsub(URI.regexp, '<a href="\0">\0</a>').html_safe %>
+    </div>
+
+    <div class="mb-8 ReviewPage-text">
+      <p class="text-gray-200 text-sm">What excites you about programming?</p>
+      <%== simple_format(@student.anything_else).gsub(URI.regexp, '<a href="\0">\0</a>').html_safe %>
+    </div>
+
+    <div class="mb-8 ReviewPage-text">
+      <p class="text-gray-200 text-sm">Course, College</p>
+      <%= @student.semester.to_i.ordinalize %> semester, <%= @student.course %>, <%= @student.college %>
+    </div>
+  </div>
+
+  <pre class="text-primary-700" style="line-height: 1.5">
+  <%== JSON.pretty_generate(@student.as_json) %>
+</pre>
+</main>

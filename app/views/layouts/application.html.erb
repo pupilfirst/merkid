@@ -58,7 +58,11 @@
   <% end %>
 
   <% if @is_admin_page %>
-    <h1 class="text-primary-700">Admin</h1>
+    <p class="text-sm mb-8">
+      <%= link_to review_path, class:"bg-gray-700 px-2 py-1 rounded text-gray-100 hover:bg-gray-900 hover:shadow-inner hover:text-gray-200" do %>
+        <i class="fas fa-home"></i><span class="pl-1">REVIEW DASHBOARD</span>
+      <%end%>
+    </p>
   <% else %>
     <h1 class="hidden" style="margin-bottom: 8px; padding-bottom: 0">CoronaSafe Engineering Fellowship</h1>
     <h2 class="text-4xl text-white mb-10">
