@@ -6,7 +6,14 @@ class UserFilter
   end
 
   def to_string
-    status || "Everyone"
+    unless status
+      return "Everyone"
+    end
+    if status == User::TASK_SUBMITTED
+      "Pending Review"
+    else
+      status
+    end
   end
 
   def active?

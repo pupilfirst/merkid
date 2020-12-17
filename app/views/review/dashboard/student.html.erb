@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <pre class="text-primary-700" style="line-height: 1.5">
-  <%== JSON.pretty_generate(@student.as_json) %>
-</pre>
+  <% if @student.status == User::TASK_SUBMITTED %>
+    <%= render partial: 'submission_review', locals: { student: @student } %>
+  <% end %>
 </main>

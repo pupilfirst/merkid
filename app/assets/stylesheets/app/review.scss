@@ -28,17 +28,16 @@ table.review-table {
 }
 
 
-.ReviewPage nav.pagination span.page a {
-  text-color: blue;
-  text-decoration: underline;
-  padding: 0 8px;
-}
-
 .ReviewPage nav.pagination span.page.current {
   font-weight: bold;
   text-decoration: none;
 }
 
+.ReviewPage nav.pagination span a {
+  padding: 10px 24px;
+}
+
 .ReviewPage-text p {
   font-size: 14px;
 }
+
