@@ -24,6 +24,7 @@ class User < ApplicationRecord
   ].freeze
 
   VALID_STATES = [
+    'Andaman and Nicobar Islands',
     'Andhra Pradesh',
     'Arunachal Pradesh',
     'Assam',
