@@ -30,6 +30,7 @@ class UserDashboard < Administrate::BaseDashboard
     terms_agreed_at: Field::DateTime,
     discarded_at: Field::DateTime,
     task_submitted_at: Field::DateTime,
+    submission_receipt_emailed_at: Field::DateTime,
     task_reviewed_at: Field::DateTime,
     task_review_message: Field::String,
   }.freeze
@@ -71,6 +72,7 @@ class UserDashboard < Administrate::BaseDashboard
   terms_agreed_at
   discarded_at
   task_submitted_at
+  submission_receipt_emailed_at
   task_reviewed_at
   task_review_message
   ].freeze
