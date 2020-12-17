@@ -16,35 +16,42 @@
   </div>
 </div>
 
-<main>
-  <h2 class="mt-2 text-white">
-    <%= @filter.to_string %>
-    &mdash; <%= @students.count %> students
-  </h2>
-  <p class="mb-16">
-    <%= paginate @students %>
+<main class="AdminPage">
+  <h2 class="mt-8 text-white text-base">
+    <p class="underline text-xl mb-4"><%= @filter.to_string %></p>
     <%= page_entries_info @students, entry_name: 'student' %>
-  </p>
+  </h2>
+  <div class="mt-8 p-4 bg-gray-700 text-white">
+    <div class="text-xl">
+      <%= paginate @students %>
+    </div>
+  </div>
   <table class="admin-table bg-white">
     <thead>
     <tr>
-      <th>email</th>
-      <th>Full Name</th>
-      <th>Last updated at</th>
+      <th></th>
+      <th></th>
+      <th>full name</th>
+      <th>seen</th>
       <% unless @filter.active? %>
-        <th>Status</th>
+        <th>status</th>
       <% end %>
-      <th></th>
-      <th></th>
+      <th>email</th>
     </tr>
     </thead>
     <tbody>
     <% @students.each do |s| %>
       <tr>
-        <td class="text-gray-800">
-          <p class="text-gray-800">
-            <%= s.email %>
-          </p>
+        <td>
+          <%
+            t = s.task_submissions.last
+            if t
+          %>
+            <%= link_to "Download", url_for(t.uploaded_file), class: "block text-sm", style: "padding: 8px;" %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to "Details", admin_student_path(id: s.id), class: "block text-sm", style: "padding: 8px;" %>
         </td>
         <td>
           <p class="text-gray-800">
@@ -63,22 +70,18 @@
             </p>
           </td>
         <% end %>
-        <td>
-          <%
-            t = s.task_submissions.last
-            if t
-          %>
-            <%= link_to "Download Submission", url_for(t.uploaded_file), class: "block", style: "padding: 16px;" %>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to "Details", admin_student_path(id: s.id), class: "block", style: "padding: 16px;" %>
+        <td class="text-gray-800">
+          <p class="text-gray-800">
+            <%= s.email %>
+          </p>
         </td>
       </tr>
     <% end %>
     </tbody>
   </table>
-  <p>
-    <%= paginate @students %>
-  </p>
+  <div class="mb-8 p-4 bg-gray-700 text-white">
+    <div class="text-xl">
+      <%= paginate @students %>
+    </div>
+  </div>
 </main>

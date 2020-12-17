@@ -21,7 +21,20 @@ table.admin-table {
   }
 
   td > p {
+    font-size: 14px;
     margin: 0;
     padding: 8px;
   }
+}
+
+
+.AdminPage nav.pagination span.page a {
+  text-color: blue;
+  text-decoration: underline;
+  padding: 0 8px;
+}
+
+.AdminPage nav.pagination span.page.current {
+  font-weight: bold;
+  text-decoration: none;
 }
