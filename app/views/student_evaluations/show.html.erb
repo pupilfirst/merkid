@@ -9,10 +9,12 @@
       <span class="inline-block bg-primary-700 px-2 rounded mt-2 text-gray-900 font-bold"><%= @student.task_submissions.last.created_at.in_time_zone('Asia/Kolkata').to_s(:short_with_dayname) %></span>
     </p>
     <p class="mt-4">
-      We review all submissions within 3 working days. We will email you after the review.
+      We will review all the code submissions and select 30 applicants for the fellowship. The list of selected
+      applicants will be announced on or before January 10th, 2021. Selected applicants will be notified through email
+      and phone.
     </p>
 
-    <p class="mt-4">And thanks for taking the time to work through the problem. We hope you enjoyed it.</p>
+    <p class="mt-4">Thanks for taking the time to work through the problem. We hope you enjoyed it.</p>
 
   <% end %>
 </main>
