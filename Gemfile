@@ -71,7 +71,16 @@ gem "sentry-raven", '~>3.1.1'
 gem 'roadie-rails', '~> 2.2'
 # github api
 gem "octokit", "~> 4.0"
+# skylight
+gem "skylight", "~> 4.2.3"
 
 group :production do
   gem 'aws-sdk-s3', '~> 1.35 ', require: false
+end
+
+gem 'kaminari'
+
+group :development do
+  gem 'faker'
+  gem 'rubyzip'
 end

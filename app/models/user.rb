@@ -24,14 +24,14 @@ class User < ApplicationRecord
   ].freeze
 
   VALID_STATES = [
+    'Andaman and Nicobar Islands (UT)',
     'Andhra Pradesh',
     'Arunachal Pradesh',
     'Assam',
     'Bihar',
     'Chandigarh (UT)',
     'Chhattisgarh',
-    'Dadra and Nagar Haveli (UT)',
-    'Daman and Diu (UT)',
+    'Dadra and Nagar Haveli and Daman & Diu (UT)',
     'Delhi (NCT)',
     'Goa',
     'Gujarat',
@@ -41,6 +41,7 @@ class User < ApplicationRecord
     'Jharkhand',
     'Karnataka',
     'Kerala',
+    'Ladakh (UT',
     'Lakshadweep (UT)',
     'Madhya Pradesh',
     'Maharashtra',
@@ -128,7 +129,7 @@ class User < ApplicationRecord
     # make filenames uniform, tag with first name so it is easy to correlate and update the correct
     # student's scores during grading
     task_submission.uploaded_file.blob.update!(filename: first_name.titleize.gsub(/\W/, '') + '-' + id[0..3] + '.zip')
-    update_attributes(status: TASK_SUBMITTED)
+    update_attributes(status: TASK_SUBMITTED, task_submitted_at: DateTime.now)
     task_submission
   end
 
@@ -148,7 +149,7 @@ class User < ApplicationRecord
 
   def is_admin?
     ['jacob@protoship.io', 'jasim@protoship.io', 'bodhish@pupilfirst.org', 'hari@pupilfirst.org', 'reena@pupilfirst.org', 'mahesh@pupilfirst.org',
-     'suma@pupilfirst.org'].include?(email)
+      'suma@pupilfirst.org'].include?(email)
   end
 
   def is_coach?

@@ -1,0 +1,87 @@
+<div class="flex justify-between" style="background-color: #dbe1e8; padding: 8px;">
+  <div>
+    <%= link_to review_path(status: nil) do %>
+      Everyone (<%= User.kept.count %>)
+    <% end %>
+  </div>
+  <div>
+    <%= link_to review_path(status: User::TASK_SUBMITTED) do %>
+      Pending Review (<%= User.kept.where(status: User::TASK_SUBMITTED).count %>)
+    <% end %>
+  </div>
+  <div>
+    <%= link_to review_path(status: User::APPLICATION_FORM_SUBMITTED) do %>
+      Form Submitted (<%= User.kept.where(status: User::APPLICATION_FORM_SUBMITTED).count %>)
+    <% end %>
+  </div>
+</div>
+
+<main class="ReviewPage">
+  <h2 class="mt-8 text-white text-base">
+    <p class="underline text-xl mb-4"><%= @filter.to_string %></p>
+    <%= page_entries_info @students, entry_name: 'student' %>
+  </h2>
+  <div class="mt-8 p-4 bg-gray-700 text-white">
+    <div class="text-xl">
+      <%= paginate @students %>
+    </div>
+  </div>
+  <table class="review-table bg-white">
+    <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>full name</th>
+      <th>seen</th>
+      <% unless @filter.active? %>
+        <th>status</th>
+      <% end %>
+      <th>email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @students.each do |s| %>
+      <tr>
+        <td>
+          <%
+            t = s.task_submissions.last
+            if t
+          %>
+            <%= link_to "Download", url_for(t.uploaded_file), class: "block text-sm", style: "padding: 8px;" %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to "Details", review_student_path(id: s.id), class: "block text-sm", style: "padding: 8px;" %>
+        </td>
+        <td>
+          <p class="text-gray-800">
+            <%= s.full_name %>
+          </p>
+        </td>
+        <td>
+          <p class="text-gray-800">
+            <%= time_ago_in_words(s.updated_at) %> ago
+          </p>
+        </td>
+        <% unless @filter.active? %>
+          <td>
+            <p class="text-gray-800">
+              <%= s.status %>
+            </p>
+          </td>
+        <% end %>
+        <td class="text-gray-800">
+          <p class="text-gray-800">
+            <%= s.email %>
+          </p>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <div class="mb-8 p-4 bg-gray-700 text-white">
+    <div class="text-xl">
+      <%= paginate @students %>
+    </div>
+  </div>
+</main>
