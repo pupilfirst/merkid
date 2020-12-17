@@ -82,4 +82,5 @@ gem 'kaminari'
 
 group :development do
   gem 'faker'
+  gem 'rubyzip'
 end
