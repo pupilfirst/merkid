@@ -25,7 +25,6 @@ p {
 }
 
 p, li {
-  font-size: 20px;
   color: white;
   line-height: 1.4;
 }
@@ -43,26 +42,26 @@ a:hover {
   color: white;
 }
 
-.flash {
-  padding: 8px 16px;
-  margin-bottom: 32px;
-  border-radius: 2px;
-}
+// .flash {
+//   padding: 8px 16px;
+//   margin-bottom: 32px;
+//   border-radius: 2px;
+// }
 
-.flash-info {
-  background-color: #fad721;
-  color: black;
-}
+// .flash-info {
+//   background-color: #fad721;
+//   color: black;
+// }
 
-.flash-success {
-  background-color: #19b619;
-  color: white;
-}
+// .flash-success {
+//   background-color: #19b619;
+//   color: white;
+// }
 
-.flash-error {
-  background-color: #ce0e0e;
-  color: white;
-}
+// .flash-error {
+//   background-color: #ce0e0e;
+//   color: white;
+// }
 
 p.highlight {
   font-size: 28px;

@@ -1,9 +1,9 @@
-<div class="text-white text-xl">1. Fill in application form</div>
-<main class="max-w-2xl border border-gray-700 shadow-lg bg-gray-800 p-6 rounded-lg mt-4">
+<h1 class="text-white text-lg md:text-xl pt-2 font-medium">1. Fill in application form</h1>
+<main class="max-w-2xl border border-gray-700 shadow-lg bg-gray-800 p-4 md:p-6 rounded-lg mt-4">
   <%= form_tag(students_student_application_form_path) do %>
     <div>
       <%= label "form", "email" do %>
-        <p class="font-montserrat text-primary-700 tracking-wide text-lg">
+        <p class="font-montserrat text-primary-700 tracking-wide text-base md:text-lg">
           Your email address:
         </p>
         <%= email_field "form", "email", readonly: true, class: "cursor-not-allowed mt-2 shadow-sm bg-gray-900 border-transparent font-spacemono text-gray-200 focus:ring-0 focus:border-transparent block w-full sm:text-sm rounded disbaled" %>
@@ -12,7 +12,7 @@
 
     <div class="mt-6 md:mt-10">
       <%= label "form", "first_name" do %>
-        <p class="font-montserrat text-primary-700 tracking-wide text-lg">
+        <p class="font-montserrat text-primary-700 tracking-wide text-base md:text-lg">
           What is your first name?
           <small class="font-spacemono text-sm text-gray-100 block">
             We will use this name to address you.
@@ -24,7 +24,7 @@
 
     <div class="mt-6 md:mt-10">
       <%= label "form", "full_name" do %>
-        <p class="font-montserrat text-primary-700 tracking-wide text-lg">
+        <p class="font-montserrat text-primary-700 tracking-wide text-base md:text-lg">
           What is your full name?
           <small class="font-spacemono text-sm text-gray-100 block">
             As it appears in your official records.
@@ -36,7 +36,7 @@
 
     <div class="mt-6 md:mt-10">
       <%= label "form", "phone_number" do %>
-        <p class="font-montserrat text-primary-700 tracking-wide text-lg">
+        <p class="font-montserrat text-primary-700 tracking-wide text-base md:text-lg">
           What is your valid mobile number?
         </p>
         <%= phone_field "form", "phone_number", class: "mt-2 shadow-sm bg-gray-900 border-gray-600 font-spacemono text-white focus:ring-1 focus:ring-primary-500 focus:border-primary-500 focus:ring-opacity-50 block w-full sm:text-sm rounded" %>
@@ -45,7 +45,7 @@
 
     <div class="mt-6 md:mt-10">
       <%= label "form", "dob" do %>
-        <p class="font-montserrat text-primary-700 tracking-wide text-lg">
+        <p class="font-montserrat text-primary-700 tracking-wide text-base md:text-lg">
           What is your date of birth?
           <small class="font-spacemono text-sm text-gray-100 block">
             You have to be between 18 and 25 years to participate in this program.
@@ -57,7 +57,7 @@
 
     <div class="mt-6 md:mt-10">
       <%= label "form", "course" do %>
-        <p class="font-montserrat text-primary-700 tracking-wide text-lg">
+        <p class="font-montserrat text-primary-700 tracking-wide text-base md:text-lg">
           Course/Program that you are currently enrolled in at your University/College?
           <small class="font-spacemono text-sm text-gray-100 block">
             For eg: B.Tech (Electronics and Communication Engineering)
@@ -70,14 +70,14 @@
 
     <div class="mt-6 md:mt-10">
       <%= label "form", "semester" do %>
-        <p class="font-montserrat text-primary-700 tracking-wide text-lg">Which semester will you be in Jan-Apr 2021?</p>
+        <p class="font-montserrat text-primary-700 tracking-wide text-base md:text-lg">Which semester will you be in Jan-Apr 2021?</p>
         <%= select("form", "semester", User::VALID_SEMESTERS, prompt: 'Please select') %>
       <% end %>
     </div>
 
     <div class="mt-6 md:mt-10">
       <%= label "form", "college" do %>
-        <p class="font-montserrat text-primary-700 tracking-wide text-lg">
+        <p class="font-montserrat text-primary-700 tracking-wide text-base md:text-lg">
           Your college and university name, and its location?
           <small class="font-spacemono text-sm text-gray-100 block">
             for eg: IIIT, Hyderabad
@@ -89,14 +89,14 @@
 
     <div class="mt-6 md:mt-10">
       <%= label "form", "state" do %>
-        <p class="font-montserrat text-primary-700 tracking-wide text-lg">In which state is your University/College located at?</p>
+        <p class="font-montserrat text-primary-700 tracking-wide text-base md:text-lg">In which state is your University/College located at?</p>
         <%= select("form", "state", User::VALID_STATES, prompt: 'Please select') %>
       <% end %>
     </div>
 
     <div class="mt-6 md:mt-10">
       <%= label "form", "portfolio" do %>
-        <p class="font-montserrat text-primary-700 tracking-wide text-lg">
+        <p class="font-montserrat text-primary-700 tracking-wide text-base md:text-lg">
           Links to anything digital you have created?
           <small class="font-spacemono text-sm text-gray-100 block">
             Websites, webapps, simple programs, or just code you wrote
@@ -108,7 +108,7 @@
 
     <div class="mt-6 md:mt-10">
       <%= label "form", "anything_else" do %>
-        <p class="font-montserrat text-primary-700 tracking-wide text-lg">
+        <p class="font-montserrat text-primary-700 tracking-wide text-base md:text-lg">
           Anything else you might want to add?
           <small class="font-spacemono text-sm text-gray-100 block">
             and do tell us about what you enjoy about programming!
@@ -120,19 +120,19 @@
 
     <div class="mt-6 md:mt-10">
       <%= label "form", "source" do %>
-        <p class="font-montserrat text-primary-700 tracking-wide text-lg">How did you get to know about this programme?</p>
+        <p class="font-montserrat text-primary-700 tracking-wide text-base md:text-lg">How did you get to know about this programme?</p>
         <%= select("form", "source", User::VALID_SOURCE, prompt: 'Please select') %>
       <% end %>
     </div>
 
     <div class="mt-6 md:mt-10">
       <%= label "form", "terms_agreed" do %>
-        <p class="font-montserrat text-primary-700 tracking-wide text-lg">
+        <p class="font-montserrat text-primary-700 tracking-wide text-base md:text-lg">
           Do you agree to the Terms for Participation in the program?
         </p>
-        <div class="flex items-center mt-4">
+        <div class="flex items-start md:items-center mt-4">
           <%= check_box("form", "terms_agreed", class: "mr-4 block bg-gray-900 rounded focus:ring-1 focus:ring-primary-500") %>
-          <span class="block text-white">
+          <span class="block text-sm md:text-base text-white">
             I have read and I agree to the <%= link_to "Terms for Participation", terms_path, class:"border-b border-primary-500 text-primary-200 hover:bg-primary-200 hover:text-gray-900" %>
           </span>
         </div>
@@ -143,7 +143,14 @@
       ready!
     </p>
     <p>
-      <%= submit_tag "Submit & Continue", class: 'mt-6 block cursor-pointer text-center px-10 py-4 bg-gray-900 text-primary-500 border border-primary-500 font-bold font-montserrat rounded shadow-lg hover:shadow-xl hover:bg-primary-900 hover:text-gray-900 transition duration-250 ease-in-out' %>
+      <button type="submit" class="mt-4 flex items-center justify-center w-full md:w-auto text-center text-base font-medium px-6 py-3 bg-gradient-to-b from-primary-400 to-primary-700 text-gray-900 border border-primary-300 font-montserrat rounded shadow-lg focus:ring-2 focus:ring-primary-200 hover:shadow-xl focus:from-primary-500 focus:to-primary-900 hover:from-primary-600 hover:to-primary-900 transition duration-250 ease-in-out">
+        <span>Submit &amp; Continue</span>
+        <span class="pl-3">
+        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </span>
+      </button>
     </p>
   <% end %>
 </main>

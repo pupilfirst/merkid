@@ -1,12 +1,12 @@
-<div class="text-white text-3xl">4. Check your programming task results</div>
+<div class="text-white text-lg md:text-3xl font-bold">4. Check your programming task results</div>
 <main>
 
   <% if @student.status_task_submitted? %>
 
     <div class="mt-4 font-semibold text-xl text-primary-500">Your submission is currently queued for review</div>
     <p class="mt-4">
-      We received your task submission on: <br>
-      <span class="bg-primary-700 p-px mt-4"><%= @student.task_submissions.last.created_at.in_time_zone('Asia/Kolkata').to_s(:short_with_dayname) %></span>
+      We received your task submission on:
+      <span class="inline-block bg-primary-700 px-2 rounded mt-2 text-gray-900 font-bold"><%= @student.task_submissions.last.created_at.in_time_zone('Asia/Kolkata').to_s(:short_with_dayname) %></span>
     </p>
     <p class="mt-4">
       We review all submissions within 3 working days. We will email you after the review.

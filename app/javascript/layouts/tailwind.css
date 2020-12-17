@@ -51,15 +51,21 @@ h4 {
 }
 
 .workflow {
-    @apply p-6 rounded-lg;
+    @apply rounded-lg;
 }
 
-.workflow-locked {
+.workflow-locked, .workflow-complete {
     @apply opacity-40;
 }
 
 .workflow-active {
-    @apply border border-primary-500 bg-gray-900 hover:shadow-2xl;
+    @apply p-4 border border-primary-500 bg-gray-900 hover:shadow-2xl;
+}
+
+@scrren lg {
+    .workflow-active {
+        @apply p-6;
+    }
 }
 
 select {

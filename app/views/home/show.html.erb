@@ -1,13 +1,18 @@
-<main class="">
+<main class="max-w-2xl border border-gray-700 shadow-lg bg-gray-800 p-4 md:p-6 rounded-lg mt-4">
   <%= form_tag(first_step_path, :multipart => true) do %>
-    <div class="input">
+    <div>
       <label for="email">
-        <p class="text-white">Before we begin, please tell us your email address!</p>
-        <%= email_field_tag 'email', nil, required: true, placeholder: "abc@xyz.com", class: 'mt-4 shadow-sm focus:ring-primary-500 focus:border-primary-500 block w-full sm:text-sm border-white rounded-md max-w-md' %>
+        <p class="font-montserrat text-primary-700 tracking-wide text-base md:text-lg">Before we begin, please tell us your email address!</p>
+        <%= email_field_tag 'email', nil, required: true, placeholder: "abc@xyz.com", class: 'mt-2 shadow-sm bg-gray-900 border-gray-600 font-spacemono text-white focus:ring-1 focus:ring-primary-500 focus:border-primary-500 focus:ring-opacity-50 block w-full sm:text-sm rounded' %>
       </label>
     </div>
-    <p>
-      <%= submit_tag "Continue", class: 'block text-center px-10 py-4 bg-gray-900 text-primary-500 border border-primary-500 font-bold font-montserrat rounded shadow-lg hover:shadow-xl hover:bg-primary-900 hover:text-gray-900 transition duration-250 ease-in-out' %>
-    </p>
+    <button type="submit" class="mt-4 flex items-center justify-center w-full md:w-auto text-center text-base font-medium px-6 py-3 bg-gradient-to-b from-primary-400 to-primary-700 text-gray-900 border border-primary-300 font-montserrat rounded shadow-lg focus:ring-2 focus:ring-primary-200 hover:shadow-xl focus:from-primary-500 focus:to-primary-900 hover:from-primary-600 hover:to-primary-900 transition duration-250 ease-in-out">
+      <span>Continue</span>
+      <span class="pl-3">
+        <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </span>
+    </button>
   <% end %>
 </main>
