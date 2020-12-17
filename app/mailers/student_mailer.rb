@@ -12,4 +12,12 @@ class StudentMailer < ApplicationMailer
     @url = login_with_token_students_url(token: @student.id)
     simple_roadie_mail(subject: 'Begin your CoronaSafe Engineering Fellowship application!')
   end
+
+  def code_submission_received
+    @student = params[:student]
+    mail(to: @student.email,
+         subject: "We've received your code submission!") do |format|
+      format.html { render layout: 'plain_email_layout' }
+    end
+  end
 end
