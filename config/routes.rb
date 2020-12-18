@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :task_submissions
+    resources :reviews
 
     root to: 'users#index'
   end
