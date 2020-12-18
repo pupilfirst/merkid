@@ -77,26 +77,6 @@ p.highlight {
   color: black;
 }
 
-.exposed-ceiling {
-  max-width: 400px;
-  overflow: hidden;
-  font-size: 10px;
-  color: #41474e;
-  font-family: monospace;
-  opacity: 0.6;
-  margin-top: 128px;
-}
-
-@media only screen and (min-width: 1024px) {
-  .exposed-ceiling {
-    position: absolute;
-    bottom: -512px;
-    right: 48px;
-    margin: 0;
-    padding-bottom: 128px;
-  }
-}
-
 .input {
   margin-bottom: 32px;
 }

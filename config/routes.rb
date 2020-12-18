@@ -37,5 +37,8 @@ Rails.application.routes.draw do
   namespace :review do
     get '/', to: "dashboard#index"
     get :student, to: "dashboard#student"
+    get :save_review, to: "dashboard#student"
+    post :save_review, to: "dashboard#save_review"
+    get :begin_review, to: "dashboard#begin_review"
   end
 end

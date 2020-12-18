@@ -1,36 +1,29 @@
 <main class="ReviewPage">
-  <div class="text-white mt-8 text-sm">
-    <div class="font-bold mb-8">
+  <div class="text-white mt-12 text-sm">
+    <div class="font-bold mb-4">
       <p class="mb-2 text-2xl"><%= @student.full_name %></p>
-      <a href="mailto:<%= @student.email %>" class="block mb-4 underline"><%= @student.email %></a>
     </div>
 
-    <p class="mb-8">
-      <%= @student.status.upcase %>
-    </p>
-
-    <div class="mb-8">
-      <p class="text-gray-200 text-sm">Phone</p>
-      <%= @student.phone_number %>
-    </div>
-
-    <div class="mb-8 ReviewPage-text">
-      <p class="text-gray-200 text-sm">Portfolio</p>
-      <%== simple_format(@student.portfolio).gsub(URI.regexp, '<a href="\0">\0</a>').html_safe %>
-    </div>
-
-    <div class="mb-8 ReviewPage-text">
-      <p class="text-gray-200 text-sm">What excites you about programming?</p>
-      <%== simple_format(@student.anything_else).gsub(URI.regexp, '<a href="\0">\0</a>').html_safe %>
-    </div>
-
-    <div class="mb-8 ReviewPage-text">
-      <p class="text-gray-200 text-sm">Course, College</p>
+    <div class="mb-4 ReviewPage-text hidden">
+      <a href="mailto:<%= @student.email %>" class="block mb-4 font-normal"><%= @student.email %></a>
+      <p class="text-gray-200 mb-1 text-sm">Course, College</p>
       <%= @student.semester.to_i.ordinalize %> semester, <%= @student.course %>, <%= @student.college %>
     </div>
   </div>
 
-  <% if @student.status == User::TASK_SUBMITTED %>
-    <%= render partial: 'submission_review', locals: { student: @student } %>
+  <p class="mb-4">
+    <%= @student.status.upcase %>
+  </p>
+
+  <% if @student.status == User::TASK_SUBMITTED || @student.status == User::TASK_REVIEWED %>
+    <p class="mb-4">
+      <%= User.kept.where(status: User::TASK_SUBMITTED).count %>
+      submissions left to be reviewed.
+    </p>
+    <%= render partial: 'submission_review', locals: { student: @student, review: @review } %>
+  <% else %>
+    <div class="max-w-xs mt-8 bg-white mr-8">
+      <%= link_to "View in Admin interface", "/admin/users/#{@student.id}", class: "block text-center p-4" %>
+    </div>
   <% end %>
 </main>

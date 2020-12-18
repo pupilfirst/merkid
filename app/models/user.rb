@@ -67,6 +67,7 @@ class User < ApplicationRecord
   validates_format_of :email, with: /\A([^\s]+)((?:[-a-z0-9]\.)[a-z]{2,})\z/i
 
   has_many :task_submissions
+  has_one :review
 
   # ALWAYS use this scope for all reporting & stats.
   # Users are never discarded except for about 30 internal company
@@ -77,6 +78,12 @@ class User < ApplicationRecord
 
   def self.create_student!(email)
     create!(email: email.downcase, status: EMAIL_UNVERIFIED)
+  end
+
+  def self.next_student_for_review
+    kept.where(status: User::TASK_SUBMITTED).
+      order("task_submitted_at asc").
+      first(1)
   end
 
   def status_email_unverified?
@@ -133,6 +140,12 @@ class User < ApplicationRecord
     task_submission
   end
 
+  def mark_task_reviewed!
+    unless task_reviewed_at
+      update_attributes!(status: TASK_REVIEWED, task_reviewed_at: DateTime.now)
+    end
+  end
+
   # --
 
   def display_name
@@ -149,7 +162,7 @@ class User < ApplicationRecord
 
   def is_admin?
     ['jacob@protoship.io', 'jasim@protoship.io', 'bodhish@pupilfirst.org', 'hari@pupilfirst.org', 'reena@pupilfirst.org', 'mahesh@pupilfirst.org',
-      'suma@pupilfirst.org'].include?(email)
+     'suma@pupilfirst.org'].include?(email)
   end
 
   def is_coach?

@@ -30,9 +30,9 @@
     <thead>
     <tr>
       <th></th>
-      <th></th>
       <th>full name</th>
-      <th>seen</th>
+      <th>code submitted at</th>
+      <th>last updated at</th>
       <% unless @filter.active? %>
         <th>status</th>
       <% end %>
@@ -43,26 +43,28 @@
     <% @students.each do |s| %>
       <tr>
         <td>
-          <%
-            t = s.task_submissions.last
-            if t
-          %>
-            <%= link_to "Download", url_for(t.uploaded_file), class: "block text-sm", style: "padding: 16px 8px;" %>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to "Details", review_student_path(id: s.id), class: "block text-sm", style: "padding: 16px 8px;" %>
+          <%= link_to "Review", review_student_path(id: s.id), class: "block text-sm", style: "padding: 16px;" %>
         </td>
         <td>
           <p class="text-gray-800">
             <%= s.full_name %>
           </p>
         </td>
+
+        <td>
+          <p class="text-gray-800">
+            <% if s.task_submitted_at %>
+              <%= time_ago_in_words(s.task_submitted_at) %> ago
+            <% end %>
+          </p>
+        </td>
+
         <td>
           <p class="text-gray-800">
             <%= time_ago_in_words(s.updated_at) %> ago
           </p>
         </td>
+
         <% unless @filter.active? %>
           <td>
             <p class="text-gray-800">

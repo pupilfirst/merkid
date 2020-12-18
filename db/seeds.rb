@@ -47,7 +47,7 @@ if Rails.env.development?
   statuses = [User::EMAIL_UNVERIFIED, User::EMAIL_VERIFIED, User::APPLICATION_FORM_SUBMITTED, User::TASK_REVEALED, User::TASK_SUBMITTED]
   300.times do |_x|
     name = Faker::Name.name
-    i = rand(statuses.length + 1)
+    i = rand(statuses.length)
     status = statuses[i]
     h = {
       first_name: name.split(' ').first,

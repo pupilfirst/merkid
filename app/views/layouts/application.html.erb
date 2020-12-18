@@ -26,30 +26,31 @@
 
 <body class="bg-gray-800">
 
-<header class="max-w-3xl mx-auto py-4 lg:py-8 px-4 xl:px-0">
-  <div class="flex justify-between items-center">
-    <%= image_tag('logo-dark.svg', class: 'bock w-36 md:w-44') %>
-    <%= image_tag('aicte-logo.png', class: 'block w-20 md:w-24') %>
-  </div>
-</header>
+<% unless @is_admin_page %>
+  <header class="max-w-3xl mx-auto py-4 lg:py-8 px-4 xl:px-0">
+    <div class="flex justify-between items-center">
+      <%= image_tag('logo-dark.svg', class: 'bock w-36 md:w-44') %>
+      <%= image_tag('aicte-logo.png', class: 'block w-20 md:w-24') %>
+    </div>
+  </header>
+<% end %>
 
-
-<div class='<%= @is_admin_page ? "max-w-5xl mx-auto" : "max-w-3xl mx-auto py-4 lg:py-8 px-4 xl:px-0" %>'>
+<div class='<%= @is_admin_page ? "max-w-5xl mx-auto mt-12" : "max-w-3xl mx-auto py-4 lg:py-8 px-4 xl:px-0" %>'>
   <% if @student %>
     <div class="flex justify-between">
       <% if (current_page?(root_path) || current_page?(students_path)) %>
         <div></div>
       <% else %>
         <p class="text-sm">
-          <%= link_to root_path, class:"bg-gray-700 px-2 py-1 rounded text-gray-100 hover:bg-gray-900 hover:shadow-inner hover:text-gray-200" do %>
+          <%= link_to root_path, class: "bg-gray-700 px-2 py-1 rounded text-gray-100 hover:bg-gray-900 hover:shadow-inner hover:text-gray-200" do %>
             <i class="fas fa-home"></i><span class="pl-1">Home</span>
-          <%end%>
+          <% end %>
         </p>
       <% end %>
       <div class="flex md:mb-10 mb-4 space-x-4">
         <p class="hidden md:block text-sm text-gray-500"> <%= @student.more_context_name %> </p>
         <p class="text-sm">
-          <%= link_to logout_url, class:"border border-gray-700 px-2 py-1 rounded text-gray-300 hover:bg-gray-900 hover:shadow-inner hover:text-gray-200" do %>
+          <%= link_to logout_url, class: "border border-gray-700 px-2 py-1 rounded text-gray-300 hover:bg-gray-900 hover:shadow-inner hover:text-gray-200" do %>
             <i class="fas fa-sign-out-alt"></i><span class="pl-1">Logout</span>
           <% end %>
         </p>
@@ -58,11 +59,18 @@
   <% end %>
 
   <% if @is_admin_page %>
-    <p class="text-sm mb-8">
-      <%= link_to review_path, class:"bg-gray-700 px-2 py-1 rounded text-gray-100 hover:bg-gray-900 hover:shadow-inner hover:text-gray-200" do %>
-        <i class="fas fa-home"></i><span class="pl-1">REVIEW DASHBOARD</span>
-      <%end%>
+    <div class="flex mb-8">
+    <p class="text-sm mr-8">
+      <%= link_to review_begin_review_path, class: "bg-gray-700 px-4 py-2 rounded text-gray-100 hover:bg-gray-900 hover:shadow-inner hover:text-gray-200" do %>
+        <i class="fa fa-cubes"></i><span class="pl-1">Begin review</span>
+      <% end %>
     </p>
+    <p class="text-sm mr-8">
+      <%= link_to review_path, class: "bg-gray-700 px-4 py-2 rounded text-gray-100 hover:bg-gray-900 hover:shadow-inner hover:text-gray-200" do %>
+        <i class="fa fa-cubes"></i><span class="pl-1">Go to review dashboard</span>
+      <% end %>
+    </p>
+    </div>
   <% else %>
     <h1 class="hidden" style="margin-bottom: 8px; padding-bottom: 0">CoronaSafe Engineering Fellowship</h1>
     <h2 class="text-sm md:text-lg text-gray-300 pb-2 md:pb-8">
@@ -76,23 +84,18 @@
 
   <%= yield %>
 
-  <div class="mt-16 text-sm text-gray-100">
-    <div>Please note that it is required that you read and agree to the terms and conditions before applying for the
-      program. <%= link_to "Click here to read", terms_path, class: 'border-b border-primary-500 text-white hover:bg-primary-400 hover:text-gray-900' %>.
-    </div>
-    <div class="mt-4">For any questions, email us at
-      <a class="border-b border-primary-500 text-white hover:bg-primary-400 hover:text-gray-900" href="mailto:fullstack@pupilfirst.org">fullstack@pupilfirst.org</a>.
-    </div>
-  </div>
-
-  <% if @student %>
-    <div class="exposed-ceiling hidden md:block">
-<pre class="">
-<%== JSON.pretty_generate(@student.as_json) %>
-</pre>
-      For your reference.
+  <% unless @is_admin_page %>
+    <div class="mt-16 text-sm text-gray-100">
+      <div>Please note that it is required that you read and agree to the terms and conditions before applying for the
+        program. <%= link_to "Click here to read", terms_path, class: 'border-b border-primary-500 text-white hover:bg-primary-400 hover:text-gray-900' %>
+        .
+      </div>
+      <div class="mt-4">For any questions, email us at
+        <a class="border-b border-primary-500 text-white hover:bg-primary-400 hover:text-gray-900" href="mailto:fullstack@pupilfirst.org">fullstack@pupilfirst.org</a>.
+      </div>
     </div>
   <% end %>
 </div>
 </body>
 </html>
+
