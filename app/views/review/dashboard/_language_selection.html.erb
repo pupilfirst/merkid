@@ -1,0 +1,21 @@
+<div class="mb-4">
+  <p class="text-lg font-bold"><%= caption %></p>
+
+  <div class="radio-toolbar">
+    <input type="radio"
+           id="<%= field %>_atpar"
+           name="review[<%= field %>]"
+           value="0"
+           <%= review.attributes[field] == 0 ? "checked" : "" %>
+    >
+    <label for="<%= field %>_atpar">At par</label>
+
+    <input type="radio"
+           id="<%= field %>_good"
+           name="review[<%= field %>]"
+           value="1"
+           <%= review.attributes[field] == 1 ? "checked" : "" %>
+    >
+    <label for="<%= field %>_good">Good</label>
+  </div>
+</div>

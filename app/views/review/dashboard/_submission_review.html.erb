@@ -28,7 +28,7 @@
       field: "program_design",
     } %>
 
-    <%= render partial: "review_metric", locals: {
+    <%= render partial: "language_selection", locals: {
       review: review,
       caption: "Language selection",
       field: "language_selection",
@@ -50,6 +50,9 @@
       review: review,
       caption: "Portfolio quality",
       field: "portfolio_quality",
+      unq_caption: "Not enough data",
+      atpar_caption: "At par",
+      good_caption: "Good"
     } %>
 
     <%= render partial: "review_metric", locals: {
