@@ -1,19 +1,21 @@
-<div class="flex w-full">
-  <div class="max-w-xs mt-8 bg-white mr-8">
-    <%= link_to "Download Code", url_for(student.task_submissions.last.uploaded_file), class: "block text-center p-4" %>
-  </div>
-
-  <div class="max-w-xs mt-8 bg-white">
-    <%= link_to "Automated tests", "https://github.com/nseadlc-2020/#{student.id}/actions?query=workflow%3A%22Node.js+Test+Runner%22", class: "block p-4 text-center" %>
-  </div>
-</div>
-
 <%= form_tag(review_save_review_path(id: @student.id), class: "pb-16") do %>
-  <div class="grid gap-4 grid-cols-3 mt-8">
+  <div>
+    <div class="max-w-xs my-4 bg-white">
+      <%= link_to "Automated tests", "https://github.com/nseadlc-2020/#{student.id}/actions?query=workflow%3A%22Node.js+Test+Runner%22", class: "block py-4 px-0 text-center" %>
+    </div>
+
+    <div class="max-w-xs mt-4 bg-white mr-8">
+      <%= link_to "Download Code", url_for(student.task_submissions.last.uploaded_file), class: "block text-center p-4" %>
+    </div>
+  </div>
+  <div class="grid gap-4 grid-cols-2 mt-8">
     <%= render partial: "review_metric", locals: {
       review: review,
       caption: "Tests passing",
       field: "tests_passing",
+      unq_caption: "Missing tests/0 passing",
+      atpar_caption: "Some passing",
+      good_caption: "All passing"
     } %>
 
     <%= render partial: "review_metric", locals: {
@@ -59,6 +61,7 @@
       review: review,
       caption: "Holistic evaluation",
       field: "holistic_evaluation",
+      good_caption: "Qualified"
     } %>
 
     <div class="mb-4">
