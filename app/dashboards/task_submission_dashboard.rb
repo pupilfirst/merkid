@@ -31,7 +31,7 @@ class TaskSubmissionDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
   uploaded_file
   id
-  user_id
+  user
   created_at
   updated_at
   ].freeze
@@ -41,7 +41,6 @@ class TaskSubmissionDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
   uploaded_file
-  user_id
   ].freeze
 
   # COLLECTION_FILTERS
