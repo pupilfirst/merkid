@@ -39,9 +39,7 @@ class TaskSubmissionDashboard < Administrate::BaseDashboard
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = %i[
-  uploaded_file
-  ].freeze
+  FORM_ATTRIBUTES = []
 
   # COLLECTION_FILTERS
   # a hash that defines filters that can be used while searching via the search
