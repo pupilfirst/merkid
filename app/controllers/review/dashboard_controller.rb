@@ -43,4 +43,35 @@ class Review::DashboardController < ReviewController
       render :'review/dashboard/student'
     end
   end
+
+  def save_quick_review
+    @student = User.find(params[:id])
+    @review = @student.review || @student.build_review
+
+    @review.tests_passing = 0
+    @review.clean_code = 0
+    @review.program_design = 0
+    @review.language_selection = 0
+    @review.portfolio_quality = 0
+    @review.holistic_evaluation = 0
+    if params[:unrelated_submission]
+      @review.private_notes = "Unrelated submission."
+    elsif params[:empty_submission]
+      @review.private_notes = "Empty submission."
+    else
+      flash[:error] = "Invalid quick review type"
+      redirect_to review_begin_review_path
+      return
+    end
+
+    if @review.save
+      @student.mark_task_reviewed!
+      flash.clear
+      flash[:info] = "Marked previous review as #{@review.private_notes}"
+      redirect_to review_begin_review_path
+    else
+      flash[:error] = @review.errors.map { |attr, msg| "#{attr} #{msg}" }
+      render :'review/dashboard/student'
+    end
+  end
 end

@@ -1,5 +1,5 @@
-<%= form_tag(review_save_review_path(id: @student.id), class: "pb-16") do %>
-  <div>
+<div class="flex items-center">
+  <div class="mr-32">
     <div class="max-w-xs my-4 bg-white">
       <%= link_to "Automated tests", "https://github.com/nseadlc-2020/#{student.id}/actions?query=workflow%3A%22Node.js+Test+Runner%22", class: "block py-4 px-0 text-center" %>
     </div>
@@ -8,6 +8,17 @@
       <%= link_to "Download Code", url_for(student.task_submissions.last.uploaded_file), class: "block text-center p-4" %>
     </div>
   </div>
+  <div class="">
+    <p class="my-4">
+      <%= button_to "Mark as Unrelated Submission", review_save_quick_review_path(id: @student.id, unrelated_submission: true), class: "mr-8 bg-red-800 text-white" %>
+    </p>
+    <p class="mt-4">
+      <%= button_to "Mark as Empty Submission", review_save_quick_review_path(id: @student.id, empty_submission: true), class: "mr-8 bg-red-800 text-white" %>
+    </p>
+  </div>
+</div>
+
+<%= form_tag(review_save_review_path(id: @student.id), class: "pb-16") do %>
   <div class="grid gap-4 grid-cols-2 mt-8">
     <%= render partial: "review_metric", locals: {
       review: review,

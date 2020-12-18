@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     get :student, to: "dashboard#student"
     get :save_review, to: "dashboard#student"
     post :save_review, to: "dashboard#save_review"
+    post :save_quick_review, to: "dashboard#save_quick_review"
     get :begin_review, to: "dashboard#begin_review"
   end
 end
