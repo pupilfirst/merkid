@@ -20,4 +20,12 @@ class StudentMailer < ApplicationMailer
       format.html { render layout: 'plain_email_layout' }
     end
   end
+
+  def application_completion_reminder
+    @student = params[:student]
+    mail(to: @student.email,
+         subject: "Reminder: complete your application soon!") do |format|
+      format.html { render layout: 'plain_email_layout' }
+    end
+  end
 end

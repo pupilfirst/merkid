@@ -1,4 +1,11 @@
 <main class="ReviewPage">
+  <% if @student.status == User::TASK_SUBMITTED || @student.status == User::TASK_REVIEWED %>
+    <p class="mt-4">
+      <%= User.kept.where(status: User::TASK_SUBMITTED).count %>
+      submissions left to be reviewed.
+    </p>
+  <% end %>
+
   <div class="text-white mt-12 text-sm">
     <div class="font-bold mb-4">
       <p class="mb-2 text-2xl"><%= @student.full_name %></p>
@@ -15,15 +22,11 @@
     <%= @student.status.upcase %>
   </p>
 
+  <div class="max-w-xs my-8 bg-white mr-8">
+    <%= link_to "View in Admin interface", "/admin/users/#{@student.id}", class: "block text-center p-4" %>
+  </div>
+
   <% if @student.status == User::TASK_SUBMITTED || @student.status == User::TASK_REVIEWED %>
-    <p class="mb-4">
-      <%= User.kept.where(status: User::TASK_SUBMITTED).count %>
-      submissions left to be reviewed.
-    </p>
     <%= render partial: 'submission_review', locals: { student: @student, review: @review } %>
-  <% else %>
-    <div class="max-w-xs mt-8 bg-white mr-8">
-      <%= link_to "View in Admin interface", "/admin/users/#{@student.id}", class: "block text-center p-4" %>
-    </div>
   <% end %>
 </main>

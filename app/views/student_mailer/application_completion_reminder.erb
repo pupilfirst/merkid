@@ -1,0 +1,49 @@
+<p>
+  Hello <%= @student.display_name %>,
+</p>
+
+<p>
+  Thanks for beginning your application to the
+  <a href="https://fullstack.pupilfirst.org">CoronaSafe Engineering Fellowship</a>.
+</p>
+
+<p>
+  We wanted to remind you to complete your application process &mdash; the seats for the fellowship are limited and
+  will fill quickly. We'd like to read your code submission before that.
+  <strong>So please hurry!</strong>
+</p>
+
+<p>
+  A few notes to help you avoid any hiccups:
+</p>
+<ol>
+  <li style="margin-bottom: 20px;">
+    If you are on Windows, you might have difficulty getting the tests to pass because of UTF encoding issues. If you
+    get stuck, please
+    <a href="https://github.com/nseadlc-2020/package-todo-cli-task/issues/12">refer to the thread here</a>.
+  </li>
+
+  <li style="margin-bottom: 20px;">
+    The tests can fail between 12am and 5.30am (early morning IST). This is because the test parses the date from your
+    system time in UTC format, while in certain programming languages the date and time functions use the local timezone
+    (IST). Accounting for this in the tests will make it more complex and need extra dependencies, so we have kept it
+    intentionally simple. So if you run into this specific problem, you can submit your code as is with the transient
+    date mismatch, or you can change your code to use UTC. Either options are fine.
+  </li>
+
+  <li style="margin-bottom: 20px;">
+    In Windows machines, the `make` command might not exist and can prevent you from running the tests. This can be
+    fixed
+    <a href="https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows">
+      by using WSL, installing MingW</a> and so on.
+  </li>
+</ol>
+<p>
+  We hope will have fun with the programming challenge. We're looking forward to reading your code.
+</p>
+
+<p>
+  <em>
+    The CoronaSafe Engineering Fellowship Team.
+  </em>
+</p>
