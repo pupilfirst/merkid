@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_18_071311) do
+ActiveRecord::Schema.define(version: 2020_12_19_043922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -80,7 +80,10 @@ ActiveRecord::Schema.define(version: 2020_12_18_071311) do
     t.datetime "task_reviewed_at"
     t.string "task_review_message"
     t.datetime "submission_receipt_emailed_at"
+    t.datetime "completion_reminder_emailed_at"
+    t.index ["email"], name: "index_users_on_email"
     t.index ["status"], name: "index_users_on_status"
+    t.index ["updated_at"], name: "index_users_on_updated_at"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
