@@ -28,6 +28,8 @@ class ReviewDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
   user
+  holistic_evaluation
+  portfolio_quality
   tests_passing
   clean_code
   program_design
