@@ -149,8 +149,10 @@ class User < ApplicationRecord
   # --
 
   def display_name
-    if status_application_form_submitted?
+    if first_name.present?
       first_name.capitalize
+    elsif full_name.present?
+      full_name.capitalize
     else
       email.split('@').first
     end

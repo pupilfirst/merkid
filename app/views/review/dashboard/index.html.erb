@@ -30,7 +30,7 @@
     <thead>
     <tr>
       <th></th>
-      <th>full name</th>
+      <th>name</th>
       <th>code submitted at</th>
       <th>last updated at</th>
       <% unless @filter.active? %>
@@ -47,7 +47,7 @@
         </td>
         <td>
           <p class="text-gray-800">
-            <%= s.full_name %>
+            <%= s.display_name %>
           </p>
         </td>
 

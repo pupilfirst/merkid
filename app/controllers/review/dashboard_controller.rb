@@ -3,7 +3,7 @@ class Review::DashboardController < ReviewController
     @filter = UserFilter.new(params[:status])
     students = @filter.filtered.order("updated_at DESC")
     @filtered_count = students.count
-    @students = students.page(params[:page]).per(200)
+    @students = students.page(params[:page]).per(50)
   end
 
   def student
