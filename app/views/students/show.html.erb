@@ -4,7 +4,7 @@
     current_step = 1 if @student.status_email_verified?
     current_step = 2 if @student.status_application_form_submitted?
     current_step = 3 if @student.status_task_revealed?
-    current_step = 4 if @student.status_task_submitted?
+    current_step = 4 if @student.status_task_submitted? || @student.status_task_reviewed?
   %>
 
   <%= render partial: "workflow_step", locals: {

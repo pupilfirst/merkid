@@ -1,17 +1,17 @@
 <div class="text-white text-lg md:text-3xl font-bold">4. Check your programming task results</div>
 <main>
 
-  <% if @student.status_task_submitted? %>
+  <% if @student.status_task_submitted? || @student.status_task_reviewed? %>
 
     <div class="mt-4 font-semibold text-xl text-primary-500">Your submission is currently queued for review</div>
     <p class="mt-4">
       We received your task submission on:
       <span class="inline-block bg-primary-700 px-2 rounded mt-2 text-gray-900 font-bold"><%= @student.task_submissions.last.created_at.in_time_zone('Asia/Kolkata').to_s(:short_with_dayname) %></span>
     </p>
-    <p class="mt-4">
-      We will review all the code submissions and select 30 applicants for the fellowship. The list of selected
-      applicants will be announced on or before January 10th, 2021. Selected applicants will be notified through email
-      and phone.
+    <p class="mt-4 leading-normal">
+      We will review all the code submissions and select 30 applicants for the fellowship. The list of
+      selected applicants will be announced in the <a href="https://fullstack.pupilfirst.org">course website</a> on or
+      before January 10th, 2021. Selected applicants will also be notified through email and phone.
     </p>
 
     <p class="mt-4">Thanks for taking the time to work through the problem. We hope you enjoyed it.</p>
