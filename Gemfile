@@ -32,6 +32,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'administrate', '~> 0.14.0'
 gem 'administrate-field-active_storage', '~> 0.3.6'
 
+# rubyzip is a Ruby module for reading and writing zip files.
+gem 'rubyzip', '~> 2.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -86,5 +89,4 @@ gem 'kaminari'
 
 group :development do
   gem 'faker'
-  gem 'rubyzip'
 end
