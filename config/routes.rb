@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   namespace :admin do
-    resources :users
+    resources :users do
+      get :export, on: :collection
+    end
+
     resources :task_submissions
-    resources :reviews
+
+    resources :reviews do
+      get :export, on: :collection
+    end
 
     root to: 'users#index'
   end

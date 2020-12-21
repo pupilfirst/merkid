@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Customizable, no-DSL admin interface.
 gem 'administrate', '~> 0.14.0'
 gem 'administrate-field-active_storage', '~> 0.3.6'
+gem 'administrate_exportable', github: 'SourceLabsLLC/administrate_exportable'
 
 # rubyzip is a Ruby module for reading and writing zip files.
 gem 'rubyzip', '~> 2.3'

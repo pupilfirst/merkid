@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/SourceLabsLLC/administrate_exportable.git
+  revision: 0fdc6c01236fea128eeb69b44eff384383a81fac
+  specs:
+    administrate_exportable (0.2.0)
+      actionview (>= 5.2.2.1)
+      administrate (>= 0.12.0)
+      rails (>= 4.2)
+      railties (>= 5.2.2.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -335,6 +345,7 @@ PLATFORMS
 DEPENDENCIES
   administrate (~> 0.14.0)
   administrate-field-active_storage (~> 0.3.6)
+  administrate_exportable!
   aws-sdk-s3 (~> 1.35)
   bootsnap (>= 1.4.2)
   byebug

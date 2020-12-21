@@ -1,6 +1,8 @@
 require "administrate/base_dashboard"
 
 class ReviewDashboard < Administrate::BaseDashboard
+  include AdministrateExportable::Exporter
+
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,7 +11,7 @@ class ReviewDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     user: Field::BelongsTo.with_options(searchable: true, searchable_fields: %w[full_name email]),
-    id: Field::String.with_options(searchable: false),
+    id: Field::String.with_options(searchable: false, export: false),
     private_notes: Field::Text,
     tests_passing: Field::Number,
     clean_code: Field::Number,
@@ -17,8 +19,8 @@ class ReviewDashboard < Administrate::BaseDashboard
     language_selection: Field::Number,
     portfolio_quality: Field::Number,
     holistic_evaluation: Field::Number,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    created_at: Field::DateTime.with_options(transform_on_export: -> (field) { field.data&.iso8601 }),
+    updated_at: Field::DateTime.with_options(transform_on_export: -> (field) { field.data&.iso8601 }),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
