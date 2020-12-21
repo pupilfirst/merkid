@@ -11,6 +11,7 @@ class ReviewDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     user: Field::BelongsTo.with_options(searchable: true, searchable_fields: %w[full_name email]),
+    user_id: Field::String.with_options(searchable: false),
     id: Field::String.with_options(searchable: false, export: false),
     private_notes: Field::Text,
     tests_passing: Field::Number,

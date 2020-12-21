@@ -8,8 +8,8 @@ class UserDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    task_submissions: Field::HasMany,
-    id: Field::String.with_options(searchable: false, export: false),
+    task_submissions: Field::HasMany.with_options(export: false),
+    id: Field::String.with_options(searchable: false),
     first_name: Field::String,
     full_name: Field::String,
     email: Field::String,
