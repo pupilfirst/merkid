@@ -20,13 +20,8 @@ namespace 'autograding' do
       limit = 10
     end
 
-    to_check = User.kept.where(status: User::TASK_SUBMITTED).filter { |student|
-      (student.portfolio.to_s.strip + student.anything_else.to_s.strip).length < 50
-    }
-
-    short_subjective_answers_count = to_check.count
-
-    to_check = to_check.to_a[0..limit]
+    to_check = User.kept.where(status: User::TASK_SUBMITTED).to_a
+    to_check = to_check[0..limit]
 
     invalid_submissions = to_check.filter { |student|
       is_invalid = AutogradeService.new(student).is_invalid_submission?
@@ -42,7 +37,6 @@ namespace 'autograding' do
 
     puts ""
     puts "Total task submissions pending: #{User.kept.where(status: User::TASK_SUBMITTED).count}"
-    puts "Short subjective answers count (< 50 letters total): #{short_subjective_answers_count}"
     puts ""
     puts "Probing zip files for empty/invalid submissions, based on LIMIT: #{to_check.count}"
     puts "Invalid submissions due to not having valid file present: #{invalid_submissions.count}"
