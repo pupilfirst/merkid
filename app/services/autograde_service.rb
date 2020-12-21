@@ -19,8 +19,13 @@ class AutogradeService
     return unless submission
 
     zip_contents = submission.uploaded_file.download
-    Zip::File.open_buffer(zip_contents) do |zip|
-      return !can_have_submission?(zip)
+    begin
+      Zip::File.open_buffer(zip_contents) do |zip|
+        return !can_have_submission?(zip)
+      end
+    rescue Zip::Error
+      puts "Non-zip file uploaded by #{Rails.application.routes.url_helpers.review_student_url(id: user.id, host: "apply.pupilfirst.org", protocol: "https")}"
+      return true
     end
   end
 

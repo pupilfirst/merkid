@@ -2,6 +2,13 @@
 namespace 'autograding' do
   desc "Grade invalid submissions automatically"
   task grade_invalid_submissions: :environment do
+
+    # https://stackoverflow.com/questions/20243497/rails-rake-task-on-heroku-disable-displaying-the-sql-log-on-the-screen
+    # Can't see any of my "puts" in the log because of all the SQL noise
+    dev_null = Logger.new("/dev/null")
+    Rails.logger = dev_null
+    ActiveRecord::Base.logger = dev_null
+
     # let's be cautious and work in small batches
     limit = ENV['LIMIT']
     if limit
@@ -20,10 +27,7 @@ namespace 'autograding' do
     to_check = to_check.to_a[0..limit]
 
     invalid_submissions = to_check.filter { |student|
-      puts student.display_name
       is_invalid = AutogradeService.new(student).is_invalid_submission?
-      puts is_invalid ? "** INVALID **" : "(valid)"
-      puts "\n\n\n"
       is_invalid
     }
 
