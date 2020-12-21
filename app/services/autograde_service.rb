@@ -6,16 +6,16 @@ require 'zip'
 class AutogradeService
   CORRECT_FILENAMES = ["todo.py", "todo.c", "todo.java", "todo.cpp", "todo.rb", "todo.js"]
 
-  attr_reader :user
+  attr_reader :student
 
-  def initialize(user)
-    @user = user
+  def initialize(student)
+    @student = student
   end
 
   def is_invalid_submission?
-    return unless user.status == User::TASK_SUBMITTED
+    return unless student.status == User::TASK_SUBMITTED
 
-    submission = user.task_submissions.last
+    submission = student.task_submissions.last
     return unless submission
 
     zip_contents = submission.uploaded_file.download
@@ -24,8 +24,8 @@ class AutogradeService
         return !can_have_submission?(zip)
       end
     rescue Zip::Error
-      puts "Non-zip file uploaded by #{Rails.application.routes.url_helpers.review_student_url(id: user.id, host: "apply.pupilfirst.org", protocol: "https")}"
-      return true
+      puts "Non-zip file uploaded by #{Rails.application.routes.url_helpers.review_student_url(id: student.id, host: "apply.pupilfirst.org", protocol: "https")}\n"
+      true
     end
   end
 
@@ -39,10 +39,7 @@ class AutogradeService
     false
   end
 
-  def mark_as_invalid_submission(student)
-    # DRY RUN
-    return
-
+  def mark_as_invalid_submission!
     review = student.build_review
     review.tests_passing = 0
     review.clean_code = 0
@@ -55,12 +52,3 @@ class AutogradeService
     student.mark_task_reviewed!
   end
 end
-
-=begin
-  def perform(user_id)
-    user = User.find(user_id)
-    if is_invalid_submission?(user)
-      mark_as_invalid_submission(user)
-    end
-  end
-=end

@@ -9,6 +9,8 @@ namespace 'autograding' do
     Rails.logger = dev_null
     ActiveRecord::Base.logger = dev_null
 
+    puts "\n\n**** Begin auto-grade run at #{DateTime.now.in_time_zone('Asia/Kolkata').to_s(:short_with_dayname)}\n\n"
+
     # let's be cautious and work in small batches
     limit = ENV['LIMIT']
     if limit
@@ -31,10 +33,12 @@ namespace 'autograding' do
       is_invalid
     }
 
+    puts "\n\n-------- URLs for invalid submissions -------"
     invalid_submissions.each { |student|
       url = Rails.application.routes.url_helpers.review_student_url(id: student.id, host: "apply.pupilfirst.org", protocol: "https")
       puts "#{url} #{student.display_name}"
     }
+    puts "---------------------------\n\n"
 
     puts ""
     puts "Total task submissions pending: #{User.kept.where(status: User::TASK_SUBMITTED).count}"
@@ -44,5 +48,17 @@ namespace 'autograding' do
     puts "Invalid submissions due to not having valid file present: #{invalid_submissions.count}"
     puts ""
     puts ""
+
+    if ENV['EXECUTE_GRADING'].to_s.downcase == 'yes'
+      puts "EXECUTE_GRADING is yes."
+      puts "Marking #{invalid_submissions.count} as 'Invalid submission (auto-graded)'"
+      invalid_submissions.each { |student|
+        AutogradeService.new(student).mark_as_invalid_submission!
+      }
+      puts "Done."
+    else
+      puts "This was a dry run. No changes made."
+    end
+    puts "\n\n"
   end
 end
