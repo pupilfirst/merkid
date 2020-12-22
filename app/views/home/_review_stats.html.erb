@@ -1,0 +1,21 @@
+<div class="mt-10">
+  <div class="font-bold text-lg text-primary-800"> <%= title %></div>
+  <table class="table-auto mx-auto w-full text-primary-700">
+    <thead class="border mt-2">
+    <tr>
+      <th class="px-4 py-2 border-r">Score</th>
+      <th class="px-4 py-2">Students</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% grades.each do |grade| %>
+      <% unless grade[0].blank? %>
+        <tr>
+          <td class="border px-4 py-2"><%= grade[0].blank? ? "Yet to update" : grade[0] %></td>
+          <td class="border px-4 py-2"><%= grade[1] %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+</div>
