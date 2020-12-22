@@ -36,6 +36,9 @@ gem 'administrate_exportable', github: 'SourceLabsLLC/administrate_exportable'
 # rubyzip is a Ruby module for reading and writing zip files.
 gem 'rubyzip', '~> 2.3'
 
+# Rack Middleware for handling CORS, required to serve static assets such as fonts
+gem 'rack-cors', '~> 1.1', require: 'rack/cors'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -95,6 +95,19 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  # Add the rack-cors middleware to serve CORS header for static assets
+  config.middleware.insert_before 0, Rack::Cors do
+    allow do
+      origins 'https://apply.pupilfirst.org'
+      resource '/assets/*', methods: :get, headers: :any
+    end
+
+    allow do
+      origins 'https://apply.pupilfirst.org'
+      resource '/assets/**/*', methods: :get, headers: :any
+    end
+  end
+
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
   # middleware. The `delay` is used to determine how long to wait after a write
