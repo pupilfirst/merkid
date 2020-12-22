@@ -1,5 +1,5 @@
 # https://trello.com/c/BDTr3Euh/88-add-autograding-for-empty-invalid-submissions
-namespace 'extract_main_program_text' do
+namespace 'extract_program_and_autograde' do
   desc "Unzip and put the contents of todo.py/.c/c++/etc. into task submission"
   task unzip_and_save: :environment do
 
@@ -27,17 +27,26 @@ namespace 'extract_main_program_text' do
     to_check = to_check[0..limit]
 
     puts ""
-    puts "Unzipping the main program for students: #{to_check.length}"
+    puts "Unzipping and autograding the main program for students: #{to_check.length}"
     puts ""
 
-    extracted = 0
-    to_check.each { |student|
-      if UnzipMainProgramService.new(student).extract!
-        extracted += 1
-      end
+    stats = {
+      :extracted_program => 0,
+      :maybe_valid => 0,
+      :invalid_program_absent => 0,
+      :invalid_program_too_short => 0,
     }
 
-    puts "Extracted #{extracted} submissions."
+    to_check.each { |student|
+      ExpandSubmissionAutogradeService.new(student, stats).run!
+    }
+
+    puts "\n\n"
+    puts "Total submissions considered: #{to_check.length}"
+    puts "  -- No main program exists and thus invalid: #{stats[:invalid_program_absent]}"
+    puts "  -- Main program exists, extracted, and saved: #{stats[:extracted_program]}"
+    puts "      -- Too short though: #{stats[:invalid_program_too_short]}"
+    puts "      -- Long enough, could be valid: #{stats[:maybe_valid]}"
     puts "\n\nDone.\n\n"
   end
 end

@@ -22,14 +22,14 @@ unless User.exists?(email: 'jasim@protoship.io')
   )
 end
 
-def make_zip_file_for_attachment(text)
-  directory = Pathname.new("/tmp/merkid-test-attachment")
+def make_invalid_zip_file_for_attachment(text)
+  directory = Pathname.new("/tmp/invalid-submission")
   Dir.mkdir(directory, 0700) rescue nil
   File.open(directory.join("README"), "wt") do |f|
     f.write("Test attachment README. #{text}")
   end
   input_filenames = ['README']
-  zipfile_name = "/tmp/merkid-test-attachment.zip"
+  zipfile_name = "/tmp/invalid-submission.zip"
   File.unlink(zipfile_name) rescue nil
   Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
     input_filenames.each do |filename|
@@ -39,6 +39,31 @@ def make_zip_file_for_attachment(text)
       zipfile.add(filename, File.join(directory, filename))
     end
     zipfile.get_output_stream("myFile") { |f| f.write "myFile contains just this" }
+  end
+  zipfile_name
+end
+
+def make_valid_zip_file_for_attachment(text)
+  directory = Pathname.new("/tmp/valid-submission")
+  Dir.mkdir(directory, 0700) rescue nil
+  File.open(directory.join("README"), "wt") do |f|
+    f.write("Test attachment README. #{text}")
+  end
+
+  File.open(directory.join("todo.py"), "wt") do |f|
+    f.write(Faker::Lorem.sentences(number: 10 + (rand(20))).join("\n"))
+  end
+
+  input_filenames = ['README', "todo.py"]
+  zipfile_name = "/tmp/valid-submission.zip"
+  File.unlink(zipfile_name) rescue nil
+  Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
+    input_filenames.each do |filename|
+      # Two arguments:
+      # - The name of the file as it will appear in the archive
+      # - The original file, including the path to find it
+      zipfile.add(filename, File.join(directory, filename))
+    end
   end
   zipfile_name
 end
@@ -80,9 +105,14 @@ if Rails.env.development?
     u = User.create!(h)
 
     if status == User::TASK_SUBMITTED
-      zipfile_name = make_zip_file_for_attachment("#{u.id} -- #{u.full_name}")
       task_submission = u.task_submissions.create!
-      task_submission.uploaded_file.attach(io: File.open(zipfile_name), filename: 'test-attachment.zip')
+      if (rand(10) < 5)
+        zipfile_name = make_valid_zip_file_for_attachment("#{u.id} -- #{u.full_name}")
+        task_submission.uploaded_file.attach(io: File.open(zipfile_name), filename: 'valid-attachment.zip')
+      else
+        zipfile_name = make_invalid_zip_file_for_attachment("#{u.id} -- #{u.full_name}")
+        task_submission.uploaded_file.attach(io: File.open(zipfile_name), filename: 'invalid-attachment.zip')
+      end
     end
   end
 end
