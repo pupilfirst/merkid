@@ -23,8 +23,7 @@ namespace 'extract_program_and_autograde' do
     to_check = User.kept.joins(:task_submissions).where(
       status: User::TASK_SUBMITTED,
       "task_submissions.main_program_text": nil
-    )
-    to_check = to_check[0..limit]
+    ).order("task_submitted_at asc").limit(limit).to_a
 
     puts ""
     puts "Unzipping and autograding the main program for students: #{to_check.length}"
