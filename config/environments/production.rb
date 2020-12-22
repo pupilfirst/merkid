@@ -96,7 +96,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Add the rack-cors middleware to serve CORS header for static assets
-  config.middleware.insert_before 0, Rack::Cors do
+  config.middleware.insert_before 0, Rack::Cors, debug: true do
     allow do
       origins 'https://apply.pupilfirst.org'
       resource '/assets/*', methods: :get, headers: :any
