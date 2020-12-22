@@ -29,7 +29,7 @@ Rails.application.configure do
   config.assets.compile = false
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = 'https://apply-assets.pupilfirst.org'
+  config.action_controller.asset_host = 'https://apply-assets-2.pupilfirst.org'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
@@ -96,7 +96,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Add the rack-cors middleware to serve CORS header for static assets
-  config.middleware.insert_before 0, Rack::Cors, debug: true do
+  config.middleware.insert_before 0, Rack::Cors do
     allow do
       origins 'https://apply.pupilfirst.org'
       resource '/assets/*', methods: :get, headers: :any
