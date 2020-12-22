@@ -11,11 +11,11 @@
   task_submitted = students.where(status: User::TASK_SUBMITTED).count
   task_reviewed = students.where(status: User::TASK_REVIEWED).count
   holistic_evaluation = Review.group(:holistic_evaluation).count
-  tests_passing = Review.group(:holistic_evaluation).count
-  clean_code = Review.group(:holistic_evaluation).count
-  program_design = Review.group(:holistic_evaluation).count
-  language_selection = Review.group(:holistic_evaluation).count
-  portfolio_quality = Review.group(:holistic_evaluation).count
+  tests_passing = Review.group(:tests_passing).count
+  clean_code = Review.group(:clean_code).count
+  program_design = Review.group(:program_design).count
+  language_selection = Review.group(:language_selection).count
+  portfolio_quality = Review.group(:portfolio_quality).count
 %>
 <div>
   <table class="table-auto mx-auto w-full text-primary-700">
