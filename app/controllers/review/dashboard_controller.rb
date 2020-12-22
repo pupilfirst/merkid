@@ -48,16 +48,41 @@ class Review::DashboardController < ReviewController
     @student = User.find(params[:id])
     @review = @student.review || @student.build_review
 
-    @review.tests_passing = 0
-    @review.clean_code = 0
-    @review.program_design = 0
-    @review.language_selection = 0
-    @review.portfolio_quality = 0
-    @review.holistic_evaluation = 0
-    if params[:unrelated_submission]
-      @review.private_notes = "Unrelated submission."
-    elsif params[:empty_submission]
-      @review.private_notes = "Empty submission."
+    if params[:unrelated_submission] || params[:empty_submission] || params[:plagiarized_dp]
+      @review.tests_passing = 0
+      @review.clean_code = 0
+      @review.program_design = 0
+      @review.language_selection = 0
+      @review.portfolio_quality = 0
+      @review.holistic_evaluation = 0
+      if params[:unrelated_submission]
+        @review.private_notes = "Unrelated submission."
+      elsif params[:empty_submission]
+        @review.private_notes = "Empty submission."
+      elsif params[:plagiarized_dp]
+        @review.private_notes = "Dhruv Panchal."
+      end
+    elsif params[:unqualified]
+      @review.tests_passing = 0
+      @review.clean_code = 0
+      @review.program_design = 0
+      @review.language_selection = 0
+      @review.portfolio_quality = 0
+      @review.holistic_evaluation = 0
+      @review.private_notes = "Quick review - Unqualified."
+    elsif params[:at_par]
+      language = @student.task_submissions.last.main_program_extname
+      if %w[py js rb].include?(language)
+        @review.language_selection = 1
+      else
+        @review.language_selection = 0
+      end
+      @review.tests_passing = 0
+      @review.clean_code = 1
+      @review.program_design = 1
+      @review.portfolio_quality = 0
+      @review.holistic_evaluation = 1
+      @review.private_notes = "Quick review - At Par."
     else
       flash[:error] = "Invalid quick review type"
       redirect_to review_begin_review_path

@@ -1,3 +1,16 @@
+<div class="mb-48">
+
+<pre class="ReviewPage-codeSubmission"><code>
+<%== student.task_submissions.last.main_program_text %>
+</code></pre>
+
+  <div class="flex">
+    <%= button_to "Unqualified", review_save_quick_review_path(id: @student.id, unqualified: true), class: "mr-8 bg-red-800 text-white" %>
+    <%= button_to "At par", review_save_quick_review_path(id: @student.id, at_par: true), class: "mr-8 bg-red-800 text-white" %>
+    <%= button_to "Plagiarized (DP)", review_save_quick_review_path(id: @student.id, plagiarized_dp: true), class: "mr-8 bg-red-800 text-white" %>
+  </div>
+</div>
+
 <div class="flex items-center">
   <div class="mr-32">
     <div class="max-w-xs my-4 bg-white">
