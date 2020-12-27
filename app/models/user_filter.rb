@@ -22,15 +22,15 @@ class UserFilter
 
   def filtered
     users = User.kept
-    if active?
-      if status == User::TASK_SUBMITTED
-        users.where(status: status)
-             .order("task_submitted_at asc")
-      else
-        users.where(status: status)
-      end
+    return users unless active?
+
+    if status == 'qualified'
+      users.qualified_students.order("users.first_name")
+    elsif status == User::TASK_SUBMITTED
+      users.where(status: status)
+           .order("task_submitted_at asc")
     else
-      users
+      users.where(status: status).order("users.updated_at DESC")
     end
   end
 end

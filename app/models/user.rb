@@ -86,6 +86,10 @@ class User < ApplicationRecord
       first(1)
   end
 
+  def self.qualified_students
+    kept.joins(:review).where("reviews.holistic_evaluation = 2")
+  end
+
   def status_email_unverified?
     status == EMAIL_UNVERIFIED
   end

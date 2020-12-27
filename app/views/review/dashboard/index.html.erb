@@ -14,6 +14,11 @@
       Form Submitted (<%= User.kept.where(status: User::APPLICATION_FORM_SUBMITTED).count %>)
     <% end %>
   </div>
+  <div>
+    <%= link_to review_path(status: "qualified"), class: "p-4 block mr-8" do %>
+      Qualified (<%= User.qualified_students.count %>)
+    <% end %>
+  </div>
 </div>
 
 <main class="ReviewPage">
