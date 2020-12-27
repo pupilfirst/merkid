@@ -99,4 +99,10 @@ class Review::DashboardController < ReviewController
       render :'review/dashboard/student'
     end
   end
+
+  def download_qualified_students
+    send_data StudentDataExport.new(User.qualified_students).to_csv,
+              filename: "qualified-#{Date.today.to_s(:short)}.csv"
+
+  end
 end

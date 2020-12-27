@@ -48,5 +48,6 @@ Rails.application.routes.draw do
     post :save_review, to: "dashboard#save_review"
     post :save_quick_review, to: "dashboard#save_quick_review"
     get :begin_review, to: "dashboard#begin_review"
+    get :download_qualified_students, to: "dashboard#download_qualified_students"
   end
 end
