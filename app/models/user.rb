@@ -90,6 +90,14 @@ class User < ApplicationRecord
     kept.joins(:review).where("reviews.holistic_evaluation = 2")
   end
 
+  def self.marginal_students
+    kept.joins(:review).where("reviews.holistic_evaluation = 1")
+  end
+
+  def self.unqualified_students
+    kept.joins(:review).where("reviews.holistic_evaluation = 0")
+  end
+
   def status_email_unverified?
     status == EMAIL_UNVERIFIED
   end
@@ -168,7 +176,7 @@ class User < ApplicationRecord
 
   def is_admin?
     ['jacob@protoship.io', 'jasim@protoship.io', 'bodhish@pupilfirst.org', 'hari@pupilfirst.org', 'reena@pupilfirst.org', 'mahesh@pupilfirst.org',
-     'suma@pupilfirst.org'].include?(email)
+      'suma@pupilfirst.org'].include?(email)
   end
 
   def is_coach?

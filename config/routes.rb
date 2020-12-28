@@ -49,5 +49,7 @@ Rails.application.routes.draw do
     post :save_quick_review, to: "dashboard#save_quick_review"
     get :begin_review, to: "dashboard#begin_review"
     get :download_qualified_students, to: "dashboard#download_qualified_students"
+    get :download_marginal_students, to: "dashboard#download_marginal_students"
+    get :download_unqualified_students, to: "dashboard#download_unqualified_students"
   end
 end
