@@ -8,7 +8,7 @@ class StudentDataExport
   def to_csv
     attributes = %w[REVIEW_LINK email first_name full_name college portfolio anything_else]
     attributes = attributes.concat(
-      %w[state phone_number semester course]
+      %w[state phone_number semester course source]
     )
     attributes = attributes.concat(
       %w[task-main_program_extname]
