@@ -6,7 +6,7 @@ class StudentDataExport
   end
 
   def to_csv
-    attributes = %w[full_name REVIEW_LINK email first_name college portfolio anything_else]
+    attributes = %w[full_name REVIEW_LINK email task_reviewed_at first_name college portfolio anything_else]
     attributes = attributes.concat(
       %w[state phone_number semester course source]
     )
@@ -38,6 +38,10 @@ class StudentDataExport
             a = attr.sub("r-", "")
             cols.push(review.send(a))
           else
+            if attr == "task_reviewed_at"
+              d = student.task_reviewed_at.in_time_zone('Asia/Kolkata')
+              cols.push(d)
+            end
             cols.push(student.send(attr))
           end
         end
