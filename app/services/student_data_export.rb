@@ -41,8 +41,9 @@ class StudentDataExport
             if attr == "task_reviewed_at"
               d = student.task_reviewed_at.in_time_zone('Asia/Kolkata')
               cols.push(d)
+            else
+              cols.push(student.send(attr))
             end
-            cols.push(student.send(attr))
           end
         end
         csv << cols
