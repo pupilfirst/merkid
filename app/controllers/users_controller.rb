@@ -7,6 +7,9 @@ class UsersController < ApplicationController
       flash[:info] = "Check your email for the login link!"
       StudentMailer.with(student: student).login_link.deliver_later
       render "students/login_email_sent"
+    elsif CheckDeadlineService.new.disabled
+      flash[:error] = "The admissions for the current batch of Coronasafe Engineering Fellowship is currently closed."
+      redirect_to root_path
     else
       # First time applicant! Make an entry, and send a email verify mail
       student = User.new(email: email.downcase, status: User::EMAIL_UNVERIFIED)
@@ -18,7 +21,6 @@ class UsersController < ApplicationController
         flash[:error] = "Invalid email id #{params[:email]}"
         redirect_to root_path
       end
-
     end
   end
 

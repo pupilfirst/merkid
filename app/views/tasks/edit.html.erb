@@ -1,3 +1,11 @@
+<% disabled = CheckDeadlineService.new.disabled %>
+
+<% if disabled %>
+  <div class="p-4 mb-4 animation-vibrate font-montserrat bg-red-200 border border-red-500 text-red-500 text-base rounded shadow">
+    The admissions for the current batch of <strong>Coronasafe Engineering Fellowship </strong>is currently
+    closed.
+  </div>
+<% end %>
 <div class="text-white text-lg md:text-3xl font-bold">3. Programming task and submission</div>
 
 <div>
@@ -213,31 +221,38 @@
 
         <p class="mt-6 inline-block rounded px-2 text-base text-gray-100 bg-gray-900">The .zip file must be less than
           3mb in size.</p>
-        <div class="mt-2 rounded-lg shadow">
-          <p class="text-primary-900 font-bold pb-4">Select the .zip file from your computer:</p>
-          <div class="flex items-center relative bg-gray-900 border-2 border-gray-300 border-dashed rounded-md hover:shadow-xl hover:border-primary-500">
-            <div class="relative z-10 pl-7 py-7">
-              <i class="fas fa-file-archive text-3xl text-gray-300 fa-fw"></i>
-            </div>
-            <%= file_field_tag 'solution_zip_file', accept: "zip,application/zip,application/x-zip,application/x-zip-compressed", class: "cursor-pointer z-30 pl-20 w-full p-8 text-white absolute inset-x-0" %>
+        <% if disabled %>
+
+          <div class="p-4 mt-4 animation-vibrate font-montserrat bg-red-200 border border-red-500 text-red-500 text-base rounded shadow">
+            The admissions for the current batch of <strong>Coronasafe Engineering Fellowship </strong>is currently
+            closed.
           </div>
-        </div>
-        <div class="flex items-start mt-4">
-          <%= check_box("form", "terms_agreed", class: "mr-4 block bg-gray-900 rounded focus:ring-1 focus:ring-primary-500", required: true) %>
-          <div>
+        <% else %>
+          <div class="mt-2 rounded-lg shadow">
+            <p class="text-primary-900 font-bold pb-4">Select the .zip file from your computer:</p>
+            <div class="flex items-center relative bg-gray-900 border-2 border-gray-300 border-dashed rounded-md hover:shadow-xl hover:border-primary-500">
+              <div class="relative z-10 pl-7 py-7">
+                <i class="fas fa-file-archive text-3xl text-gray-300 fa-fw"></i>
+              </div>
+              <%= file_field_tag 'solution_zip_file', accept: "zip,application/zip,application/x-zip,application/x-zip-compressed", class: "cursor-pointer z-30 pl-20 w-full p-8 text-white absolute inset-x-0" %>
+            </div>
+          </div>
+          <div class="flex items-start mt-4">
+            <%= check_box("form", "terms_agreed", class: "mr-4 block bg-gray-900 rounded focus:ring-1 focus:ring-primary-500", required: true) %>
+            <div>
           <span class="block text-sm md:text-base text-white">
              I confirm that this is an original solution, written only by me, and that I haven't made this solution public, or shared it with anyone else.
           </span>
-            <p class="mt-2 text-xs text-white">
-              Applications containing a plagiarized or publicized solution will be rejected.
-            </p>
+              <p class="mt-2 text-xs text-white">
+                Applications containing a plagiarized or publicized solution will be rejected.
+              </p>
+            </div>
           </div>
-        </div>
 
-        <p class="my-8">
-          <%= submit_tag "Upload the .zip file", data: { confirm: "You can only submit once (you'll have to email us otherwise). So make sure everything is in order. Go ahead with the upload?" }, class: 'cursor-pointer mt-4 flex items-center justify-center w-full md:w-auto text-center text-base font-medium px-6 py-3 bg-gradient-to-b from-primary-400 to-primary-700 text-gray-900 border border-primary-300 font-montserrat rounded shadow-lg focus:ring-2 focus:ring-primary-200 hover:shadow-xl focus:from-primary-500 focus:to-primary-900 hover:from-primary-600 hover:to-primary-900 transition duration-250 ease-in-out' %>
-        </p>
-
+          <p class="my-8">
+            <%= submit_tag "Upload the .zip file", data: { confirm: "You can only submit once (you'll have to email us otherwise). So make sure everything is in order. Go ahead with the upload?" }, class: 'cursor-pointer mt-4 flex items-center justify-center w-full md:w-auto text-center text-base font-medium px-6 py-3 bg-gradient-to-b from-primary-400 to-primary-700 text-gray-900 border border-primary-300 font-montserrat rounded shadow-lg focus:ring-2 focus:ring-primary-200 hover:shadow-xl focus:from-primary-500 focus:to-primary-900 hover:from-primary-600 hover:to-primary-900 transition duration-250 ease-in-out' %>
+          </p>
+        <% end %>
       </div>
     <% end %>
   </div>

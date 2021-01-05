@@ -37,6 +37,11 @@ class TasksController < ApplicationController
 
   # upload the zip file and move to next step
   def update
+    if CheckDeadlineService.new.disabled
+      redirect_to root_path
+      return
+    end
+
     unless @student.status_task_revealed?
       flash[:error] = "Invalid step - you have either already submitted your code, or you've not revealed the task yet."
       redirect_to root_path

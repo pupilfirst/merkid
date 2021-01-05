@@ -1,4 +1,13 @@
+<% disabled = CheckDeadlineService.new.disabled %>
+
 <div class="space-y-8 pt-4">
+  <% if disabled %>
+    <div class="p-4 mb-4 animation-vibrate font-montserrat bg-red-200 border border-red-500 text-red-500 text-base rounded shadow">
+      The admissions for the current batch of <strong>Coronasafe Engineering Fellowship </strong>is currently
+      closed.
+    </div>
+  <% end %>
+
   <%
     current_step = 0
     current_step = 1 if @student.status_email_verified?
