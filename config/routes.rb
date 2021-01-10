@@ -51,5 +51,6 @@ Rails.application.routes.draw do
     get :download_qualified_students, to: "dashboard#download_qualified_students"
     get :download_marginal_students, to: "dashboard#download_marginal_students"
     get :download_unqualified_students, to: "dashboard#download_unqualified_students"
+    get :download_all_students_csv, to: "dashboard#download_all_students_csv"
   end
 end

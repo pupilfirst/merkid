@@ -112,10 +112,15 @@ class Review::DashboardController < ReviewController
     download(User.unqualified_students, 'unqualified')
   end
 
+  def download_all_students_csv
+    filename = StudentsDataExport.new().begin_export!
+    send_file(filename)
+  end
+
   private
 
   def download(scope, filename_prefix)
-    send_data StudentDataExport.new(scope).to_csv,
+    send_data SubmittedStudentsDataExport.new(scope).to_csv,
       filename: "#{filename_prefix}-#{Date.today.to_s(:short)}.csv"
   end
 end

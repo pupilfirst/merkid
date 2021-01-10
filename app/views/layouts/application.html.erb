@@ -59,7 +59,7 @@
   <% end %>
 
   <% if @is_admin_page %>
-    <div class="flex mb-8">
+    <div class="flex mb-4">
       <p class="text-sm mr-8">
         <%= link_to review_begin_review_path, class: "bg-gray-700 px-4 py-2 rounded text-gray-100 hover:bg-gray-900 hover:shadow-inner hover:text-gray-200" do %>
           <i class="fa fa-cubes"></i><span class="pl-1">Begin review</span>
@@ -72,7 +72,12 @@
       </p>
       <p class="text-sm mr-8">
         <%= link_to review_download_qualified_students_path, class: "bg-gray-700 px-4 py-2 rounded text-gray-100 hover:bg-gray-900 hover:shadow-inner hover:text-gray-200" do %>
-          <i class="fa fa-download"></i><span class="pl-1">Download CSV of all Qualified students</span>
+          <i class="fa fa-download"></i><span class="pl-1">CSV: Qualified students</span>
+        <% end %>
+      </p>
+      <p class="text-sm mr-8">
+        <%= link_to review_download_all_students_csv_path, class: "bg-gray-700 px-4 py-2 rounded text-gray-100 hover:bg-gray-900 hover:shadow-inner hover:text-gray-200" do %>
+          <i class="fa fa-download"></i><span class="pl-1">CSV: All students</span>
         <% end %>
       </p>
     </div>

@@ -1,4 +1,4 @@
-class StudentDataExport
+class SubmittedStudentsDataExport
   attr_reader :students
 
   def initialize(students)
