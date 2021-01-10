@@ -76,7 +76,7 @@
         <% end %>
       </p>
       <p class="text-sm mr-8">
-        <%= link_to review_download_all_students_csv_path, class: "bg-gray-700 px-4 py-2 rounded text-gray-100 hover:bg-gray-900 hover:shadow-inner hover:text-gray-200" do %>
+        <%= link_to review_download_all_students_csv_path, class: "bg-gray-700 px-4 py-2 rounded text-gray-100 hover:bg-gray-900 hover:shadow-inner hover:text-gray-200", 'data-turbolinks' => false do %>
           <i class="fa fa-download"></i><span class="pl-1">CSV: All students</span>
         <% end %>
       </p>
