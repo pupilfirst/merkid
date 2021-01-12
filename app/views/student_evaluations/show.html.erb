@@ -3,16 +3,32 @@
 
   <% if @student.status_task_submitted? || @student.status_task_reviewed? %>
 
-    <div class="mt-4 font-semibold text-xl text-primary-500">Your submission is currently queued for review</div>
+    <div class="mt-4 font-semibold text-xl text-primary-500">All submissions have been reviewed and results announced.
+    </div>
+
+    <% if @student.task_submissions.last %>
+      <p class="mt-4">
+        We received your task submission on:
+        <span class="inline-block bg-primary-700 px-2 rounded mt-2 text-gray-900 font-bold"><%= @student.task_submissions.last.created_at.in_time_zone('Asia/Kolkata').to_s(:short_with_dayname) %></span>
+      </p>
+    <% end %>
+
+    <% if @student.review %>
+      <p class="mt-4">
+        Your submission was reviewed on:
+        <span class="inline-block bg-primary-700 px-2 rounded mt-2 text-gray-900 font-bold"><%= @student.review.created_at.in_time_zone('Asia/Kolkata').to_s(:short_with_dayname) %></span>
+      </p>
+    <% end %>
+
     <p class="mt-4">
-      We received your task submission on:
-      <span class="inline-block bg-primary-700 px-2 rounded mt-2 text-gray-900 font-bold"><%= @student.task_submissions.last.created_at.in_time_zone('Asia/Kolkata').to_s(:short_with_dayname) %></span>
+      <a class="underline" href="https://r.sv.co/csn-result-2021">
+        You can find the final list of students selected for the fellowship here.
+      </a>
     </p>
-    <p class="mt-4 leading-normal">
-      We will review all the code submissions and select 30 applicants for the fellowship. The list of
-      selected applicants will be announced in the <a href="https://fullstack.pupilfirst.org">course website</a> on or
-      before January 10th, 2021. Selected applicants will also be notified through email and phone.
-    </p>
+
+    <p class="mt-4">If you have been selected, you will also receive an email from fullstack@pupilfirst.org</p>
+
+    <p class="mt-4">If you have submitted code, you will receive feedback on how it can be improved by Jan 30th. </p>
 
     <p class="mt-4">Thanks for taking the time to work through the problem. We hope you enjoyed it.</p>
 
