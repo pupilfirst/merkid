@@ -15,7 +15,7 @@
     <% end %>
   </div>
   <div>
-    <%= link_to review_path(status: User::APPLICATION_FORM_SUBMITTED), class: "p-4 block" do %>
+    <%= link_to review_path(status: User::TASK_REVIEWED), class: "p-4 block" do %>
       Reviewed (<%= User.kept.where(status: User::TASK_REVIEWED).count %>)
     <% end %>
   </div>
