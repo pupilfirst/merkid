@@ -1,21 +1,26 @@
-<div class="flex items-center text-white border border-gray-600">
+<div class="flex justify-between text-white border border-gray-600">
   <div>
-    <%= link_to review_path(status: nil), class: "p-4 block text-white mr-8" do %>
-      Everyone (<%= User.kept.count %>)
+    <%= link_to review_path(status: nil), class: "p-4 block text-white" do %>
+      All (<%= User.kept.count %>)
     <% end %>
   </div>
   <div>
-    <%= link_to review_path(status: User::TASK_SUBMITTED), class: "p-4 block mr-8" do %>
-      Pending Review (<%= User.kept.where(status: User::TASK_SUBMITTED).count %>)
-    <% end %>
-  </div>
-  <div>
-    <%= link_to review_path(status: User::APPLICATION_FORM_SUBMITTED), class: "p-4 block mr-8" do %>
+    <%= link_to review_path(status: User::APPLICATION_FORM_SUBMITTED), class: "p-4 block" do %>
       Form Submitted (<%= User.kept.where(status: User::APPLICATION_FORM_SUBMITTED).count %>)
     <% end %>
   </div>
   <div>
-    <%= link_to review_path(status: "qualified"), class: "p-4 block mr-8" do %>
+    <%= link_to review_path(status: User::TASK_SUBMITTED), class: "p-4 block" do %>
+      Pending Review (<%= User.kept.where(status: User::TASK_SUBMITTED).count %>)
+    <% end %>
+  </div>
+  <div>
+    <%= link_to review_path(status: User::APPLICATION_FORM_SUBMITTED), class: "p-4 block" do %>
+      Reviewed (<%= User.kept.where(status: User::TASK_REVIEWED).count %>)
+    <% end %>
+  </div>
+  <div>
+    <%= link_to review_path(status: "qualified"), class: "p-4 block" do %>
       Qualified (<%= User.qualified_students.count %>)
     <% end %>
   </div>
